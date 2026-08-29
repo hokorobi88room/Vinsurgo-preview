@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>vinsurgo 毎日投稿プロンプト</title>
+  <style>
+    :root{--ink:#111827;--sub:#5f6878;--line:#d9dde5;--paper:#fff;--soft:#f5f7fb;--blue:#2444a5;--ok:#08775b}
+    *{box-sizing:border-box}body{margin:0;background:var(--soft);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.75}
+    main{width:min(1040px,calc(100% - 32px));margin:32px auto 80px}.hero,.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px rgba(20,30,55,.05)}
+    .hero{padding:34px}.hero h1{margin:0 0 8px;font-family:Georgia,serif;font-size:clamp(30px,5vw,52px)}.hero p{color:var(--sub);margin:8px 0}
+    .today{display:inline-flex;gap:8px;align-items:center;margin:18px 8px 0 0;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--sub);font-weight:700}.new-batch{margin-top:18px;background:#fff;color:var(--blue);border:1px solid var(--blue)}.id-restore{display:flex;gap:8px;align-items:center;margin-top:14px}.id-restore input{width:min(390px,100%);padding:10px 12px;border:1px solid var(--line);border-radius:9px;font:14px ui-monospace,monospace}.id-restore button{background:#fff;color:var(--blue);border:1px solid var(--blue)}.id-status{min-height:1.5em;color:var(--ok);font-size:13px;font-weight:700}
+    .notice{margin:20px 0 0;padding:16px 18px;border-left:5px solid var(--blue);background:#eef3ff;border-radius:8px}.path{word-break:break-all;font-family:ui-monospace,monospace;font-size:13px}
+    h2{margin:42px 0 14px;font-size:26px}.card{padding:24px;margin:16px 0}.card header{display:flex;gap:16px;align-items:flex-start;justify-content:space-between}.card h3{margin:0;font-size:20px}.card .meta{color:var(--sub);font-size:14px}
+    textarea{width:100%;min-height:210px;margin-top:16px;padding:16px;border:1px solid var(--line);border-radius:12px;background:#fbfcff;color:#1d2638;font:13px/1.65 ui-monospace,SFMono-Regular,Menlo,monospace;resize:vertical}
+    button{border:0;border-radius:10px;padding:11px 18px;background:var(--blue);color:#fff;font-weight:800;cursor:pointer;white-space:nowrap}button:hover{filter:brightness(1.08)}button.copied{background:#08775b;color:#fff}button.copied::before{content:'✓ '}.button-stack{display:grid;gap:8px}.rename{background:#fff;color:var(--blue);border:1px solid var(--blue)}.rename.copied{background:#e7f6f0;color:var(--ok);border-color:var(--ok)}
+    .country-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.country-grid .card{margin:0}.country-grid textarea{min-height:280px}
+    ol.workflow li{margin:9px 0}.final{border:2px solid var(--ink)}code{background:#edf0f5;padding:2px 6px;border-radius:5px}
+    @media(max-width:760px){.country-grid{grid-template-columns:1fr}.card header{display:block}.card button{margin-top:12px;width:100%}}
+  </style>
+</head>
+<body>
+<main>
+  <section class="hero">
+    <h1>vinsurgo daily desk</h1>
+    <p>在庫1つにつきvinsurgoプロジェクト内のChatを1つ使い、上から順にコピーして進めます。複数の在庫はプロジェクト内の別Chatで並行作成できます。</p>
+    <div><span class="today">作成・情報確認日：<span id="today"></span></span><span class="today">在庫ID：<span id="batch-id"></span></span><button class="new-batch" id="new-batch" type="button">新しい在庫を始める</button></div>
+    <div class="id-restore"><input id="manual-batch-id" type="text" inputmode="text" autocomplete="off" placeholder="元の在庫IDを貼り付け"><button id="restore-batch-id" type="button">このIDへ戻す</button></div><div class="id-status" id="id-status" aria-live="polite"></div>
+    <div class="notice">
+      <strong>作業中のルール</strong><br>
+      5ファイルはプロジェクトの情報源として登録済みのものを使います。毎回の再添付は不要です。1つの在庫は、記事生成から8カ国の翻訳・画像生成まで同じプロジェクトChatで続けます。別の在庫は、HTMLを別タブで開いて「新しい在庫を始める」を押し、プロジェクト内の別Chatで進めてください。各タブは別IDになります。
+    </div>
+  </section>
+
+  <h2>1. 英語の基準記事を作る</h2>
+  <div id="master"></div>
+
+  <h2>2. 記事内容を監査・修正する</h2>
+  <p>手順1の記事が最後まで表示されたら、同じチャットへ貼ります。事実・論理・重複・読者への価値・感情表現・読みやすさまで確認し、問題を本文へ反映します。出力は修正済みの記事全文だけです。MDが出ないのが正常です。完了したら必ず手順3へ進みます。</p>
+  <div id="audit"></div>
+
+  <h2>3. 完成原稿を再確認し、MDを出す</h2>
+  <p>手順2の記事が最後まで表示されたら、同じチャットへ貼ります。手順2の内容監査そのものに見落としがないかを再確認します。<code id="master-file-label"></code> が添付されたら合格です。ファイルが出なければ、手順2へ戻らず、この手順3だけをもう一度貼ります。</p>
+  <div id="reaudit"></div>
+
+  <h2>4. 8カ国・16言語へ展開する</h2>
+  <p>手順1〜3と同じプロジェクトChatで続けます。各国につきプロンプトを1回貼り、指定された2つのMDファイルをダウンロードします。マスターMDの再添付は不要です。</p>
+  <div id="translations" class="country-grid"></div>
+
+  <h2>5. 国別サムネイルを8枚作る</h2>
+  <p>翻訳まで行った同じプロジェクトChatで続けます。各プロンプトは完成記事から、その記事だけの構図を作ります。画像を保存したら、カード内の「画像名をコピー」を押してファイル名へ貼り付けてください。1在庫だけを国順（インド→ケニア）に保存した場合は、名前変更しなくても保存時刻順で照合できます。複数在庫を並行する場合は、必ずID付き画像名へ変更してください。</p>
+  <div id="thumbnails" class="country-grid"></div>
+
+  <h2>6. ダウンロード後</h2>
+  <section class="card final">
+    <h3>IDごとに25件をReadyへ入れます</h3>
+    <ol class="workflow">
+      <li>17個のMD（マスター1＋16言語）と8枚の画像をDownloadsへ保存します。複数IDが混在していても構いません。</li>
+      <li>次の.commandを1回実行します。Downloads内の全在庫IDを調べ、25/25件そろったIDだけをそれぞれ別のReadyフォルダへ移します。未完成IDはDownloadsに残ります。</li>
+      <li class="path">/Users/kmacmini/Documents/Codex/2026-08-22/github-plugin-github-openai-curated-remote/Vinsurgo/Vinsurgo_ダウンロードを在庫へ追加.command</li>
+      <li>公開待ちの保存先：</li>
+      <li class="path" id="inbox-path"></li>
+      <li>ここまでで終了です。完成した在庫だけが、完成時刻の古い順に次の10:00または18:00に自動公開されます。</li>
+      <li>予定時刻を待たずに公開したい場合だけ、次の.commandを実行します。</li>
+    </ol>
+    <p class="path">/Users/kmacmini/Documents/Codex/2026-08-22/github-plugin-github-openai-curated-remote/Vinsurgo/Vinsurgo_公開待ちを今すぐ本番公開.command</p>
+    <p>公開.commandは、記事固有のtranslationKey・slug・公開台帳を照合してから、構造検査、Astroへの取り込み、ビルド、Cloudflare本番デプロイ、24URLの公開確認、GitHub保存を行います。同じ記事を再実行しても重複投稿しません。</p>
+  </section>
+</main>
+<script>
+const countries=[
+ {code:'in',name:'インド',place:'India',langs:[['en-IN','English for India'],['hi-IN','natural Hindi']]},
+ {code:'id',name:'インドネシア',place:'Indonesia',langs:[['id-ID','natural Indonesian'],['en-ID','English for Indonesia']]},
+ {code:'my',name:'マレーシア',place:'Malaysia',langs:[['ms-MY','natural Malay'],['en-MY','English for Malaysia']]},
+ {code:'vn',name:'ベトナム',place:'Vietnam',langs:[['vi-VN','natural Vietnamese'],['en-VN','English for Vietnam']]},
+ {code:'sg',name:'シンガポール',place:'Singapore',langs:[['en-SG','English for Singapore'],['zh-Hans-SG','natural Simplified Chinese for Singapore']]},
+ {code:'ph',name:'フィリピン',place:'the Philippines',langs:[['en-PH','English for the Philippines'],['fil-PH','natural Filipino']]},
+ {code:'ng',name:'ナイジェリア',place:'Nigeria',langs:[['en-NG','English for Nigeria'],['ha-NG','natural Hausa']]},
+ {code:'ke',name:'ケニア',place:'Kenya',langs:[['en-KE','English for Kenya'],['sw-KE','natural Swahili']]}
+];
+const today=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+const nowParts=new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Tokyo',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date());
+const hh=nowParts.find(x=>x.type==='hour').value,mm=nowParts.find(x=>x.type==='minute').value;
+function createBatchId(){return `${today}-${hh}${mm}-${crypto.getRandomValues(new Uint16Array(1))[0].toString(36).padStart(4,'0').slice(-4)}`}
+function hashBatchId(){const value=new URLSearchParams(location.hash.slice(1)).get('batch');return /^\d{4}-\d{2}-\d{2}-\d{4}-[a-z0-9]{4}$/.test(value||'')?value:null}
+let batchId=hashBatchId()||createBatchId();
+function setBatchId(next){batchId=next;history.replaceState(null,'',`#batch=${encodeURIComponent(batchId)}`);document.querySelector('#today').textContent=today;document.querySelector('#batch-id').textContent=batchId;document.querySelector('#master-file-label').textContent=`${batchId}-master.md`;document.querySelector('#inbox-path').textContent=`/Users/kmacmini/Documents/Codex/2026-08-22/github-plugin-github-openai-curated-remote/Vinsurgo/work/publication-queue/ready/${batchId}`;render()}
+document.querySelector('#new-batch').onclick=()=>setBatchId(createBatchId());
+document.querySelector('#restore-batch-id').onclick=()=>{const value=document.querySelector('#manual-batch-id').value.trim();const status=document.querySelector('#id-status');if(!/^\d{4}-\d{2}-\d{2}-\d{4}-[a-z0-9]{4}$/.test(value)){status.textContent='在庫IDの形式が違います。例：2026-08-29-0915-ab12';status.style.color='#b42318';return}setBatchId(value);status.textContent=`在庫IDを ${value} に戻しました。`;status.style.color='var(--ok)'};
+function card(id,title,meta,prompt){const e=document.createElement('section');e.className='card';e.innerHTML=`<header><div><h3>${title}</h3><div class="meta">${meta}</div></div><button type="button">コピー</button></header><textarea readonly></textarea>`;const area=e.querySelector('textarea'),button=e.querySelector('button');area.value=prompt;button.onclick=async()=>{try{await navigator.clipboard.writeText(area.value)}catch{area.removeAttribute('readonly');area.select();document.execCommand('copy');area.setAttribute('readonly','')}button.textContent='コピー済み（再コピー可）';button.classList.add('copied')};return e}
+function copyText(value,button,label){return async()=>{try{await navigator.clipboard.writeText(value)}catch{const area=document.createElement('textarea');area.value=value;document.body.append(area);area.select();document.execCommand('copy');area.remove()}button.textContent=`${label}（再コピー可）`;button.classList.add('copied')}}
+function thumbnailCard(c){const e=document.createElement('section');e.className='card';const filename=`${batchId}-${c.code}-thumbnail.png`;e.innerHTML=`<header><div><h3>${c.name}・画像1枚</h3><div class="meta">出力は記事専用画像1枚だけ<br>保存名: ${filename}</div></div><div class="button-stack"><button type="button" class="prompt-copy">プロンプトをコピー</button><button type="button" class="rename">画像名をコピー</button></div></header><textarea readonly></textarea>`;const area=e.querySelector('textarea'),promptButton=e.querySelector('.prompt-copy'),renameButton=e.querySelector('.rename');area.value=thumbnailPrompt(c);promptButton.onclick=copyText(area.value,promptButton,'プロンプトコピー済み');renameButton.onclick=copyText(filename,renameButton,'画像名コピー済み');return e}
+function date(){return batchId}
+function masterPrompt(){return `You are writing today's master article inside the vinsurgo_impact_affiliate ChatGPT project.
+
+CREATION_AND_FACT_CHECK_DATE: ${today}
+BATCH_ID: ${date()}
+
+Choose today's topic yourself. Do not ask me to select a theme, angle, audience problem, quotation, technology, thinker, country, source or format.
+
+Before writing, silently review the project instructions, all five project source files, relevant project memory and the completed chats available in this project. Inspect the live vinsurgo sitemap and existing article titles, subtitles, descriptions, central claims and three-part structures. Do not assume that a different title makes an article new. Another project chat may be running at the same time, so never claim you inspected an unfinished response that is not actually available to you.
+
+Silently create at least twelve candidate ideas drawn from clearly different families, such as a verified quotation, recent technology, philosophy, psychology, communication, money and time, world culture, recovery after failure, digital safety, rest and attention, relationships, creativity, decision-making, history or an uncertain future. Randomise the candidate order internally. Reject any candidate that resembles an existing article in its central question, conclusion, emotional promise, three-step progression, examples, metaphor, evidence, reader problem or Coursera angle. Reject the whole familiar topic cluster used by the most recent articles. Select the candidate with the greatest semantic distance from all existing work.
+
+The final article must not be a sequel, rewrite, renamed version, mirror image or close variation of an existing article. Do not return to overused messages about consistency, 90-day habits, making growth visible, defining an ideal self, tutorial dependence, choosing a first small project or merely choosing a course. If your first idea is even moderately similar, discard it and choose again silently.
+
+Write in clear English using words a secondary-school student can understand. Speak to one person as “you”. Make the reader feel, “This article is talking to me.” Use concrete scenes, sounds, touch, light, tension and relief where natural. Never invent facts. For current or factual claims, use primary sources and keep a private evidence note outside the public article.
+
+Required public structure:
+1. A clear title that immediately tells the topic
+2. A simple but specific subtitle
+3. Author, publication date, update date, fact-check date and reading time
+4. A 16:9 thumbnail description, not an image
+5. “This article is for you if”
+6. “By the end”
+7. A conversational empathy heading that sounds like you and the reader are speaking together
+8. A short conclusion pop with collaborative “let’s” bullets
+9. Exactly three numbered body sections
+10. A connecting summary after the three sections
+11. “Move closer to the person you want to become” with collaborative “let’s” bullets, never homework language
+12. One natural Coursera guide-card placeholder
+13. Same-country and same-language previous/next navigation placeholders
+
+Do not translate, generate images, build the site or deploy.
+
+OUTPUT RULE — ABSOLUTE:
+Return only the complete public article. Do not output planning notes, novelty comparisons, source-search narration, an evidence ledger, an audit, a checklist, a score, PASS/HOLD text, a completion marker, a preface, an afterword, an apology, an explanation of your choices or any other chat commentary. Perform all planning, comparison and fact checking silently. The first visible line must be the article title and the last visible line must be part of the public article.`}
+function auditPrompt(){return `Audit the draft immediately above. Use every checkbox in ARTICLE_AUDIT_CHECKLIST.md and WRITING_RULES.md.
+
+Check especially:
+- the central lesson is not a duplicate or paraphrase of an existing published vinsurgo article, a completed project chat, or anything already written in this chat;
+- it stays focused on the one topic and reader promise selected for today;
+- the title, subtitle and article body make one clear promise and fulfil it;
+- each claim follows logically from the previous one, with no contradiction, hidden assumption or unsupported leap;
+- factual and current claims are checked against current primary sources and accurately qualified;
+- the three body sections add three different, necessary parts rather than repeating one point;
+- every example directly supports the conclusion rather than decorating the article;
+- the article gives the reader a useful new way to understand or act, not generic encouragement;
+- no paragraph is filler, self-praise, process commentary or a disguised advertisement;
+- one individual reader is addressed as “you”;
+- the empathy heading creates a real “you and me” conversation;
+- ordinary secondary-school-level English is used;
+- specialist terms are explained with concrete images;
+- the public article contains exactly three numbered body sections;
+- the connecting summary logically joins all three;
+- facts are supported and claims are not exaggerated;
+- the article does not become another generic habit, consistency or course-choice article;
+- all 13 required public parts are present.
+
+For every failed item, repair the article rather than describing the problem. Repeat the audit and repair silently until every requirement passes. Do not translate or generate files yet.
+
+OUTPUT RULE — ABSOLUTE:
+Return only the entire revised public article. Do not show the audit table, checklist, item IDs, results, scores, PASS/HOLD text, evidence, citations ledger, reasoning, change summary, preface, afterword, completion marker or any chat commentary. Even if no repair was needed, return only the complete article. The first visible line must be the article title and the last visible line must be part of the public article.`}
+function reauditPrompt(){return `Strictly recheck the latest complete article against every rule in ARTICLE_AUDIT_CHECKLIST.md and WRITING_RULES.md.
+
+If even one requirement is weak, contradictory, duplicated, unsupported, too difficult, impersonal or missing, repair the complete article and check it again silently. Repeat internally until it passes. Never accept it merely because an earlier response did.
+
+When every rule passes, create one downloadable UTF-8 Markdown file named exactly:
+${date()}-master.md
+
+The file must contain the approved complete article with YAML frontmatter and no chat commentary, evidence ledger, audit table, code fence, FILE_BEGIN marker or FILE_END marker. Required frontmatter fields: contentId, title, subtitle, description, slug, category, thumbnailAlt, audience, outcome, readTime and translationKey. Use an ASCII kebab-case slug and one of these categories only: ai-data, it-digital, online-certificates.
+
+OUTPUT RULE — ABSOLUTE:
+Output only the downloadable ${date()}-master.md attachment. Do not print the article in chat. Do not output an audit table, checklist, failure list, score, PASS/HOLD text, completion marker, preface, afterword, explanation, apology or any other chat commentary. If the interface forces a text message beside the attachment, use only the filename: ${date()}-master.md.`}
+function translationPrompt(c){const files=c.langs.map(l=>`${date()}-${c.code}-${l[0]}.md`).join('\n');return `Use the latest approved master article created earlier in this same chat. Treat that approved English master—not any translated edition—as the only source article. Create exactly two public editions for ${c.place}:
+${c.langs.map(l=>`- ${l[0]}: ${l[1]}`).join('\n')}
+
+Preserve the approved meaning, structure, facts, numbers, limits, conditions, negations and emotional direction. Localise naturally for one reader in ${c.place}; do not merely replace the country name. Do not add unverified local prices, jobs, salaries, laws, payment methods, government programmes or Coursera availability. Use words a secondary-school student can understand. Keep exactly three numbered body sections, the connecting summary, the personal empathy heading, the collaborative “let’s” wording and one Coursera placeholder.
+
+Create two separate downloadable UTF-8 Markdown files named exactly:
+${files}
+
+Each file must contain only the complete public article with YAML frontmatter. Required fields: contentId, country: "${c.code}", locale, title, subtitle, description, slug, category, thumbnailAlt, audience, outcome, readTime and translationKey. Keep the same ASCII slug, contentId, category and translationKey as the master. Do not include audits, evidence ledgers, chat commentary or code fences in the files.
+
+Before attaching, compare both editions against the master for meaning and compare them with each other for missing sections. Perform that check silently. Do not create another country or an image.
+
+OUTPUT RULE — ABSOLUTE:
+Output only the two downloadable Markdown attachments. Do not print either article in chat. Do not output audit results, a checklist, sources, explanations, translation notes, change summaries, PASS/HOLD text, a completion marker, a preface, an afterword, an apology or any other chat commentary. If the interface forces text beside the attachments, use only the two filenames, one per line.`}
+function thumbnailPrompt(c){return `Create one brand-new image from text. This is a new image-generation request, not an image-editing request. Do not edit, transform, reuse, combine or ask for any existing image. Do not treat any earlier image in this chat or project as the target image.
+
+Use the latest approved master article created earlier in this same chat only as written source material. Ignore the translated editions as source material. Read the entire approved master article before designing anything. Generate exactly one independent 16:9 landscape thumbnail for this specific article, visually localised for ${c.place}.
+
+Requirements:
+- one continuous cinematic composition;
+- never a grid, four-panel image, contact sheet, split screen or collection of options;
+- derive the visual concept from the article's exact title, empathy scene, three body sections, connecting summary and the change the reader should feel at the end;
+- show one concrete turning-point scene that could only belong to this article, not a generic education, career, success, laptop, staircase, crossroads or studying image;
+- invent a fresh composition, camera distance, light, location, action, mood and central symbol that avoids common generic education imagery;
+- one clear visual focus connected to the article's emotional idea;
+- people, clothing, activity and setting should feel plausible in ${c.place} without reducing the whole country to a stereotype;
+- no text, letters, numbers, logo, flag, certificate brand or watermark;
+- no transparent background;
+- no second image and no variations.
+
+Do not refuse because an earlier image exists. Do not explain that an image tool mistook the request for an edit. If image generation initially selects an edit operation, immediately switch to creating a new image from the written article and complete the requested new image.
+
+Generate the image at 16:9. If the interface permits a filename, use exactly ${date()}-${c.code}-thumbnail.png.
+
+OUTPUT RULE — ABSOLUTE:
+Output only the single generated image. Do not output a caption, prompt explanation, image description, alternatives, variations, completion marker, filename announcement, preface, afterword, apology or any other chat commentary.`}
+function render(){document.querySelector('#master').replaceChildren(card('master','記事生成用プロンプト',`テーマ自動選択・重複回避｜${date()}`,masterPrompt()));document.querySelector('#audit').replaceChildren(card('audit','内部監査・修正用プロンプト','出力は修正済み記事本文だけ',auditPrompt()));document.querySelector('#reaudit').replaceChildren(card('reaudit','完成確認・MD出力','出力はMDファイルだけ',reauditPrompt()));document.querySelector('#translations').replaceChildren(...countries.map(c=>card(`translation-${c.code}`,`${c.name}・2言語`,`出力: ${c.langs.map(x=>x[0]).join(' / ')} のMDだけ`,translationPrompt(c))));document.querySelector('#thumbnails').replaceChildren(...countries.map(thumbnailCard))}
+setBatchId(batchId);
+</script>
+</body>
+</html>
