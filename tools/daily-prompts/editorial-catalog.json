@@ -1,7 +1,1159 @@
 {
-  "generatedAt": "2026-08-29T07:57:51.067Z",
-  "count": 160,
+  "generatedAt": "2026-09-02T09:52:14.888Z",
+  "count": 224,
   "articles": [
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "id",
+      "language": "en",
+      "slug": "ask-for-useful-help",
+      "title": "Stuck and Not Sure What to Ask? Use a 3-Part Help Brief",
+      "subtitle": "Tell the other person what you are trying to achieve, show the exact gap, and choose how far you want their help to go.",
+      "description": "An Indonesia edition for turning a vague request for help into a clear three-part brief: the goal, the evidence, and the level of help you want.",
+      "audience": "You are stuck on a task and want clear help without handing the whole task to someone else.",
+      "outcome": "You will be able to make a short help brief that states your goal, shows the gap clearly, and sets the amount of help you want.",
+      "bodyHeadings": [
+        "Begin with the result you want",
+        "Show the gap: expected, happened, tried",
+        "Decide how far you want the help to go"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "id",
+      "language": "id",
+      "slug": "ask-for-useful-help",
+      "title": "Bingung Harus Bertanya Apa? Gunakan Permintaan Bantuan 3 Bagian",
+      "subtitle": "Jelaskan hasil yang ingin Anda capai, tunjukkan bagian yang tidak berjalan sesuai harapan, lalu tentukan seberapa jauh bantuan yang Anda perlukan.",
+      "description": "Panduan praktis untuk mengubah permintaan bantuan yang masih samar menjadi tiga bagian yang jelas: tujuan, bukti masalah, dan batas bantuan yang Anda inginkan.",
+      "audience": "Anda sedang buntu dalam sebuah tugas dan ingin mendapat bantuan yang jelas tanpa menyerahkan seluruh tugas kepada orang lain.",
+      "outcome": "Anda akan dapat membuat permintaan bantuan singkat yang menyebutkan tujuan, menunjukkan masalah dengan jelas, dan menentukan tingkat bantuan yang Anda inginkan.",
+      "bodyHeadings": [
+        "Mulai dari hasil yang ingin Anda capai",
+        "Tunjukkan celahnya: yang diharapkan, yang terjadi, yang sudah dicoba",
+        "Tentukan seberapa jauh bantuan yang Anda inginkan"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "in",
+      "language": "en",
+      "slug": "ask-for-useful-help",
+      "title": "When ‘Can You Help?’ Is Too Vague: A 3-Part Way to Ask Clearly",
+      "subtitle": "Name the result you need, show the gap another person can see, and say where you want their help to stop.",
+      "description": "A practical India edition for turning a vague request for help into a clear three-part brief: goal, evidence, and the level of help you want.",
+      "audience": "You are stuck on a task and want useful help without giving the whole task away.",
+      "outcome": "You will be able to make a short help brief that states your goal, shows what went wrong, and sets the amount of help you want.",
+      "bodyHeadings": [
+        "Say what you are trying to get done",
+        "Put the gap on the page: expected, happened, tried",
+        "Tell the other person how much help you want"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "in",
+      "language": "hi",
+      "slug": "ask-for-useful-help",
+      "title": "सिर्फ ‘मदद करोगे?’ कहने से बात साफ़ नहीं होती: सही मदद माँगने के 3 हिस्से",
+      "subtitle": "पहले बताइए कि आप क्या करना चाहते हैं, फिर समस्या का साफ़ अंतर दिखाइए, और आखिर में तय कीजिए कि सामने वाला कितनी मदद करे।",
+      "description": "अस्पष्ट मदद की माँग को तीन हिस्सों वाली साफ़ रूपरेखा में बदलने का व्यावहारिक तरीका: लक्ष्य, दिखाई देने वाली समस्या और मदद की सीमा।",
+      "audience": "आप किसी काम में अटक गए हैं और मदद चाहते हैं, लेकिन पूरा काम किसी और के हाथ में नहीं देना चाहते।",
+      "outcome": "आप एक छोटी और साफ़ मदद-रूपरेखा बना पाएँगे जिसमें लक्ष्य, समस्या का प्रमाण और चाहिए हुई मदद की सीमा स्पष्ट होगी।",
+      "bodyHeadings": [
+        "पहले बताइए कि आप आखिर करना क्या चाहते हैं",
+        "समस्या को सामने रखिए: उम्मीद क्या थी, हुआ क्या, और आपने क्या आज़माया",
+        "पहले तय कर लें कि आपको कितनी मदद चाहिए"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "ke",
+      "language": "en",
+      "slug": "ask-for-useful-help",
+      "title": "Need Help but Still Want to Learn? Make the Request Clear in 3 Parts",
+      "subtitle": "State the result, show the visible mismatch, and say what kind of help would move you forward without taking the task away.",
+      "description": "A Kenya edition for turning a vague request for help into a clear three-part brief: the result you need, the evidence of the problem, and the amount of help you want.",
+      "audience": "You are stuck on a task and want another person to understand the problem without taking over the whole job.",
+      "outcome": "You will be able to make a short help brief that names the result, shows what went wrong, and sets the level of help you want.",
+      "bodyHeadings": [
+        "Put the result first, before the history of the problem",
+        "Show the mismatch: what you expected, what happened, and what you tried",
+        "Say how much help would be useful right now"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "ke",
+      "language": "sw",
+      "slug": "ask-for-useful-help",
+      "title": "Unahitaji Msaada Lakini Bado Unataka Kujifunza? Eleza Ombi Lako kwa Sehemu 3",
+      "subtitle": "Taja matokeo unayotaka, onyesha tofauti unayoiona, kisha sema ni msaada wa kiwango gani utakusogeza mbele bila kukunyang’anya kazi yote.",
+      "description": "Toleo la Kenya la kubadilisha ombi lisiloeleweka la msaada kuwa muhtasari wa sehemu tatu: matokeo unayotaka, ushahidi wa tatizo, na kiwango cha msaada unachohitaji.",
+      "audience": "Umekwama kwenye kazi fulani na unataka mtu mwingine aelewe tatizo bila kuchukua kazi yote kutoka kwako.",
+      "outcome": "Utaweza kutengeneza ombi fupi la msaada linalotaja matokeo, kuonyesha kilichokwenda tofauti, na kuweka mpaka wa msaada unaotaka.",
+      "bodyHeadings": [
+        "Anza na matokeo, si historia yote ya tatizo",
+        "Onyesha tofauti: ulitarajia nini, nini kilitokea, na umejaribu nini",
+        "Sema ni kiwango gani cha msaada kitakuwa na maana sasa"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "my",
+      "language": "en",
+      "slug": "ask-for-useful-help",
+      "title": "Need Help but Want to Keep Control? Build a 3-Part Request",
+      "subtitle": "State the outcome, show the mismatch, and tell the other person how far you want them to step in.",
+      "description": "A Malaysia edition for turning a vague request for help into a clear three-part request: the outcome, the visible problem, and the level of help you want.",
+      "audience": "You are stuck on a task and want useful help while keeping control of what you are trying to learn or finish.",
+      "outcome": "You will be able to make a short help request that states the outcome you want, shows the problem clearly, and sets how much help you want.",
+      "bodyHeadings": [
+        "Lead with the outcome, not the whole backstory",
+        "Make the mismatch visible: expected, happened, tried",
+        "Say where you want the other person’s help to stop"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "my",
+      "language": "ms",
+      "slug": "ask-for-useful-help",
+      "title": "Perlukan Bantuan tetapi Mahu Kekal Mengawal? Gunakan Permintaan 3 Bahagian",
+      "subtitle": "Nyatakan hasil yang anda mahu, tunjukkan apa yang tidak menjadi, dan beritahu sejauh mana anda mahu orang lain membantu.",
+      "description": "Edisi Malaysia untuk menukar permintaan bantuan yang kabur kepada tiga bahagian yang jelas: hasil yang mahu dicapai, masalah yang boleh dilihat, dan tahap bantuan yang diperlukan.",
+      "audience": "Anda tersekat pada sesuatu tugasan dan mahu bantuan yang berguna tanpa menyerahkan seluruh tugasan kepada orang lain.",
+      "outcome": "Anda akan dapat membuat permintaan bantuan ringkas yang menyatakan hasil yang anda mahu, menunjukkan masalah dengan jelas, dan menetapkan tahap bantuan yang diperlukan.",
+      "bodyHeadings": [
+        "Mulakan dengan hasil, bukan seluruh cerita di belakangnya",
+        "Jadikan perbezaan itu jelas: jangkaan, apa yang berlaku, apa yang dicuba",
+        "Beritahu di mana bantuan orang lain patut berhenti"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "ng",
+      "language": "en",
+      "slug": "ask-for-useful-help",
+      "title": "When You’re Stuck, Ask for Help That Still Leaves the Next Step With You",
+      "subtitle": "Name the result, show the exact gap, and tell the other person how far you want their help to go.",
+      "description": "A Nigeria edition for turning a vague request for help into a clear three-part brief: the result you want, the evidence of the problem, and the level of help you need.",
+      "audience": "You are stuck on a task and want useful help without handing the whole problem to someone else.",
+      "outcome": "You will be able to turn a vague request into a short help brief that names the goal, makes the problem visible, and sets a clear boundary for help.",
+      "bodyHeadings": [
+        "Put the result first so the other person knows what matters",
+        "Show the gap with what you expected, what happened, and what you tried",
+        "Tell the other person what kind of help would be useful now"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "ng",
+      "language": "ha",
+      "slug": "ask-for-useful-help",
+      "title": "Idan Ka Makale, Ka Nemi Taimako Ba Tare da Mika Dukan Aikin ba",
+      "subtitle": "Faɗi sakamakon da kake nema, nuna ainihin inda matsalar take, sannan ka bayyana irin taimakon da kake so.",
+      "description": "Hanya mai sassa uku ta mayar da neman taimako marar fayyacewa zuwa takaitaccen bayani: sakamakon da kake so, abin da ya nuna matsalar, da iyakar taimakon da kake bukata.",
+      "audience": "Ka makale da wani aiki kuma kana son taimako mai amfani ba tare da ka mika dukan aikin ga wani ba.",
+      "outcome": "Za ka iya yin takaitaccen bayanin neman taimako da ke faɗin burinka, yana nuna matsalar a sarari, kuma yana bayyana irin taimakon da kake so.",
+      "bodyHeadings": [
+        "Ka fara da sakamakon da kake nema domin ɗayan mutumin ya san abin da ya fi muhimmanci",
+        "Ka nuna bambanci tsakanin abin da ka zata, abin da ya faru, da abin da ka gwada",
+        "Ka faɗi irin taimakon da zai amfani ka a wannan lokacin"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "ph",
+      "language": "en",
+      "slug": "ask-for-useful-help",
+      "title": "Stuck on a Task? Ask for Help Without Giving the Whole Thing Away",
+      "subtitle": "Make the result clear, show the exact gap, and tell the other person how much help you want before they step in.",
+      "description": "A Philippines edition for turning a vague request for help into a clear three-part brief: the result you want, evidence of the problem, and the level of help you need.",
+      "audience": "You are stuck on a task and want useful help without handing the whole problem to someone else.",
+      "outcome": "You will be able to make a short help brief that states your goal, shows the problem clearly, and sets the level of help you want.",
+      "bodyHeadings": [
+        "Give the other person the result before the backstory",
+        "Show the difference between what you expected and what you can see",
+        "Tell the other person what kind of help you want"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "ph",
+      "language": "fil",
+      "slug": "ask-for-useful-help",
+      "title": "Kapag Na-stuck Ka: Paano Humingi ng Tulong Nang Hindi Ipinapasa ang Buong Problema",
+      "subtitle": "Linawin ang gusto mong mangyari, ipakita ang mismong puwang sa problema, at sabihin kung gaano kalaking tulong ang kailangan mo.",
+      "description": "Isang praktikal na gabay para gawing malinaw ang malabong paghingi ng tulong gamit ang tatlong bahagi: layunin, nakikitang ebidensiya ng problema, at hangganan ng tulong.",
+      "audience": "Na-stuck ka sa isang gawain at gusto mong humingi ng kapaki-pakinabang na tulong nang hindi ipinapasa sa iba ang buong problema.",
+      "outcome": "Makakagawa ka ng maikling malinaw na pakiusap na nagsasabi ng layunin, nagpapakita ng problema, at nagtatakda kung gaano karaming tulong ang gusto mo.",
+      "bodyHeadings": [
+        "Unahin ang gustong resulta bago ang buong kuwento",
+        "Ipakita ang kaibahan ng inaasahan mo at ng aktuwal mong nakikita",
+        "Sabihin kung anong uri ng tulong ang gusto mo"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "sg",
+      "language": "en",
+      "slug": "ask-for-useful-help",
+      "title": "How to Ask for Help Clearly and Still Keep the Next Step Yours",
+      "subtitle": "A simple three-part request can show the result you want, the problem another person can inspect, and how far you want their help to go.",
+      "description": "A Singapore edition for turning a vague request for help into a clear help brief with a goal, visible evidence, and a boundary for the help you want.",
+      "audience": "You are stuck on a task and want useful help without losing control of the next step.",
+      "outcome": "You will be able to make a short help brief that states your goal, shows the problem clearly, and says how much help you want.",
+      "bodyHeadings": [
+        "Give the other person a destination first",
+        "Put the difference where the other person can see it",
+        "Tell them where you want their help to stop"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "sg",
+      "language": "zh-Hans",
+      "slug": "ask-for-useful-help",
+      "title": "卡住时怎么开口求助，又不把整件事交给别人",
+      "subtitle": "用三个部分说清目标、让人看见问题，并说明你希望对方帮到哪一步。",
+      "description": "面向新加坡读者的实用求助方法：先说想达到的结果，再说明可检查的问题，最后讲清希望得到多少帮助。",
+      "audience": "你被一项任务卡住了，希望得到有用的帮助，同时还想保留自己继续处理下一步的机会。",
+      "outcome": "你将能写出一段简短的求助说明，说清目标、实际问题，以及你希望对方帮到什么程度。",
+      "bodyHeadings": [
+        "先让对方知道你要到哪里",
+        "把“哪里不一样”摆到对方面前",
+        "说清楚你希望对方帮到哪一步"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "vn",
+      "language": "en",
+      "slug": "ask-for-useful-help",
+      "title": "When You’re Stuck, Ask for Help That Still Lets You Learn",
+      "subtitle": "Give the other person a clear destination, a visible problem, and a boundary for how far you want their help to go.",
+      "description": "A Vietnam edition for turning a vague request for help into a clear three-part request: the result you want, the evidence of the problem, and the level of help you need.",
+      "audience": "You are stuck on a task and want useful help without losing the chance to understand or finish the next step yourself.",
+      "outcome": "You will be able to make a short help brief that names your result, shows what went wrong, and sets the amount of help you want.",
+      "bodyHeadings": [
+        "Name the result before you explain the trouble",
+        "Turn the problem into something the other person can inspect",
+        "Decide how far you want the other person to step in"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "2026-08-29-2021-007r",
+      "country": "vn",
+      "language": "vi",
+      "slug": "ask-for-useful-help",
+      "title": "Khi bị mắc kẹt, hãy xin sự giúp đỡ mà vẫn giữ được phần việc của mình",
+      "subtitle": "Hãy nói rõ đích đến, cho người khác thấy vấn đề cụ thể và đặt ranh giới cho mức độ bạn muốn họ hỗ trợ.",
+      "description": "Cách biến một lời nhờ giúp mơ hồ thành yêu cầu ba phần rõ ràng: kết quả bạn muốn, bằng chứng về vấn đề và mức hỗ trợ bạn cần.",
+      "audience": "Bạn đang mắc ở một việc nào đó và muốn được giúp đúng chỗ mà không giao toàn bộ vấn đề cho người khác.",
+      "outcome": "Bạn sẽ biết cách viết một lời nhờ giúp ngắn gọn: nêu kết quả cần đạt, cho thấy điều đang sai và nói rõ mức hỗ trợ mình muốn.",
+      "bodyHeadings": [
+        "Nói rõ kết quả cần đạt trước khi kể chuyện rắc rối",
+        "Biến vấn đề thành thứ người khác có thể nhìn và kiểm tra",
+        "Quyết định bạn muốn người kia giúp tới đâu"
+      ],
+      "publishedAt": "2026-09-02",
+      "updatedAt": "2026-09-02"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "id",
+      "language": "en",
+      "slug": "waiting-after-you-act",
+      "title": "After You Send It, What Is Still Yours to Do? 3 Steps for Waiting Without Chasing the Answer",
+      "subtitle": "Use a simple distinction from Epictetus to separate your next move from the reply, choice or decision that now belongs to someone else.",
+      "description": "A practical three-part way to handle the period after you have acted but before another person gives you the answer.",
+      "audience": "You have sent the message, joined the interview, made the request or apologised, but you keep checking because the final answer now depends partly on someone else.",
+      "outcome": "You will be able to separate what is still yours to do from what is not, finish one useful next action, and use the eventual result as information rather than a verdict on yourself.",
+      "bodyHeadings": [
+        "Separate your part from the decision you cannot make",
+        "Choose a next action that can finish without another person's permission",
+        "When the answer comes, separate what happened from how well you acted"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "id",
+      "language": "id",
+      "slug": "waiting-after-you-act",
+      "title": "Setelah Pesan Terkirim, Apa yang Masih Bisa Kamu Lakukan? 3 Langkah untuk Menunggu Tanpa Mengejar Jawaban",
+      "subtitle": "Gunakan satu pembedaan sederhana dari Epictetus untuk memisahkan langkahmu berikutnya dari jawaban atau keputusan yang kini berada di tangan orang lain.",
+      "description": "Cara praktis tiga bagian untuk menghadapi masa setelah kamu bertindak tetapi sebelum orang lain memberi jawaban.",
+      "audience": "Kamu sudah mengirim pesan, mengikuti wawancara, mengajukan permintaan, atau meminta maaf, tetapi terus mengecek karena jawaban akhirnya kini juga bergantung pada orang lain.",
+      "outcome": "Kamu akan bisa memisahkan apa yang masih menjadi bagianmu dari apa yang bukan, menyelesaikan satu langkah yang berguna, dan memakai hasil akhirnya sebagai informasi, bukan sebagai vonis terhadap dirimu.",
+      "bodyHeadings": [
+        "Pisahkan bagianmu dari keputusan yang tidak bisa kamu buat",
+        "Pilih langkah berikutnya yang bisa selesai tanpa izin orang lain",
+        "Saat jawabannya datang, pisahkan apa yang terjadi dari kualitas tindakanmu"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "in",
+      "language": "en",
+      "slug": "waiting-after-you-act",
+      "title": "Waiting for Someone Else's Answer: 3 Ways to Stay With What Is Yours",
+      "subtitle": "After an interview, message, apology or application, separate your part from the decision you cannot make for someone else.",
+      "description": "A practical three-part way to handle the gap after you have acted but before another person gives you the answer.",
+      "audience": "You have already taken the step you could take, but you keep checking your phone or replaying the situation because someone else's answer still matters.",
+      "outcome": "You will be able to mark what is still yours to do, finish one useful action, and learn from the eventual result without making it a verdict on yourself.",
+      "bodyHeadings": [
+        "Mark where your part stops and the other person's part begins",
+        "Choose a next action that can actually finish",
+        "When the answer comes, separate the result from the quality of your action"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "in",
+      "language": "hi",
+      "slug": "waiting-after-you-act",
+      "title": "जब जवाब अब आपके हाथ में नहीं है: इंतज़ार के समय क्या करें",
+      "subtitle": "इंटरव्यू, संदेश, माफ़ी या आवेदन के बाद अपने हिस्से के काम को उस फैसले से अलग करें जो कोई दूसरा व्यक्ति करेगा।",
+      "description": "काम कर देने और दूसरे व्यक्ति के जवाब आने के बीच के समय को संभालने का तीन हिस्सों वाला व्यावहारिक तरीका।",
+      "audience": "आप अपना ज़रूरी कदम उठा चुके हैं, लेकिन किसी दूसरे व्यक्ति का जवाब मायने रखता है, इसलिए आप बार-बार फोन देखते या वही बात मन में दोहराते रहते हैं।",
+      "outcome": "आप समझ पाएँगे कि अब भी क्या करना आपके हाथ में है, एक उपयोगी अगला कदम पूरा कर पाएँगे और बाद में मिले नतीजे को अपने पूरे प्रयास का फैसला मानने के बजाय जानकारी की तरह इस्तेमाल कर पाएँगे।",
+      "bodyHeadings": [
+        "जहाँ आपका काम खत्म होता है, वहाँ एक साफ़ रेखा खींचें",
+        "ऐसा अगला कदम चुनें जो सच में पूरा हो सके",
+        "जवाब आने पर नतीजे और अपने काम की गुणवत्ता को अलग देखें"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "ke",
+      "language": "en",
+      "slug": "waiting-after-you-act",
+      "title": "Your Part Is Done, but the Answer Is Pending: 3 Ways to Handle the Wait",
+      "subtitle": "Use a distinction from Epictetus to see what still belongs to you, finish the next useful action, and stop carrying another person's decision through your day.",
+      "description": "A practical three-part guide for the time after you have acted but before another person has replied, decided, accepted, or refused.",
+      "audience": "You have already attended the interview, sent the quotation, made the request, apologised, or submitted the work, but your attention keeps returning to an answer you cannot produce yourself.",
+      "outcome": "You will be able to separate your remaining action from someone else's decision, finish one useful next step, and use the eventual result as information rather than a verdict on your whole effort.",
+      "bodyHeadings": [
+        "Mark the point where your work becomes someone else's decision",
+        "Give your energy a next step that can actually end",
+        "When the answer comes, learn from it without making it your whole score"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "ke",
+      "language": "sw",
+      "slug": "waiting-after-you-act",
+      "title": "Umefanya Sehemu Yako, Lakini Jibu Bado Halijafika: Njia 3 za Kukabiliana na Kusubiri",
+      "subtitle": "Tumia wazo la Epictetus kutambua kile ambacho bado kiko upande wako, kukamilisha hatua inayofuata, na kuacha uamuzi wa mtu mwingine usitawale siku yako.",
+      "description": "Mwongozo wa hatua tatu kwa wakati ambao tayari umefanya unachoweza lakini bado unasubiri mtu mwingine ajibu, aamue, akubali au akatae.",
+      "audience": "Tayari umehudhuria mahojiano, umetuma bei ya kazi, umeomba jambo, umeomba msamaha au umewasilisha kazi, lakini akili yako bado inarudia jibu ambalo huwezi kuliamua mwenyewe.",
+      "outcome": "Utaweza kutenganisha hatua ambayo bado ni yako na uamuzi wa mtu mwingine, kukamilisha hatua moja yenye maana, na kutumia matokeo yatakapokuja kama taarifa badala ya kuyafanya kuwa hukumu ya juhudi zako zote.",
+      "bodyHeadings": [
+        "Weka mpaka ambapo kazi yako inaishia na uamuzi wa mtu mwingine unaanza",
+        "Elekeza nguvu zako kwenye hatua inayoweza kweli kukamilika",
+        "Jibu likifika, jifunze kutokana nalo bila kulifanya kuwa alama yako yote"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "my",
+      "language": "en",
+      "slug": "waiting-after-you-act",
+      "title": "Waiting for Someone Else's Answer? 3 Ways to Know When Your Part Is Done",
+      "subtitle": "A distinction from Epictetus can help you stop treating silence as a task, finish what is still yours, and learn from the reply when it comes.",
+      "description": "A practical three-part way to handle the time after you have acted but before another person gives you the answer.",
+      "audience": "You have already sent the message, attended the interview, made the request or apologised, but your attention keeps returning to an answer that now depends partly on someone else.",
+      "outcome": "You will be able to separate what is still yours to do from what is not, finish one useful next action, and use the eventual result as information rather than a verdict on yourself.",
+      "bodyHeadings": [
+        "Mark where your part ends and the other person's decision begins",
+        "Choose a next move that can finish on your side",
+        "When the reply arrives, separate the result from the quality of your action"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "my",
+      "language": "ms",
+      "slug": "waiting-after-you-act",
+      "title": "Menunggu Jawapan Orang Lain? 3 Cara Mengetahui Bila Bahagian Anda Sudah Selesai",
+      "subtitle": "Satu pembezaan daripada Epictetus boleh membantu anda berhenti menganggap kesunyian sebagai tugas, menyelesaikan apa yang masih dalam bahagian anda, dan belajar daripada jawapan apabila ia tiba.",
+      "description": "Cara praktikal dalam tiga bahagian untuk menghadapi tempoh selepas anda sudah bertindak tetapi masih menunggu jawapan daripada orang lain.",
+      "audience": "Anda sudah menghantar mesej, menghadiri temu duga, membuat permintaan atau meminta maaf, tetapi perhatian anda masih kembali kepada jawapan yang kini sebahagiannya bergantung pada orang lain.",
+      "outcome": "Anda akan dapat membezakan apa yang masih boleh anda lakukan daripada apa yang bukan dalam bahagian anda, menyelesaikan satu tindakan yang berguna, dan menggunakan keputusan akhirnya sebagai maklumat dan bukannya hukuman terhadap diri sendiri.",
+      "bodyHeadings": [
+        "Tandakan di mana bahagian anda berakhir dan keputusan orang lain bermula",
+        "Pilih langkah seterusnya yang boleh selesai di pihak anda",
+        "Apabila jawapan tiba, asingkan keputusan daripada mutu tindakan anda"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "ng",
+      "language": "en",
+      "slug": "waiting-after-you-act",
+      "title": "You Have Sent It. Now What? 3 Ways to Stop Waiting Like You Still Have Work to Do",
+      "subtitle": "Use a simple distinction from Epictetus to know when your part is complete, what you can still act on, and what must now be left to another person.",
+      "description": "A practical three-part guide for separating your own next action from another person's decision after an interview, request, proposal, apology, or important message.",
+      "audience": "You have already done what you can for now, but you keep checking, replaying, or worrying because the answer depends partly on someone else.",
+      "outcome": "You will be able to mark where your part ends, choose one useful action you can finish, and learn from the eventual result without treating it as a judgment of your whole effort.",
+      "bodyHeadings": [
+        "Find the point where your responsibility ends",
+        "Turn the result you want into one action you can finish",
+        "When the reply comes, learn from it without making it your whole score"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "ng",
+      "language": "ha",
+      "slug": "waiting-after-you-act",
+      "title": "Bayan Ka Yi Naka Ɓangaren: Hanyoyi 3 na Jira Ba Tare da Ɗaukar Nauyin Amsar Wani ba",
+      "subtitle": "Ka yi amfani da sauƙin bambancin da Epictetus ya koyar domin gane abin da har yanzu za ka iya yi, da abin da yanzu yake hannun wani.",
+      "description": "Hanya mai sassa uku don raba abin da har yanzu naka ne da hukuncin wani bayan hira, buƙata, tayin aiki, neman afuwa, ko wani muhimmin saƙo.",
+      "audience": "Ka riga ka yi abin da za ka iya yi a yanzu, amma kana ci gaba da dubawa ko tunani saboda amsar ta dogara da wani mutum ma.",
+      "outcome": "Za ka iya gane inda naka ɓangaren ya tsaya, ka kammala mataki guda mai amfani, sannan ka ɗauki sakamakon a matsayin bayani ba hukunci a kan duk ƙoƙarinka ba.",
+      "bodyHeadings": [
+        "Gano inda naka ɓangaren ya tsaya",
+        "Mayar da sakamakon da kake so zuwa mataki ɗaya da za ka iya kammalawa",
+        "Idan amsar ta zo, ka ɗauke ta a matsayin darasi ba cikakken maki a kanka ba"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "ph",
+      "language": "en",
+      "slug": "waiting-after-you-act",
+      "title": "You Have Done Your Part: 3 Ways to Wait Without Chasing the Reply",
+      "subtitle": "Use a simple idea from Epictetus to see what still needs action from you, what now belongs to someone else, and what to learn when the answer comes.",
+      "description": "A practical three-part way to handle the uneasy time after you have sent, asked, applied, apologised, or submitted and the next decision is no longer yours alone.",
+      "audience": "You have already done what you can for now, but you keep checking or replaying the situation because another person's answer still matters to you.",
+      "outcome": "You will be able to separate your remaining action from another person's decision, finish one useful next step, and use the eventual result as information instead of a verdict on yourself.",
+      "bodyHeadings": [
+        "Find the point where your part becomes someone else's decision",
+        "Choose a next move that can end on your side",
+        "When the answer arrives, ask what it actually teaches you"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "ph",
+      "language": "fil",
+      "slug": "waiting-after-you-act",
+      "title": "Nagawa Mo Na ang Bahagi Mo: 3 Paraan Para Maghintay Nang Hindi Hinahabol ang Sagot",
+      "subtitle": "Gamitin ang isang simpleng ideya mula kay Epictetus para makita kung ano pa ang maaari mong gawin, ano na ang nasa kamay ng iba, at ano ang matututuhan kapag dumating ang sagot.",
+      "description": "Isang praktikal na tatlong-bahaging paraan para harapin ang paghihintay matapos kang magpadala, magtanong, mag-apply, humingi ng tawad, o magsumite at ang susunod na pasya ay hindi na sa iyo lamang.",
+      "audience": "Nagawa mo na ang kaya mong gawin sa ngayon, pero paulit-ulit ka pa ring tumitingin o nag-iisip dahil mahalaga sa iyo ang sagot na nakadepende na rin sa ibang tao.",
+      "outcome": "Matututuhan mong paghiwalayin ang natitira mong magagawa sa pasya ng ibang tao, tapusin ang isang kapaki-pakinabang na susunod na hakbang, at gamitin ang magiging resulta bilang impormasyon sa halip na hatol sa sarili mo.",
+      "bodyHeadings": [
+        "Hanapin kung saan nagtatapos ang bahagi mo at nagsisimula ang pasya ng iba",
+        "Pumili ng susunod na hakbang na maaaring matapos sa panig mo",
+        "Kapag dumating ang sagot, itanong kung ano talaga ang itinuturo nito"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "sg",
+      "language": "en",
+      "slug": "waiting-after-you-act",
+      "title": "When the Next Move Belongs to Someone Else: 3 Ways to Handle the Wait",
+      "subtitle": "Use a simple distinction from Epictetus to see what still needs action from you, what now belongs to another person, and what the final answer can teach you.",
+      "description": "A practical three-part way to stop treating someone else's pending decision like unfinished work after you have already done your part.",
+      "audience": "You have already sent, asked, applied, apologised, or submitted, but you keep checking because the final answer now depends partly on someone else.",
+      "outcome": "You will be able to separate what still needs action from you, finish one useful next step, and use the eventual result as information rather than a verdict on yourself.",
+      "bodyHeadings": [
+        "Separate your responsibility from the decision that follows it",
+        "Choose a next move that can actually end",
+        "Let the answer teach you without letting it judge everything"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "sg",
+      "language": "zh-Hans",
+      "slug": "waiting-after-you-act",
+      "title": "下一步已经不由你决定时：等待答案的3个方法",
+      "subtitle": "借用爱比克泰德的一个简单区分，看清什么仍需要你行动，什么已经交给别人决定，以及最后的结果能告诉你什么。",
+      "description": "当你已经尽了自己的责任，却还在等别人决定时，用三个步骤把可行动的部分与不可控制的结果分开。",
+      "audience": "你已经发出申请、完成面试、提出请求、道过歉或交了作品，但因为最后的答案部分取决于别人，你还是不断查看和回想。",
+      "outcome": "你会学会分清什么仍是自己可以做的事，完成一个真正有终点的下一步，并把最后的结果当作信息，而不是对自己的全部评价。",
+      "bodyHeadings": [
+        "分清你的责任和之后由别人作出的决定",
+        "选一个真的可以结束的下一步",
+        "让答案提供信息，而不是评价你的一切"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "vn",
+      "language": "en",
+      "slug": "waiting-after-you-act",
+      "title": "After You Have Done Your Part: 3 Ways to Stop Waiting Like There Is More to Fix",
+      "subtitle": "Use a simple distinction from Epictetus to see what still needs action from you, what now belongs to someone else, and what the final answer can teach you.",
+      "description": "A practical three-part way to handle the gap after you have acted but before another person gives you the answer.",
+      "audience": "You have already acted, but you keep checking or replaying the situation because the final answer now depends partly on someone else.",
+      "outcome": "You will be able to separate what is still yours to do from what is not, finish one useful next action, and use the eventual result as information rather than a verdict on yourself.",
+      "bodyHeadings": [
+        "Separate the part you can still complete from the part you cannot decide",
+        "Give yourself a next action with a real stopping point",
+        "When the answer arrives, treat it as information rather than a verdict"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "waiting-after-you-act",
+      "country": "vn",
+      "language": "vi",
+      "slug": "waiting-after-you-act",
+      "title": "Khi bạn đã làm phần của mình: 3 cách để không biến chờ đợi thành việc phải làm",
+      "subtitle": "Dùng một phân biệt đơn giản từ Epictetus để thấy điều gì vẫn cần bạn hành động, điều gì đã thuộc về người khác và kết quả cuối cùng có thể dạy bạn điều gì.",
+      "description": "Một cách thực tế gồm ba phần để đi qua khoảng thời gian sau khi bạn đã hành động nhưng trước khi người khác đưa ra câu trả lời.",
+      "audience": "Bạn đã làm điều mình có thể làm, nhưng vẫn liên tục kiểm tra hoặc nghĩ lại vì câu trả lời cuối cùng giờ còn phụ thuộc vào người khác.",
+      "outcome": "Bạn sẽ biết cách tách phần mình vẫn có thể làm khỏi phần không thuộc quyền quyết định của mình, hoàn tất một hành động hữu ích và xem kết quả sau cùng như thông tin thay vì một phán quyết về bản thân.",
+      "bodyHeadings": [
+        "Tách phần bạn vẫn có thể hoàn tất khỏi phần bạn không thể quyết định",
+        "Chọn một bước tiếp theo có điểm dừng rõ ràng",
+        "Khi câu trả lời đến, hãy xem nó là thông tin thay vì một phán quyết"
+      ],
+      "publishedAt": "2026-09-01",
+      "updatedAt": "2026-09-01"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "id",
+      "language": "en",
+      "slug": "find-the-exact-learning-gap",
+      "title": "When a Lesson Still Feels Fuzzy: Find the Exact Part You Have Not Understood",
+      "subtitle": "Use three simple checks to see whether you are missing a meaning, a link between steps, or the point where a rule stops working.",
+      "description": "A practical three-part way to turn vague confusion into a smaller learning problem you can name and work on.",
+      "audience": "You can follow a class, video, or tutorial while it is open, but later you cannot tell which part is actually unclear.",
+      "outcome": "You will be able to separate a missing meaning, a missing connection, and a missing limit, then ask a smaller question instead of restarting the whole topic.",
+      "bodyHeadings": [
+        "Check whether an important word is still only a label",
+        "Check whether the missing part is the bridge between two steps",
+        "Check whether you understand the rule but not its limit"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "id",
+      "language": "id",
+      "slug": "find-the-exact-learning-gap",
+      "title": "Saat Materi Terasa Paham tetapi Sulit Dijelaskan: Temukan Letak Kebingunganmu",
+      "subtitle": "Gunakan tiga pemeriksaan sederhana untuk melihat apakah yang hilang adalah makna, hubungan antarlangkah, atau batas sebuah aturan.",
+      "description": "Cara tiga langkah untuk mengubah rasa bingung yang masih kabur menjadi masalah belajar yang lebih kecil, jelas, dan bisa ditangani.",
+      "audience": "Kamu bisa mengikuti pelajaran, video, atau tutorial saat sedang dibuka, tetapi setelahnya kamu sulit menentukan bagian mana yang sebenarnya belum dipahami.",
+      "outcome": "Kamu akan bisa membedakan kekurangan makna, hubungan, dan batas aturan, lalu memilih pertanyaan yang lebih kecil daripada mengulang seluruh materi.",
+      "bodyHeadings": [
+        "Periksa apakah satu istilah penting masih sekadar label",
+        "Periksa apakah yang hilang adalah jembatan antara dua langkah",
+        "Periksa apakah kamu memahami aturannya tetapi belum tahu batasnya"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "in",
+      "language": "en",
+      "slug": "find-the-exact-learning-gap",
+      "title": "When a Lesson Feels Clear but You Still Cannot Explain It: Find the Exact Learning Gap",
+      "subtitle": "Check whether you are missing a meaning, a connection, or the limit of a rule before you restart the whole topic.",
+      "description": "A practical three-question method for turning vague confusion into a specific learning gap you can work on next.",
+      "audience": "You can follow a class, video, or work tutorial while it is open, but later you are not sure which part you truly understood.",
+      "outcome": "You will be able to separate a missing meaning, a missing connection, and a missing limit, then choose a smaller question instead of restarting the whole topic.",
+      "bodyHeadings": [
+        "Check whether one important word is still only a label",
+        "Check whether you know the pieces but not the bridge between them",
+        "Check whether you know the rule but not its edge"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "in",
+      "language": "hi",
+      "slug": "find-the-exact-learning-gap",
+      "title": "जब पाठ समझ में आया लगे, पर आप उसे समझा न पाएं: सीखने की असली कमी कैसे खोजें",
+      "subtitle": "पूरा विषय फिर से शुरू करने से पहले देखें कि कमी अर्थ में है, दो कदमों के बीच संबंध में है, या किसी नियम की सीमा समझने में।",
+      "description": "तीन सवालों की एक सरल विधि, जो अस्पष्ट उलझन को सीखने की एक साफ और छोटी समस्या में बदलती है।",
+      "audience": "क्लास, वीडियो या काम का ट्यूटोरियल सामने हो तो आप उसे समझ लेते हैं, लेकिन बाद में यह साफ नहीं रहता कि वास्तव में कौन-सा हिस्सा समझ आया था।",
+      "outcome": "आप पहचान पाएंगे कि उलझन किसी शब्द के अर्थ, दो विचारों के बीच संबंध, या किसी नियम की सीमा में है, और फिर पूरे विषय को दोबारा शुरू करने की जगह एक छोटी समस्या पर काम कर पाएंगे।",
+      "bodyHeadings": [
+        "पहले देखें कि कोई जरूरी शब्द सिर्फ एक पहचान बनकर तो नहीं रह गया",
+        "फिर देखें कि चीज़ें अलग-अलग समझ आती हैं, लेकिन उनके बीच की कड़ी गायब तो नहीं है",
+        "आखिर में देखें कि नियम आता है, लेकिन उसकी सीमा पता है या नहीं"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "ke",
+      "language": "en",
+      "slug": "find-the-exact-learning-gap",
+      "title": "When a Lesson Almost Makes Sense: Find the Gap Instead of Starting Over",
+      "subtitle": "Use three checks to see whether the problem is a word, a missing reason, or the edge of a rule, then work on the smallest part that is actually unclear.",
+      "description": "A Kenya-focused three-question guide for turning vague confusion into a specific learning gap: clarify the meaning, reconnect the reasoning, and test the rule's limit.",
+      "audience": "You can follow a lesson while it is open, but later you cannot tell whether the missing part is a term, a reason, or the limit of the rule.",
+      "outcome": "You will be able to identify a meaning gap, a connection gap, or a boundary gap, then choose one smaller question to work on next.",
+      "bodyHeadings": [
+        "Ask whether the key word has become a real idea in your own words",
+        "Ask whether you know the steps but cannot explain the reason between them",
+        "Ask whether you know the rule only in cases where it works normally"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "ke",
+      "language": "sw",
+      "slug": "find-the-exact-learning-gap",
+      "title": "Somo Linapokaribia Kueleweka: Tafuta Pengo Badala ya Kuanza Upya",
+      "subtitle": "Tumia maswali matatu kuona kama tatizo ni neno lisiloeleweka, sababu inayokosekana kati ya hatua, au mpaka wa kanuni, kisha shughulikia sehemu ndogo iliyo wazi kuwa ndiyo tatizo.",
+      "description": "Mwongozo wa maswali matatu kwa msomaji wa Kenya wa kubadili mkanganyiko wa jumla kuwa pengo maalum la kujifunza: fafanua maana, unganisha hoja, na jaribu mpaka wa kanuni.",
+      "audience": "Unaweza kufuatilia somo likiwa mbele yako, lakini baadaye hushindwi kujua kama kilichokosekana ni maana ya neno, sababu kati ya hatua, au mpaka wa kanuni.",
+      "outcome": "Utaweza kutambua pengo la maana, pengo la muunganiko, au pengo la mpaka, kisha uchague swali dogo la kufanyia kazi badala ya kuanza mada yote upya.",
+      "bodyHeadings": [
+        "Jiulize kama neno muhimu limekuwa wazo halisi kwa maneno yako mwenyewe",
+        "Jiulize kama unaelewa hatua lakini huwezi kueleza sababu iliyo kati yake",
+        "Jiulize kama unaijua kanuni tu katika mifano ambayo inafanya kazi vizuri"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "my",
+      "language": "en",
+      "slug": "find-the-exact-learning-gap",
+      "title": "When a Lesson Feels Clear Until You Try to Explain It: Find the Missing Piece",
+      "subtitle": "Use three checks to see whether the problem is a word you cannot explain, a step you cannot connect, or a rule whose limit you have not found yet.",
+      "description": "A practical three-question method for turning vague confusion into a smaller learning gap you can name and work on.",
+      "audience": "You can follow a class, video, or work tutorial while it is open, but later you cannot tell which part is actually unclear.",
+      "outcome": "You will be able to separate a missing meaning, a missing connection, and a missing limit, then choose a smaller question instead of restarting the whole topic.",
+      "bodyHeadings": [
+        "Check whether an important word is still only familiar, not clear",
+        "Check whether you know both steps but cannot explain the bridge",
+        "Check whether you understand the rule but not the condition where it breaks"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "my",
+      "language": "ms",
+      "slug": "find-the-exact-learning-gap",
+      "title": "Bila Pelajaran Nampak Jelas Tetapi Sukar Diterangkan: Cari Bahagian yang Masih Hilang",
+      "subtitle": "Gunakan tiga semakan untuk melihat sama ada masalahnya ialah istilah yang belum jelas, hubungan antara dua langkah, atau had sesuatu aturan.",
+      "description": "Kaedah tiga soalan untuk menukar rasa keliru yang umum kepada jurang pembelajaran yang lebih kecil dan boleh dikenal pasti.",
+      "audience": "Anda boleh mengikuti kelas, video atau tutorial kerja semasa ia terbuka, tetapi kemudian sukar menentukan bahagian mana yang sebenarnya masih tidak jelas.",
+      "outcome": "Anda akan dapat membezakan jurang makna, jurang hubungan dan jurang had, kemudian memilih soalan yang lebih kecil tanpa mengulang keseluruhan topik.",
+      "bodyHeadings": [
+        "Semak sama ada satu istilah penting masih sekadar biasa dilihat, bukan benar-benar jelas",
+        "Semak sama ada anda faham kedua-dua langkah tetapi tidak dapat menerangkan jambatan di antaranya",
+        "Semak sama ada anda faham aturan tetapi belum tahu keadaan yang membuatnya berhenti berfungsi"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "ng",
+      "language": "en",
+      "slug": "find-the-exact-learning-gap",
+      "title": "When a Lesson Feels Familiar but You Still Cannot Explain It: Name the Exact Gap",
+      "subtitle": "Use three checks—meaning, connection, and boundary—to turn ‘I don’t understand’ into one smaller problem you can actually work on.",
+      "description": "A Nigeria-focused three-question guide for finding whether confusion comes from an unclear meaning, a missing link in the reasoning, or the limit of a rule.",
+      "audience": "You can follow a lesson or tutorial while it is open, but later you cannot tell exactly which part you understood and which part is still missing.",
+      "outcome": "You will be able to separate a meaning gap, a connection gap, and a boundary gap, then choose a smaller question instead of restarting the whole topic.",
+      "bodyHeadings": [
+        "Check whether one key word is familiar but still unclear",
+        "Check whether you know both steps but not the reason between them",
+        "Check whether you know the rule but not the condition where it breaks"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "ng",
+      "language": "ha",
+      "slug": "find-the-exact-learning-gap",
+      "title": "Idan Darasi Ya Yi Kama da Sauƙi Amma Har Yanzu Ba Ka Iya Bayyana Shi Ba: Gano Inda Fahimta Ta Tsaya",
+      "subtitle": "Yi amfani da tambayoyi uku—ma’ana, haɗi, da iyaka—domin juya ‘ban gane ba’ zuwa ƙaramar matsala da za ka iya magancewa.",
+      "description": "Hanya mai tambayoyi uku domin gano ko rashin fahimta ya fito ne daga ma’ana da ba ta fito fili ba, haɗin tunani da ya ɓace, ko iyakar wata ka’ida.",
+      "audience": "Kana iya bin darasi ko koyarwar bidiyo yayin da take gabanka, amma daga baya ba ka san takamaiman abin da ka gane da abin da har yanzu ya ɓace ba.",
+      "outcome": "Za ka iya bambance gibin ma’ana, gibin haɗi, da gibin iyaka, sannan ka zaɓi ƙaramar tambaya maimakon sake fara dukkan batun.",
+      "bodyHeadings": [
+        "Duba ko wata muhimmiyar kalma ta saba da ido amma ma’anarta ba ta fito fili ba",
+        "Duba ko ka san matakan biyu amma ba ka san dalilin da ya haɗa su ba",
+        "Duba ko ka san ka’idar amma ba ka san yanayin da take daina aiki ba"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "ph",
+      "language": "en",
+      "slug": "find-the-exact-learning-gap",
+      "title": "When a Lesson Leaves You Saying ‘I Still Don’t Get It’: Find the Exact Gap",
+      "subtitle": "Separate an unclear meaning, a missing link in the reasoning, and the limit of a rule before you go back through the whole lesson.",
+      "description": "A three-question way to turn vague confusion into one specific learning gap you can work on next.",
+      "audience": "You can follow a lesson, module, or tutorial while it is open, but later you cannot tell which part you actually understood and which part is still missing.",
+      "outcome": "You will be able to tell whether you are missing a meaning, a connection, or a limit, then choose a smaller question instead of restarting the whole topic.",
+      "bodyHeadings": [
+        "Ask whether the key word means anything clear without the lesson beside you",
+        "Ask whether the missing part is the reason between two steps",
+        "Ask whether you know the rule only in examples where nothing goes wrong"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "ph",
+      "language": "fil",
+      "slug": "find-the-exact-learning-gap",
+      "title": "Kapag ‘Hindi Ko Pa Rin Gets’ ang Nasasabi Mo: Hanapin ang Eksaktong Bahaging Kulang",
+      "subtitle": "Alamin kung kulang ang kahulugan, koneksiyon, o hangganan ng isang tuntunin bago mo ulitin ang buong aralin.",
+      "description": "Isang tatlong-tanong na paraan para gawing tiyak na learning gap ang malabong pagkalito at malaman kung ano ang susunod na aayusin.",
+      "audience": "Nasusundan mo ang aralin, module, o tutorial habang nakabukas ito, pero pagkaraan ay hindi mo matukoy kung aling bahagi ang talagang naintindihan mo at alin ang kulang pa.",
+      "outcome": "Matutukoy mo kung ang pagkalito mo ay dahil sa kulang na kahulugan, koneksiyon, o hangganan, at makakapili ka ng mas maliit na tanong sa halip na ulitin ang buong paksa.",
+      "bodyHeadings": [
+        "Tingnan kung may mahalagang salitang pamilyar pero hindi pa malinaw",
+        "Tingnan kung ang kulang ay ang dahilan sa pagitan ng dalawang hakbang",
+        "Tingnan kung alam mo ang tuntunin pero hindi kung saan nagbabago ang kondisyon nito"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "sg",
+      "language": "en",
+      "slug": "find-the-exact-learning-gap",
+      "title": "If a Lesson Makes Sense Until the Screen Closes, Find the Gap Before You Relearn It",
+      "subtitle": "Use three questions to separate an unclear meaning, a broken link in the reasoning, and the boundary of a rule.",
+      "description": "A practical three-question way to turn a vague feeling of confusion into one specific learning gap you can deal with next.",
+      "audience": "You can follow a lesson while the explanation is visible, but later you cannot tell exactly which part of your understanding has disappeared.",
+      "outcome": "You will be able to separate a missing meaning, a missing connection, and a missing limit, then choose a smaller question instead of restarting the whole topic.",
+      "bodyHeadings": [
+        "Test whether the key word has a real meaning in your own words",
+        "Test whether the missing part is the reason between two steps",
+        "Test whether you know the rule only inside its comfortable examples"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "sg",
+      "language": "zh-Hans",
+      "slug": "find-the-exact-learning-gap",
+      "title": "明明刚才还看懂了，为什么一解释就卡住？找出真正的学习缺口",
+      "subtitle": "用三个简单检查，分清你缺的是概念含义、步骤之间的连接，还是一条规则的适用边界。",
+      "description": "一个三问方法，帮助你把模糊的“我不懂”缩小成可以处理的具体学习缺口。",
+      "audience": "你在看着课程时能跟上，但关掉画面后，却说不清自己到底懂了哪一部分、又缺了哪一部分。",
+      "outcome": "你将能分辨自己缺的是含义、连接还是边界，并把“整课都不懂”缩小成一个可以继续处理的问题。",
+      "bodyHeadings": [
+        "先检查：是不是有一个重要词语“眼熟”，却还没有真正懂",
+        "再检查：两步都看得懂，却说不出它们为什么连在一起",
+        "最后检查：规则会用，但你知不知道它在什么条件下会失效"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "vn",
+      "language": "en",
+      "slug": "find-the-exact-learning-gap",
+      "title": "When You Know a Lesson but Cannot Say What Is Missing: Find the Learning Gap",
+      "subtitle": "Use three simple checks to tell whether you are missing a meaning, a connection, or the point where a rule stops working.",
+      "description": "A practical three-question method for turning vague confusion into one specific learning gap you can work on next.",
+      "audience": "You can follow a lesson while it is open, but later you cannot tell which part you truly understand and which part is still unclear.",
+      "outcome": "You will be able to separate a missing meaning, a missing connection, and a missing limit, then choose a smaller question instead of restarting the whole topic.",
+      "bodyHeadings": [
+        "Check whether one important word is familiar but still unclear",
+        "Check whether you know both steps but cannot explain why they connect",
+        "Check whether you know the rule but not the condition where it fails"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "find-the-exact-learning-gap",
+      "country": "vn",
+      "language": "vi",
+      "slug": "find-the-exact-learning-gap",
+      "title": "Khi bạn chỉ biết nói ‘Mình chưa hiểu’: Hãy tìm đúng chỗ kiến thức đang bị hổng",
+      "subtitle": "Dùng ba cách kiểm tra đơn giản để biết bạn đang thiếu ý nghĩa, thiếu mối liên hệ hay chưa hiểu giới hạn của một quy tắc.",
+      "description": "Một cách thực tế với ba câu hỏi giúp biến cảm giác mơ hồ ‘mình chưa hiểu’ thành một lỗ hổng cụ thể để xử lý tiếp.",
+      "audience": "Bạn có thể theo kịp bài khi đang nhìn vào màn hình, nhưng sau đó lại không chắc mình thật sự hiểu phần nào và còn vướng ở đâu.",
+      "outcome": "Bạn sẽ biết cách phân biệt chỗ thiếu ý nghĩa, thiếu mối liên hệ và thiếu hiểu biết về giới hạn của quy tắc, rồi chọn một câu hỏi nhỏ hơn để xử lý tiếp.",
+      "bodyHeadings": [
+        "Kiểm tra xem một từ quan trọng có chỉ quen mắt nhưng chưa thật sự rõ không",
+        "Kiểm tra xem bạn có hiểu hai bước riêng lẻ nhưng không giải thích được vì sao chúng nối với nhau không",
+        "Kiểm tra xem bạn có biết quy tắc nhưng chưa biết điều kiện làm nó không còn áp dụng như cũ không"
+      ],
+      "publishedAt": "2026-08-31",
+      "updatedAt": "2026-08-31"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "id",
+      "language": "en",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Made a Work Mistake? Apologise Clearly and Repair What You Can",
+      "subtitle": "Start with what happened, take back some of the extra work, and explain the check you will use next.",
+      "description": "A practical three-part way to respond after a work mistake in Indonesia without hiding behind excuses: own what happened, make the repair useful, and add one clear check for next time.",
+      "audience": "You made a mistake at work that caused confusion, delay or extra effort for someone else, and you want to apologise without sounding defensive.",
+      "outcome": "You will have a clear three-part way to name the mistake, offer a repair that helps, and explain the next check without pretending that one apology can instantly rebuild trust.",
+      "bodyHeadings": [
+        "Put the mistake first, not the excuse",
+        "Make the repair reduce the other person’s extra work",
+        "Show one new check instead of promising that you will never fail again"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "id",
+      "language": "id",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Melakukan Kesalahan di Tempat Kerja? Minta Maaf dengan Jelas, Lalu Perbaiki",
+      "subtitle": "Mulailah dari apa yang terjadi, ambil kembali sebagian beban yang Anda timbulkan, lalu jelaskan pemeriksaan yang akan Anda lakukan berikutnya.",
+      "description": "Cara praktis dalam tiga langkah untuk merespons kesalahan kerja tanpa berlindung di balik alasan: akui apa yang terjadi, buat perbaikannya berguna, dan tambahkan satu pemeriksaan yang jelas untuk berikutnya.",
+      "audience": "Anda melakukan kesalahan di tempat kerja yang membuat orang lain mengalami kebingungan, keterlambatan, atau pekerjaan tambahan, dan Anda ingin meminta maaf tanpa terdengar membela diri.",
+      "outcome": "Anda akan memiliki cara tiga langkah untuk menyebut kesalahan dengan jelas, menawarkan perbaikan yang benar-benar membantu, dan menjelaskan pemeriksaan berikutnya tanpa menganggap satu permintaan maaf dapat langsung memulihkan kepercayaan.",
+      "bodyHeadings": [
+        "Letakkan kesalahannya di depan, bukan alasannya",
+        "Buat perbaikannya benar-benar mengurangi beban orang lain",
+        "Tunjukkan satu pemeriksaan baru, bukan janji bahwa Anda tidak akan pernah salah lagi"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "in",
+      "language": "en",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Made a Mistake at Work? How to Apologise and Put It Right",
+      "subtitle": "A useful apology names the mistake, reduces the extra work it caused, and shows the check you will add next.",
+      "description": "A practical three-part way to apologise after a work mistake in India: take responsibility clearly, offer a repair that helps, and explain the next check without promising perfection.",
+      "audience": "You made a work mistake that caused confusion, delay or extra effort for someone else, and you want to apologise without sounding defensive.",
+      "outcome": "You will have a clear three-part way to acknowledge the mistake, repair what you can, and explain the next check without assuming that one apology will immediately rebuild trust.",
+      "bodyHeadings": [
+        "Say what happened before you defend yourself",
+        "Offer a repair that removes some of the extra work",
+        "Show one new check instead of promising perfection"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "in",
+      "language": "hi",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "काम में गलती हो गई? साफ़ माफ़ी माँगें और उसे ठीक करने का रास्ता दिखाएँ",
+      "subtitle": "अच्छी माफ़ी केवल ‘सॉरी’ नहीं कहती; वह गलती साफ़ बताती है, जितना हो सके नुकसान सुधारती है और अगली जाँच समझाती है।",
+      "description": "काम की गलती के बाद माफ़ी माँगने का एक व्यावहारिक तीन-भाग तरीका: जिम्मेदारी साफ़ लें, उपयोगी सुधार पेश करें और बिना झूठा वादा किए अगली जाँच बताएं।",
+      "audience": "काम में आपसे ऐसी गलती हुई जिससे किसी और का समय लगा, भ्रम हुआ या काम रुका, और आप बिना बहाना बनाए ठीक तरह से माफ़ी माँगना चाहते हैं।",
+      "outcome": "आपके पास तीन हिस्सों वाला एक साफ़ तरीका होगा: गलती मानना, जहाँ संभव हो वहाँ सुधार करना, और अगली जाँच बताना—बिना यह मान लिए कि एक माफ़ी से भरोसा तुरंत लौट आएगा।",
+      "bodyHeadings": [
+        "कारण बताने से पहले साफ़ कहें कि गलती क्या हुई",
+        "ऐसा सुधार पेश करें जिससे सामने वाले का कुछ अतिरिक्त काम कम हो",
+        "“फिर कभी नहीं होगा” कहने के बजाय एक नई जाँच दिखाएँ"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "ke",
+      "language": "en",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "When a Work Mistake Affects Someone Else: How to Apologise and Repair It",
+      "subtitle": "A useful apology starts by owning the effect, makes the repair visible, and names one specific check for next time.",
+      "description": "A practical three-part way to respond after a work mistake in Kenya without hiding behind excuses: state what happened, reduce the extra work you caused, and change one check at the point where the mistake occurred.",
+      "audience": "You made a mistake at work that cost someone else time or created confusion, and you want to apologise without making the conversation defensive.",
+      "outcome": "You will have a three-part way to own the mistake, offer a practical repair, and explain one specific check for next time without pretending that one apology can instantly restore trust.",
+      "bodyHeadings": [
+        "Make the effect clear before you explain the circumstances",
+        "Repair the extra burden, not only the original error",
+        "Change one check where the mistake actually happened"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "ke",
+      "language": "sw",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Ukikosea Kazini na Kumwathiri Mwingine: Jinsi ya Kuomba Radhi na Kurekebisha Hali",
+      "subtitle": "Kuomba radhi kwa maana huanza kwa kukubali athari, kuweka marekebisho wazi, na kutaja ukaguzi mmoja maalum wa wakati ujao.",
+      "description": "Njia ya sehemu tatu ya kushughulikia kosa la kazini bila kujificha nyuma ya visingizio: eleza kilichotokea, punguza kazi ya ziada uliyosababisha, na badili ukaguzi mmoja pale kosa lilipotokea.",
+      "audience": "Umefanya kosa kazini lililomgharimu mtu mwingine muda au kuleta mkanganyiko, na unataka kuomba radhi bila kufanya mazungumzo yawe ya kujitetea.",
+      "outcome": "Utakuwa na njia ya sehemu tatu ya kukubali kosa, kutoa marekebisho ya vitendo, na kueleza ukaguzi mmoja maalum wa wakati ujao bila kujifanya kwamba kuomba radhi mara moja kunaweza kurudisha uaminifu papo hapo.",
+      "bodyHeadings": [
+        "Eleza athari kabla ya kueleza mazingira",
+        "Rekebisha mzigo wa ziada, si kosa la kwanza pekee",
+        "Badili ukaguzi mmoja pale kosa lilipotokea"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "my",
+      "language": "en",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "A Work Mistake Is Done. Here’s How to Apologise and Repair What Comes Next",
+      "subtitle": "Start with the effect, take back some of the burden, and show the exact check you will use next time.",
+      "description": "A Malaysia-focused three-part guide to apologising after a work mistake: own the effect clearly, repair what you can, and replace a vague promise with one specific prevention check.",
+      "audience": "You made a mistake at work that created extra effort, confusion or delay for someone else, and you want to apologise without sounding defensive or making promises you cannot guarantee.",
+      "outcome": "You will have a three-part way to own the mistake, offer a repair that reduces the other person’s burden, and explain one practical check for next time without expecting trust to return immediately.",
+      "bodyHeadings": [
+        "Put the effect in the apology before the explanation",
+        "Repair the lost effort, not only the visible error",
+        "End with a narrow check, not a promise of perfection"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "my",
+      "language": "ms",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Kesilapan Kerja Sudah Berlaku. Begini Cara Meminta Maaf dan Memperbaiki Langkah Seterusnya",
+      "subtitle": "Mulakan dengan kesannya, kurangkan beban tambahan yang anda sebabkan, dan tunjukkan semakan khusus yang akan anda gunakan selepas ini.",
+      "description": "Panduan tiga bahagian untuk meminta maaf selepas melakukan kesilapan di tempat kerja di Malaysia: akui kesannya dengan jelas, baiki apa yang boleh, dan gantikan janji umum dengan satu semakan pencegahan yang khusus.",
+      "audience": "Anda melakukan kesilapan di tempat kerja yang menyebabkan kerja tambahan, kekeliruan atau kelewatan kepada orang lain, dan anda mahu meminta maaf tanpa kedengaran mempertahankan diri atau membuat janji yang tidak dapat dijamin.",
+      "outcome": "Anda akan mempunyai cara tiga bahagian untuk mengakui kesilapan, menawarkan pembaikan yang mengurangkan beban orang lain, dan menerangkan satu semakan praktikal untuk masa depan tanpa mengharapkan kepercayaan pulih serta-merta.",
+      "bodyHeadings": [
+        "Letakkan kesan kesilapan dalam permohonan maaf sebelum memberi penjelasan",
+        "Baiki usaha yang terbuang, bukan hanya kesilapan yang kelihatan",
+        "Akhiri dengan satu semakan khusus, bukan janji untuk menjadi sempurna"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "ng",
+      "language": "en",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Made a Mistake at Work? Apologise in a Way That Helps Repair the Damage",
+      "subtitle": "Own the effect first, take back some of the extra work, and show the exact check you will change next.",
+      "description": "A practical three-part guide for Nigeria on apologising after a work mistake: make your responsibility clear, offer a repair that reduces the burden, and add one specific check without promising perfection.",
+      "audience": "You made a mistake at work that caused delay, confusion or extra effort for someone else, and you want to apologise clearly without hiding behind excuses.",
+      "outcome": "You will have a three-part way to acknowledge what happened, offer a useful repair, and explain one specific check for next time without pretending that one apology can instantly restore trust.",
+      "bodyHeadings": [
+        "Put your action and its effect before the explanation",
+        "Offer a repair that removes some of the extra work you created",
+        "Change one check at the point where the mistake happened"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "ng",
+      "language": "ha",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Ka Yi Kuskure a Aiki? Yadda Za Ka Nemi Afuwa Ka Kuma Gyara Abin da Ya Faru",
+      "subtitle": "Ka fara da bayyana abin da kuskuren ya jawo, ka rage wa ɗayan aikin da ya ƙaru, sannan ka nuna takamaiman abin da za ka duba a gaba.",
+      "description": "Hanya mai sassa uku don neman afuwa bayan kuskuren aiki a Najeriya: ɗaukar alhaki a sarari, bayar da gyara mai amfani, da ƙara takamaiman matakin dubawa ba tare da alkawarin cewa ba za a sake kuskure ba.",
+      "audience": "Ka yi kuskure a aiki wanda ya jawo wa wani jinkiri, ruɗani ko ƙarin aiki, kuma kana son neman afuwa ba tare da fakewa da uzuri ba.",
+      "outcome": "Za ka samu hanya mai sassa uku don bayyana kuskuren, bayar da gyara mai amfani, da bayyana matakin dubawa na gaba ba tare da ɗauka cewa afuwa ɗaya za ta dawo da amincewa nan take ba.",
+      "bodyHeadings": [
+        "Ka fara da abin da ka yi da tasirinsa kafin ka bayyana dalilin",
+        "Ka bayar da gyara da zai rage wani ɓangare na ƙarin aikin da ka jawo",
+        "Ka canza matakin dubawa guda ɗaya a inda kuskuren ya faru"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "ph",
+      "language": "en",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Made a Mistake at Work? Make Your Apology Useful, Not Just Polite",
+      "subtitle": "Own what happened, reduce the extra work you caused, and explain the one check you will change next.",
+      "description": "A practical three-part way to apologize after a work mistake in the Philippines: state the impact clearly, offer a repair that helps the other person, and change one check without promising perfection.",
+      "audience": "You made a work mistake that affected someone else, and you want to apologize without hiding behind excuses or making them solve the problem for you.",
+      "outcome": "You will have a three-part way to acknowledge the mistake, offer a useful repair, and explain the next check without pretending that one apology can instantly restore trust.",
+      "bodyHeadings": [
+        "Say what you did and what it changed before giving the explanation",
+        "Offer a repair that gives time or effort back where you can",
+        "Change one check at the place where the mistake happened"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "ph",
+      "language": "fil",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Nagkamali Ka sa Trabaho? Gawing Kapaki-pakinabang ang Paghingi ng Paumanhin",
+      "subtitle": "Aminin kung ano ang nangyari, bawasan ang dagdag na trabahong naidulot mo, at ipaliwanag ang isang tsek na babaguhin mo sa susunod.",
+      "description": "Isang praktikal na tatlong-bahaging paraan ng paghingi ng paumanhin matapos magkamali sa trabaho: linawin ang epekto, mag-alok ng konkretong pag-aayos, at baguhin ang isang tsek nang hindi nangangakong hindi ka na muling magkakamali.",
+      "audience": "Nagkamali ka sa trabaho at may ibang taong naapektuhan, at gusto mong humingi ng paumanhin nang hindi nagtatago sa mga dahilan o ipinapasa sa kanila ang pag-aayos.",
+      "outcome": "Magkakaroon ka ng simpleng tatlong-bahaging paraan para aminin ang pagkakamali, mag-alok ng kapaki-pakinabang na pag-aayos, at ipaliwanag ang susunod na tsek nang hindi nagpapanggap na isang paumanhin lang ay agad nang makapagbabalik ng tiwala.",
+      "bodyHeadings": [
+        "Sabihin muna kung ano ang ginawa mo at ano ang nabago nito bago magpaliwanag",
+        "Mag-alok ng pag-aayos na makababalik ng oras o pagsisikap hangga’t kaya",
+        "Baguhin ang isang tsek sa mismong puntong nangyari ang pagkakamali"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "sg",
+      "language": "en",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Made a Work Mistake? Own the Impact, Repair It, and Change One Check",
+      "subtitle": "A useful apology makes the effect clear, reduces the burden you caused, and shows one practical change for next time.",
+      "description": "A three-part way to respond after a workplace mistake in Singapore without hiding behind excuses: own the effect, make the repair useful, and change one check at the point where the mistake happened.",
+      "audience": "You made a mistake at work that created delay, confusion or extra effort for someone else, and you want to apologise clearly without becoming defensive.",
+      "outcome": "You will have a three-part way to name the mistake, offer a repair that reduces the real burden, and explain one specific check for next time without pretending that one apology can instantly restore trust.",
+      "bodyHeadings": [
+        "Put the effect before the explanation",
+        "Repair the burden, not only the visible error",
+        "Change one check where the failure actually happened"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "sg",
+      "language": "zh-Hans",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "工作中出了错？先说清影响，再补救，并改掉一个薄弱环节",
+      "subtitle": "有用的道歉不只是说对不起，而是让对方看见你理解了影响、正在补救，也知道下次会多做哪一步检查。",
+      "description": "给新加坡读者的三步方法：工作出错后，不急着为自己解释，而是先承担影响，再做具体补救，并在真正出错的环节加上一项可执行的检查。",
+      "audience": "你在工作中出了错，让别人多等了一会儿、做了额外的工作，或不知道哪份信息才是对的；你想好好道歉，又不想把对话变成一连串辩解。",
+      "outcome": "读完后，你会有一个三步方法：说清错误和影响，提出能减轻实际负担的补救，并说明下一次会增加哪一项具体检查，同时不假装一次道歉就能立刻恢复信任。",
+      "bodyHeadings": [
+        "先说影响，再说原因",
+        "补救对方多承担的负担，而不只是修正表面错误",
+        "在真正出错的地方加一项检查，而不是保证永远不再出错"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "vn",
+      "language": "en",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Made a Mistake at Work? Say Sorry in a Way That Helps Repair It",
+      "subtitle": "A clear apology names the effect, takes practical action, and shows one specific check for next time.",
+      "description": "A Vietnam-focused three-part guide to apologising after a work mistake without hiding behind excuses: own the effect, reduce the extra burden, and change one check at the point where the mistake happened.",
+      "audience": "You made a mistake at work that caused delay, confusion or extra work for someone else, and you want to apologise clearly without becoming defensive.",
+      "outcome": "You will have a three-part way to acknowledge the mistake, offer a repair that helps with the real effect, and explain one practical check for next time without pretending that an apology can instantly restore trust.",
+      "bodyHeadings": [
+        "Start with the effect, not the reason",
+        "Repair the extra work, not only the original error",
+        "Change one check at the point where the mistake happened"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
+    {
+      "translationKey": "apologize-and-repair-a-work-mistake",
+      "country": "vn",
+      "language": "vi",
+      "slug": "apologize-and-repair-a-work-mistake",
+      "title": "Lỡ mắc lỗi trong công việc? Cách xin lỗi để thật sự sửa sai",
+      "subtitle": "Một lời xin lỗi rõ ràng không chỉ nói lời tiếc nuối: hãy nêu tác động, sửa phần có thể sửa và cho thấy một bước kiểm tra cụ thể cho lần sau.",
+      "description": "Cách ba bước để xử lý một sai sót trong công việc mà không núp sau lời biện minh: nhận rõ tác động, giảm phần việc phát sinh cho người khác và thay đổi một bước kiểm tra tại đúng chỗ đã xảy ra lỗi.",
+      "audience": "Bạn đã mắc một lỗi trong công việc khiến người khác chậm lại, bối rối hoặc phải làm thêm, và bạn muốn xin lỗi rõ ràng mà không biến cuộc nói chuyện thành một chuỗi lời biện minh.",
+      "outcome": "Bạn sẽ có một cách ba bước để nhận trách nhiệm, đưa ra phương án khắc phục hữu ích và nói rõ một bước kiểm tra cho lần sau mà không giả vờ rằng chỉ một lời xin lỗi có thể lập tức khôi phục niềm tin.",
+      "bodyHeadings": [
+        "Bắt đầu từ tác động, không bắt đầu từ lý do",
+        "Khắc phục phần việc phát sinh, không chỉ sửa lỗi nhìn thấy ngay",
+        "Thay đổi một bước kiểm tra ngay tại chỗ đã xảy ra lỗi"
+      ],
+      "publishedAt": "2026-08-30",
+      "updatedAt": "2026-08-30"
+    },
     {
       "translationKey": "reset-plan-when-facts-change",
       "country": "id",
