@@ -46,7 +46,7 @@
   <section class="panel finish"><strong>25ファイル保存 → 在庫追加.command</strong><span>完成在庫は毎日09:00に8カ国・16版を一括公開</span><span id="master-file-label"></span><span id="inbox-path"></span></section>
 </main>
 <script>
-const PROMPT_VERSION='2026.09.04-one-point.1';
+const PROMPT_VERSION='2026.09.04-one-point.2';
 const PROMPT_UPDATED='2026-09-04';
 const CATALOG_URLS=location.protocol==='file:'
  ? ['https://vinsurgo.com/editorial-catalog.json']
@@ -187,7 +187,7 @@ The file must contain the approved complete article with YAML frontmatter and no
 
 OUTPUT RULE — ABSOLUTE:
 Output only the downloadable ${date()}-master.md attachment. Do not print the article in chat. Do not output an audit table, checklist, failure list, score, PASS/HOLD text, completion marker, preface, afterword, explanation, apology or any other chat commentary. If the interface forces a text message beside the attachment, use only the filename: ${date()}-master.md.`}
-function translationDraftPrompt(c){return `Create exactly two DRAFT editions for ${c.place} from the latest approved English master in this same chat.
+function translationDraftPrompt(c){const files=c.langs.map(l=>`${date()}-${c.code}-${l[0]}-draft.md`).join('\n');return `Create exactly two DRAFT editions for ${c.place} from the latest approved English master in this same chat.
 ${c.langs.map(l=>`- ${l[0]}: ${l[1]}`).join('\n')}
 
 BATCH_ID: ${date()}
@@ -199,8 +199,13 @@ The approved English master is the only source. Never use another country's tran
 
 Keep all required frontmatter, including readerState, exactQuestion, uniqueAngle, cluster, funnelStage and courseFit. Keep contentId, operation, contentType, ASCII slug, category, translationKey, cluster, funnelStage, courseFit and central conclusion consistent with the master. Adapt primarySearchQuestion naturally for each locale. Use simple, natural language and preserve the voice article structure when contentType is free-talk.
 
+Create two separate downloadable UTF-8 draft Markdown files named exactly:
+${files}
+
+Each draft file must contain its complete article and YAML frontmatter. Add workflowStage: bilingual-draft. Do not put the article body in the visible chat response.
+
 OUTPUT RULE — ABSOLUTE:
-Output only the two complete drafts, clearly labelled with batch ID, country, locale and stage. Do not attach final files. Do not output an audit, explanation, score, PASS/HOLD, preface or afterword.`}
+Output only the two downloadable draft Markdown attachments. Do not print either draft in chat. Do not output an audit, explanation, score, PASS/HOLD, preface, afterword or any other chat commentary. If the interface forces text beside the attachments, use only the two filenames, one per line.`}
 
 function translationFinalPrompt(c){const files=c.langs.map(l=>`${date()}-${c.code}-${l[0]}.md`).join('\n');return `Proofread and finalise exactly the two ${c.place} drafts immediately above.
 
@@ -209,7 +214,7 @@ COUNTRY: ${c.code}
 LOCALES: ${c.langs.map(l=>l[0]).join(', ')}
 STAGE: bilingual-review-final-md
 
-Read only (1) the approved English master in this chat and (2) the immediately preceding two drafts for country ${c.code}. Never use another country's translation as the source. If the immediately preceding response is not the two drafts for this exact batch ID, country and locales, stop and say only: SOURCE_MISMATCH.
+Read only (1) the approved English master attachment in this chat and (2) the immediately preceding two draft Markdown attachments for country ${c.code}. Never use another country's translation as the source. If the immediately preceding response does not contain the two draft attachments for this exact batch ID, country and locales, stop and say only: SOURCE_MISMATCH.
 
 First, silently audit meaning: numbers, dates, proper names, URLs, negations, conditions, limits, conclusion and every Coursera statement. Then silently audit localisation and search intent: natural word order, translation-like phrasing, accidental language mixing, secondary-school vocabulary, title/body agreement, direct answer to the reader's question, genuine localisation rather than country-name replacement, no invented local facts, and a natural one-reader “you” and “let's” voice. Fix every problem before finalising. Preserve the freer structure for contentType free-talk; do not force the pillar-a three-section rule onto a voice article. A Coursera placeholder is forbidden when courseFit is none and allowed only when courseFit is indirect or direct.
 
