@@ -195,7 +195,7 @@ COUNTRY: ${c.code}
 LOCALES: ${c.langs.map(l=>l[0]).join(', ')}
 STAGE: bilingual-draft
 
-The approved English master is the only source. Never use another country's translation as a source. Preserve meaning, verified facts, numbers, dates, names, URLs, negations, conditions, limits and conclusion. Localise the title, empathy scene, concrete examples, transitions and conclusion in both languages. The regional English must not copy another country edition or merely replace a country name. Do not add unverified prices, salaries, jobs, laws, programmes, payment methods or Coursera availability.
+The approved English master is the only source. Never use another country's translation as a source. Preserve meaning, verified facts, numbers, dates, names, URLs, negations, conditions, limits and conclusion. Localise both languages naturally for the selected country. Do not add unverified prices, salaries, jobs, laws, programmes, payment methods or Coursera availability. Similarity to an edition for another country is irrelevant and must never stop or delay this country's files.
 
 Keep all required frontmatter, including readerState, exactQuestion, uniqueAngle, cluster, funnelStage and courseFit. Keep contentId, operation, contentType, ASCII slug, category, translationKey, cluster, funnelStage, courseFit and central conclusion consistent with the master. Adapt primarySearchQuestion naturally for each locale. Use simple, natural language and preserve the voice article structure when contentType is free-talk.
 
@@ -218,7 +218,7 @@ ${files}
 
 Each file must contain only the complete public article with YAML frontmatter. Required fields: contentId, operation, contentType, workflowStage: reviewed-final-md, country: "${c.code}", locale, title, subtitle, description, slug, category, thumbnailAlt, audience, outcome, summaryTags, primarySearchQuestion, searchIntent, readerState, exactQuestion, uniqueAngle, cluster, funnelStage, courseFit, readTime and translationKey. Keep the master identifiers and strategic fields consistent. Do not include audits, evidence ledgers, chat commentary or code fences.
 
-Before attaching, compare both editions against the master for meaning, compare them with each other for missing sections, and compare the regional English edition with earlier countries for accidental duplication. Perform that check silently. Do not create another country or an image.
+Before attaching, compare both editions against the master for meaning and compare the two editions with each other for missing sections. Do not compare them with another country's editions, and do not stop because wording is similar across countries. Perform the required checks silently. Do not create another country or an image.
 
 OUTPUT RULE — ABSOLUTE:
 Output only the two downloadable Markdown attachments. Do not print either article in chat. Do not output audit results, a checklist, sources, explanations, translation notes, change summaries, PASS/HOLD text, a completion marker, a preface, an afterword, an apology or any other chat commentary. If the interface forces text beside the attachments, use only the two filenames, one per line.`}
