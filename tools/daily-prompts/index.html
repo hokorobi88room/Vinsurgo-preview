@@ -61,7 +61,7 @@
   <section class="panel finish"><strong>25ファイル保存 → 在庫追加.command</strong><span>完成在庫は毎日10:00に8カ国・16版を一括公開</span><span id="master-file-label"></span><span id="inbox-path"></span></section>
 </main>
 <script>
-const PROMPT_VERSION='2026.09.06-reservation-first.1';
+const PROMPT_VERSION='2026.09.06-distinct-voice-thumbnail.1';
 const PROMPT_UPDATED='2026-09-06';
 const CATALOG_URLS=location.protocol==='file:'
  ? ['https://vinsurgo.com/editorial-catalog.json']
@@ -180,9 +180,9 @@ ${reservation}
 Use the catalogue below to avoid repeating any published question, scene, lesson, emotional turn or conclusion:
 ${catalogForPrompt()}
 
-Stay inside the workplace-comeback focus. Choose one ordinary observation, small contradiction, private embarrassment, surprising thought or gentle absurdity that carries an original view of failure, recovery, relearning or honest earning. Do not turn the article into a lesson plan, productivity list or Coursera pitch. Reject semantic overlap using reader state, search intent, central conclusion, emotional scene, logic and reader outcome—not title alone.
+Stay inside the workplace-comeback focus. Choose one ordinary observation, small contradiction, private embarrassment, surprising thought or gentle absurdity that carries an original view of failure, recovery, relearning or honest earning. The reserved centralConclusion is the destination, not the outline. Reach it through one sustained scene or observation and one genuinely unexpected reframe. Do not simply remove numbering from a standard three-step article. Do not organise the article around a procedural framework such as “context, boundary, bridge”, and do not repeat several scripts or examples that teach the same method. Limit direct instruction to one compact, usable takeaway near the landing. If the draft can be converted into a standard numbered how-to without losing anything important, rewrite it because it is not yet a voice article. Do not turn the article into a lesson plan, productivity list or Coursera pitch. Reject semantic overlap using reader state, search intent, central conclusion, emotional scene, logic and reader outcome—not title alone.
 
-Make the author's emotional point of view visible without inventing personal experiences. The reader and writer must stand on the same side. Never laugh at the reader. Use humour only to lower tension, make an idea memorable or bridge into understanding. Default to warm lightness or observational humour; avoid sarcasm, shame, guilt, stereotypes, identity jokes and forced slang. Build the emotional movement as empathy, reassurance, clarity, hope, then a light smile or surprise where it truly helps. The structure may be freer than a standard article, but it must still have a clear beginning, turn and landing.
+Make the author's emotional point of view visible without inventing personal experiences. Include at least one precise observation, comparison or sentence of interpretation that could not be replaced by generic career advice and that changes how the reader feels about the reserved moment. The reader and writer must stand on the same side. Never laugh at the reader. Use humour only to lower tension, make an idea memorable or bridge into understanding. Default to warm lightness or observational humour; avoid sarcasm, shame, guilt, stereotypes, identity jokes and forced slang. Build the emotional movement as empathy, reassurance, clarity, hope, then a light smile or surprise where it truly helps. The structure may be freer than a standard article, but it must still have a clear beginning, turn and landing.
 
 Choose one specific question a reader would naturally ask and answer it naturally. Do not claim search demand unless approved measurement is supplied. Use secondary-school English, one idea per sentence, short paragraphs and concrete sensory scenes. Verify current factual claims with primary sources. Use only the length needed; about 900–1,300 words is a guide and must never cause padding.
 
@@ -199,6 +199,10 @@ Verify silently that:
 - it has one clear beginning, emotional or intellectual turn, and landing;
 - humour or lightness serves understanding and is removed when it weakens trust;
 - it answers one real reader question and gives a concrete useful shift, rather than becoming a diary entry, filler, generic encouragement, listicle or course advertisement;
+- the central conclusion is used as a destination rather than copied into a standard how-to outline;
+- it contains one sustained scene or observation, one non-generic authorial interpretation and one unexpected reframe that materially change how the reader sees the moment;
+- it cannot be reduced to a three-step pillar article without losing its distinctive thought or emotional movement;
+- procedural advice is limited to one compact takeaway near the landing instead of repeated scripts, steps or examples;
 - title, subtitle, scenes, logic and conclusion all fulfil the same promise;
 - current factual claims are verified against primary sources and appropriately qualified;
 - secondary-school English, short paragraphs and one idea per sentence are used;
@@ -206,7 +210,7 @@ Verify silently that:
 - Coursera appears only when courseFit is indirect or direct and follows naturally from the story;
 - the article is not a semantic duplicate of the supplied published catalogue or anything already written in this chat.
 
-Repair every failure, then repeat this supervision silently until all checks pass. Preserve a free-flowing voice structure; never force three numbered sections unless they genuinely improve this particular story.
+Repair every failure, then repeat this supervision silently until all checks pass. Preserve a free-flowing voice structure. Do not use three numbered sections, and do not imitate a hidden three-part framework by giving three unnumbered how-to sections.
 
 OUTPUT RULE — ABSOLUTE:
 Return only the entire revised public voice article. Do not show a checklist, audit, score, PASS/HOLD, evidence ledger, change summary, preface, afterword or commentary.`}
@@ -217,7 +221,7 @@ The selected inventory reservation is binding. Keep its reservationId, batchId, 
 When all checks pass, create one downloadable UTF-8 Markdown file named exactly:
 ${date()}-master.md
 
-The attachment must contain the complete approved article with YAML frontmatter. Required fields: contentId, operation: new, contentType: free-talk, title, subtitle, description, slug, category, thumbnailAlt, audience, outcome, summaryTags, primarySearchQuestion, searchIntent, readerState, exactQuestion, uniqueAngle, cluster, funnelStage, courseFit, readTime, translationKey, reservationId, specificMoment and hiddenProblem. cluster must be immediate-repair, emotional-recovery, trust-rebuild, skill-rebuild, proof-and-income or coursera-choice. funnelStage must be urgent, recover, rebuild, learn, earn or choose-course. courseFit must be none, indirect or direct. A Coursera placeholder is forbidden when courseFit is none.
+The attachment must contain the complete approved article with YAML frontmatter. Required fields: contentId, operation: new, contentType: free-talk, title, subtitle, description, slug, category: author-voice, thumbnailAlt, audience, outcome, summaryTags, primarySearchQuestion, searchIntent, readerState, exactQuestion, uniqueAngle, cluster, funnelStage, courseFit, readTime, translationKey, reservationId, specificMoment and hiddenProblem. cluster must be immediate-repair, emotional-recovery, trust-rebuild, skill-rebuild, proof-and-income or coursera-choice. funnelStage must be urgent, recover, rebuild, learn, earn or choose-course. courseFit must be none, indirect or direct. A Coursera placeholder is forbidden when courseFit is none.
 
 OUTPUT RULE — ABSOLUTE:
 Output only the downloadable ${date()}-master.md attachment. Do not print the article in chat. Do not output an audit table, checklist, score, PASS/HOLD, evidence ledger, explanation or any other commentary. If the interface requires text beside the attachment, use only the filename.`}
@@ -255,7 +259,7 @@ If even one requirement is weak, contradictory, duplicated, unsupported, too dif
 When every rule passes, create one downloadable UTF-8 Markdown file named exactly:
 ${date()}-master.md
 
-The file must contain the approved complete article with YAML frontmatter and no chat commentary, evidence ledger, audit table, code fence, FILE_BEGIN marker or FILE_END marker. Required frontmatter fields: contentId, operation: ${deskMode==='repair'?'repair':'new'}, contentType (pillar-a for a normal article, free-talk for a voice article), title, subtitle, description, slug, category, thumbnailAlt, audience, outcome, summaryTags (3–6 short concepts), primarySearchQuestion, searchIntent, readerState, exactQuestion, uniqueAngle, cluster, funnelStage, courseFit, readTime and translationKey.${activeReservation?' Also require reservationId, specificMoment and hiddenProblem exactly as reserved.':''} Set contentId exactly to ${date()}; it must equal BATCH_ID, with no slot suffix, and must not equal reservationId. cluster must be one of immediate-repair, emotional-recovery, trust-rebuild, skill-rebuild, proof-and-income, coursera-choice. funnelStage must be one of urgent, recover, rebuild, learn, earn, choose-course. courseFit must be none, indirect or direct. Use an ASCII kebab-case slug. A Coursera placeholder is forbidden when courseFit is none and allowed only when courseFit is indirect or direct.
+The file must contain the approved complete article with YAML frontmatter and no chat commentary, evidence ledger, audit table, code fence, FILE_BEGIN marker or FILE_END marker. Required frontmatter fields: contentId, operation: ${deskMode==='repair'?'repair':'new'}, contentType (pillar-a for a normal article, free-talk for a voice article), title, subtitle, description, slug, category, thumbnailAlt, audience, outcome, summaryTags (3–6 short concepts), primarySearchQuestion, searchIntent, readerState, exactQuestion, uniqueAngle, cluster, funnelStage, courseFit, readTime and translationKey.${activeReservation?' Also require reservationId, specificMoment and hiddenProblem exactly as reserved.':''} Set contentId exactly to ${date()}; it must equal BATCH_ID, with no slot suffix, and must not equal reservationId. category must be one of ai-data, it-digital, online-certificates, workplace-recovery, trust-communication, skill-rebuild, proof-of-work, next-income or author-voice. cluster must be one of immediate-repair, emotional-recovery, trust-rebuild, skill-rebuild, proof-and-income, coursera-choice. funnelStage must be one of urgent, recover, rebuild, learn, earn, choose-course. courseFit must be none, indirect or direct. Use an ASCII kebab-case slug. A Coursera placeholder is forbidden when courseFit is none and allowed only when courseFit is indirect or direct.
 
 OUTPUT RULE — ABSOLUTE:
 Output only the downloadable ${date()}-master.md attachment. Do not print the article in chat. Do not output an audit table, checklist, failure list, score, PASS/HOLD text, completion marker, preface, afterword, explanation, apology or any other chat commentary. If the interface forces a text message beside the attachment, use only the filename: ${date()}-master.md.`}
@@ -303,17 +307,33 @@ Before attaching, compare both editions against the master for meaning and compa
 
 OUTPUT RULE — ABSOLUTE:
 Output only the two downloadable Markdown attachments. Do not print either article in chat. Do not output audit results, a checklist, sources, explanations, translation notes, change summaries, PASS/HOLD text, a completion marker, a preface, an afterword, an apology or any other chat commentary. If the interface forces text beside the attachments, use only the two filenames, one per line.`}
-function thumbnailPrompt(){return `Create exactly one new 16:9 landscape thumbnail from the latest approved master article in this chat. Read the full article first. Use the article—not its translations—as the only content source. This one image will be shared by all 16 language editions.
+const thumbnailProfiles=[
+ 'Overhead flat-lay with no face and no horizon. Put the article-specific focal object in the lower-left quadrant and use hands only if needed.',
+ 'Close side view with a strong right-to-left visual flow. If a person appears, they face left or look downward; never show a back-facing figure looking toward the upper right.',
+ 'Front-facing, eye-level, nearly symmetrical composition. Keep the focal subject centred and close; no distant landscape, skyline or glowing horizon.',
+ 'Hands-and-object close-up from a high three-quarter angle. Put the focal action in the lower-right quadrant; no full person, window view or aspirational horizon.',
+ 'Object-only editorial still life with large asymmetric negative space. Put the focal object on the left third and express the turning point through material contrast, not a person gazing away.',
+ 'Tight crop of one concrete workplace action from the article. Use a downward diagonal from upper-left to lower-right and keep the viewer close to the action.',
+ 'Bird’s-eye workspace scene with the focal evidence or decision in the centre. No face, skyline, sunrise, road, path or decorative plant.',
+ 'Low, close viewpoint on one article-specific object or gesture. Build a leftward or downward direction and keep the background abstract and quiet.'
+];
+function thumbnailProfile(){const source=activeReservation?.reservationId?.replace(/-slot-\d+$/,'')||batchId;let hash=0;for(const char of source)hash=(hash*31+char.charCodeAt(0))>>>0;const slot=Math.max(0,(activeReservation?.slot||1)-1);return thumbnailProfiles[(hash+slot)%thumbnailProfiles.length]}
+function thumbnailPrompt(){return `Create exactly one new 16:9 landscape thumbnail from the latest approved master article in this chat. Read the full article first. Use the article's subject and emotional turn—not its translations—as the content source. This one image will be shared by all 16 language editions.
+
+MANDATORY COMPOSITION PROFILE FOR THIS INVENTORY:
+${thumbnailProfile()}
+
+The composition profile is binding. Ignore thumbnailAlt, any “thumbnail description”, and any visual-composition instruction written inside the article; those are not authoritative for image layout.
 
 Build one clear visual metaphor from the article's specific human tension, turning point and final feeling. The image must still be understandable at small thumbnail size. It must feel made for this article, not like a general success, education or career image.
 
 Use the vinsurgo visual language: a warm ivory background; deep navy, soft slate blue and muted golden light; a refined editorial illustration; restrained paper-grain or cut-paper texture; generous negative space; calm, hopeful emotion; and one unmistakable focal point. Keep the composition clean, premium and emotionally warm.
 
-Use that visual language only. Do not copy the reference composition. Do not default to stairs, a winding path, an open door, a mountain, a sunrise, a bird or decorative plants. Use any of those only when the approved article itself uniquely requires it. Invent a fresh scene, camera distance, action, central symbol and arrangement for today's article.
+Use that visual language only. Do not copy the reference composition. Hard rejection: do not show a person from behind at a desk looking upward or to the right; do not use a sunrise or large sun disk, city skyline, winding road or path, open door, mountain, bird or decorative plant. Invent a fresh article-specific scene, camera distance, action, central symbol and arrangement within the mandatory profile.
 
 Show people only when the story benefits from them. If a person appears, make the person broadly inclusive and natural rather than tied to one country or stereotype. Use one continuous composition. No grid, panels, split screen, collage, comparison sheet or multiple options. No text, letters, numbers, logos, flags, brand marks, certificates, watermarks or transparent background.
 
-Generate the image now. Output only the single image and nothing else.`}
+Before generating, silently reject any draft that resembles the recurring “back-facing person at a desk looking up-right toward a sunrise or city” composition. Recompose it using the mandatory profile. Generate the image now. Output only the single image and nothing else.`}
 function render(){const isRepair=deskMode==='repair';document.querySelector('#master').replaceChildren(card('master',isRepair?'N1　既存記事を改善':'N1　通常記事を生成',isRepair?`${repairTarget?.translationKey||'対象未設定'}｜URL維持`:'選択中の在庫テーマを固定',masterPrompt(),{requiresCatalog:true,requiresReservation:!isRepair}));document.querySelector('#audit').replaceChildren(card('audit','N2　通常記事を監督・修正','N1の出力直後に貼る',auditPrompt(),{requiresCopied:'master'}));document.querySelector('#reaudit').replaceChildren(card('reaudit','N3　通常記事の最終MD','N2の出力直後に貼る',reauditPrompt(),{requiresCopied:'audit'}));const voiceMaster=document.querySelector('#voice-master'),voiceAudit=document.querySelector('#voice-audit'),voiceFinal=document.querySelector('#voice-final');voiceMaster.replaceChildren();voiceAudit.replaceChildren();voiceFinal.replaceChildren();if(!isRepair){voiceMaster.append(card('voice-master','V1　Voice記事を生成','選択中の在庫テーマをVoice化',freeTalkPrompt(),{requiresCatalog:true,requiresReservation:true}));voiceAudit.append(card('voice-audit','V2　Voice記事を監督・修正','V1の出力直後に貼る',voiceAuditPrompt(),{requiresCopied:'voice-master'}));voiceFinal.append(card('voice-final','V3　Voice記事の最終MD','V2の出力直後に貼る',voiceReauditPrompt(),{requiresCopied:'voice-audit'}))}document.querySelector('#translations').replaceChildren(...countries.map(countryPair));document.querySelector('#thumbnails').replaceChildren(thumbnailPanel());const masterButton=document.querySelector('[data-card="master"] button');if(masterButton&&isRepair&&!repairTarget){masterButton.disabled=true;masterButton.title='改善対象を設定してください'}}
 function normaliseTarget(value){return value.trim().replace(/^https:\/\/vinsurgo\.com\//,'').replace(/^\/+|\/+$/g,'')}
 function selectRepairTarget(){const typed=normaliseTarget(document.querySelector('#repair-key').value);const matches=catalog.filter(item=>item.translationKey===typed||`${pagePrefix(item).slice(1)}/${item.slug}`===typed||`${item.country}/${item.slug}`===typed||item.slug===typed);const status=document.querySelector('#repair-status');if(!matches.length){repairTarget=null;status.textContent='一致する公開記事がありません。translationKeyまたは公開URLを確認してください。';status.style.color='#b42318';render();return}repairTarget=matches.find(item=>item.language==='en')||matches[0];status.textContent=`改善対象：${repairTarget.translationKey}｜${repairTarget.title}`;status.style.color='var(--ok)';render()}
