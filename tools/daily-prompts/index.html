@@ -52,6 +52,10 @@
   <p class="four-help">選択中の在庫を通常記事にするならN系、Voice記事にするならV系のどちらか一方を使います。各プロンプトは同じGPT Chatへ順番に貼ってください。</p>
   <div class="prompt-grid core-grid voice-grid"><div id="voice-master"></div><div id="voice-audit"></div><div id="voice-final"></div></div>
 
+  <h2>ショート動画用英語原稿（N3またはV3完了後）</h2>
+  <p class="four-help">S1をGPT Chatへ貼ると、同じ完成記事から構成の違う約1分弱の英語TXTが3本添付されます。使う1本をChatterboxBlogTTSのinputへ入れてください。</p>
+  <div class="prompt-grid core-grid"><div id="short-scripts"></div></div>
+
   <h2>N3またはV3完了後　8カ国×2段階（2言語ドラフト → 2言語校閲・最終MD）</h2>
   <div id="translations" class="prompt-grid"></div>
 
@@ -61,8 +65,8 @@
   <section class="panel finish"><strong>25ファイル保存 → 在庫追加.command</strong><span>完成在庫は毎日10:00に8カ国・16版を一括公開</span><span id="master-file-label"></span><span id="inbox-path"></span></section>
 </main>
 <script>
-const PROMPT_VERSION='2026.09.06-distinct-voice-thumbnail.1';
-const PROMPT_UPDATED='2026-09-06';
+const PROMPT_VERSION='2026.09.10-short-video-scripts.1';
+const PROMPT_UPDATED='2026-09-10';
 const CATALOG_URLS=location.protocol==='file:'
  ? ['https://vinsurgo.com/editorial-catalog.json']
  : [new URL('./editorial-catalog.json',location.href).href,'https://vinsurgo.com/editorial-catalog.json'];
@@ -307,6 +311,41 @@ Before attaching, compare both editions against the master for meaning and compa
 
 OUTPUT RULE — ABSOLUTE:
 Output only the two downloadable Markdown attachments. Do not print either article in chat. Do not output audit results, a checklist, sources, explanations, translation notes, change summaries, PASS/HOLD text, a completion marker, a preface, an afterword, an apology or any other chat commentary. If the interface forces text beside the attachments, use only the two filenames, one per line.`}
+function shortVideoPrompt(){return `Create exactly three English short-video narration scripts from the latest approved complete master article in this chat.
+
+BATCH_ID: ${date()}
+PURPOSE: Drive an interested TikTok or YouTube Shorts viewer to the full vinsurgo article without giving away the whole article.
+LANGUAGE: English only.
+TARGET LENGTH: Each script must be 105–125 spoken words, designed for roughly 45–55 seconds at a clear conversational pace.
+
+SOURCE CONTROL:
+- Use only the latest approved N3 or V3 master article in this chat.
+- Preserve its exact problem, factual limits, central conclusion and intended reader.
+- Do not invent statistics, studies, prices, programmes, jobs, outcomes, quotations or personal experiences.
+- Do not turn a reflective Voice article into a numbered how-to article.
+- Do not copy frontmatter, Markdown syntax, citations, URLs or headings into the spoken script.
+
+The three scripts must offer genuinely different listening experiences, not shallow paraphrases:
+A — Problem-first: open with the reader's exact tension or question, reveal one useful distinction, then create curiosity for the full reasoning.
+B — Scene-first: open inside one concrete everyday moment from the article, show the emotional or practical turn, then point to the full guide.
+C — Reframe-first: open with the article's most surprising defensible insight, briefly explain why the common assumption is incomplete, then invite the viewer to read more.
+
+Every script must:
+- have a distinct first sentence and progression;
+- sound natural when spoken aloud, with short-to-medium sentences and no list-like recital;
+- give one useful idea but leave a real reason to read the complete article;
+- end with one calm, non-hype CTA: “Read the full guide on Vinsurgo. The link is in the profile.”;
+- contain narration only, with no title, label, stage direction, emoji, hashtag, bullet, Markdown or commentary.
+
+Silently count the words in each script and repair it until it is within 105–125 words. Silently check that all three stay faithful to the master, differ structurally, contain no unsupported claims and are suitable for local English TTS without pronunciation markup.
+
+Create three separate downloadable UTF-8 plain-text files named exactly:
+${date()}-short-a.txt
+${date()}-short-b.txt
+${date()}-short-c.txt
+
+OUTPUT RULE — ABSOLUTE:
+Output only the three downloadable TXT attachments. Do not print the scripts in chat. Do not output word counts, headings, labels, an audit, explanation, score, PASS/HOLD text, preface, afterword or any other commentary. If the interface forces text beside the attachments, use only the three filenames, one per line.`}
 const thumbnailProfiles=[
  'Overhead flat-lay with no face and no horizon. Put the article-specific focal object in the lower-left quadrant and use hands only if needed.',
  'Close side view with a strong right-to-left visual flow. If a person appears, they face left or look downward; never show a back-facing figure looking toward the upper right.',
@@ -334,7 +373,7 @@ Use that visual language only. Do not copy the reference composition. Hard rejec
 Show people only when the story benefits from them. If a person appears, make the person broadly inclusive and natural rather than tied to one country or stereotype. Use one continuous composition. No grid, panels, split screen, collage, comparison sheet or multiple options. No text, letters, numbers, logos, flags, brand marks, certificates, watermarks or transparent background.
 
 Before generating, silently reject any draft that resembles the recurring “back-facing person at a desk looking up-right toward a sunrise or city” composition. Recompose it using the mandatory profile. Generate the image now. Output only the single image and nothing else.`}
-function render(){const isRepair=deskMode==='repair';document.querySelector('#master').replaceChildren(card('master',isRepair?'N1　既存記事を改善':'N1　通常記事を生成',isRepair?`${repairTarget?.translationKey||'対象未設定'}｜URL維持`:'選択中の在庫テーマを固定',masterPrompt(),{requiresCatalog:true,requiresReservation:!isRepair}));document.querySelector('#audit').replaceChildren(card('audit','N2　通常記事を監督・修正','N1の出力直後に貼る',auditPrompt(),{requiresCopied:'master'}));document.querySelector('#reaudit').replaceChildren(card('reaudit','N3　通常記事の最終MD','N2の出力直後に貼る',reauditPrompt(),{requiresCopied:'audit'}));const voiceMaster=document.querySelector('#voice-master'),voiceAudit=document.querySelector('#voice-audit'),voiceFinal=document.querySelector('#voice-final');voiceMaster.replaceChildren();voiceAudit.replaceChildren();voiceFinal.replaceChildren();if(!isRepair){voiceMaster.append(card('voice-master','V1　Voice記事を生成','選択中の在庫テーマをVoice化',freeTalkPrompt(),{requiresCatalog:true,requiresReservation:true}));voiceAudit.append(card('voice-audit','V2　Voice記事を監督・修正','V1の出力直後に貼る',voiceAuditPrompt(),{requiresCopied:'voice-master'}));voiceFinal.append(card('voice-final','V3　Voice記事の最終MD','V2の出力直後に貼る',voiceReauditPrompt(),{requiresCopied:'voice-audit'}))}document.querySelector('#translations').replaceChildren(...countries.map(countryPair));document.querySelector('#thumbnails').replaceChildren(thumbnailPanel());const masterButton=document.querySelector('[data-card="master"] button');if(masterButton&&isRepair&&!repairTarget){masterButton.disabled=true;masterButton.title='改善対象を設定してください'}}
+function render(){const isRepair=deskMode==='repair';document.querySelector('#master').replaceChildren(card('master',isRepair?'N1　既存記事を改善':'N1　通常記事を生成',isRepair?`${repairTarget?.translationKey||'対象未設定'}｜URL維持`:'選択中の在庫テーマを固定',masterPrompt(),{requiresCatalog:true,requiresReservation:!isRepair}));document.querySelector('#audit').replaceChildren(card('audit','N2　通常記事を監督・修正','N1の出力直後に貼る',auditPrompt(),{requiresCopied:'master'}));document.querySelector('#reaudit').replaceChildren(card('reaudit','N3　通常記事の最終MD','N2の出力直後に貼る',reauditPrompt(),{requiresCopied:'audit'}));const voiceMaster=document.querySelector('#voice-master'),voiceAudit=document.querySelector('#voice-audit'),voiceFinal=document.querySelector('#voice-final');voiceMaster.replaceChildren();voiceAudit.replaceChildren();voiceFinal.replaceChildren();if(!isRepair){voiceMaster.append(card('voice-master','V1　Voice記事を生成','選択中の在庫テーマをVoice化',freeTalkPrompt(),{requiresCatalog:true,requiresReservation:true}));voiceAudit.append(card('voice-audit','V2　Voice記事を監督・修正','V1の出力直後に貼る',voiceAuditPrompt(),{requiresCopied:'voice-master'}));voiceFinal.append(card('voice-final','V3　Voice記事の最終MD','V2の出力直後に貼る',voiceReauditPrompt(),{requiresCopied:'voice-audit'}))}document.querySelector('#short-scripts').replaceChildren(card('short-scripts-prompt','S1　英語ショート原稿3案','問題起点・場面起点・意外な見方｜各45〜55秒',shortVideoPrompt(),{requiresAnyCopied:['reaudit','voice-final']}));document.querySelector('#translations').replaceChildren(...countries.map(countryPair));document.querySelector('#thumbnails').replaceChildren(thumbnailPanel());const masterButton=document.querySelector('[data-card="master"] button');if(masterButton&&isRepair&&!repairTarget){masterButton.disabled=true;masterButton.title='改善対象を設定してください'}}
 function normaliseTarget(value){return value.trim().replace(/^https:\/\/vinsurgo\.com\//,'').replace(/^\/+|\/+$/g,'')}
 function selectRepairTarget(){const typed=normaliseTarget(document.querySelector('#repair-key').value);const matches=catalog.filter(item=>item.translationKey===typed||`${pagePrefix(item).slice(1)}/${item.slug}`===typed||`${item.country}/${item.slug}`===typed||item.slug===typed);const status=document.querySelector('#repair-status');if(!matches.length){repairTarget=null;status.textContent='一致する公開記事がありません。translationKeyまたは公開URLを確認してください。';status.style.color='#b42318';render();return}repairTarget=matches.find(item=>item.language==='en')||matches[0];status.textContent=`改善対象：${repairTarget.translationKey}｜${repairTarget.title}`;status.style.color='var(--ok)';render()}
 document.querySelectorAll('input[name="desk-mode"]').forEach(input=>input.addEventListener('change',event=>{deskMode=event.target.value;document.querySelector('#repair-target').hidden=deskMode!=='repair';document.querySelector('#repair-status').textContent='';if(deskMode==='new')repairTarget=null;render()}));
