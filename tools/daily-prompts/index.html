@@ -65,7 +65,7 @@
   <section class="panel finish"><strong>25ファイル保存 → 在庫追加.command</strong><span>完成在庫は毎日10:00に8カ国・16版を一括公開</span><span id="master-file-label"></span><span id="inbox-path"></span></section>
 </main>
 <script>
-const PROMPT_VERSION='2026.09.10-short-video-scripts.1';
+const PROMPT_VERSION='2026.09.10-short-video-scripts.2';
 const PROMPT_UPDATED='2026-09-10';
 const CATALOG_URLS=location.protocol==='file:'
  ? ['https://vinsurgo.com/editorial-catalog.json']
@@ -316,7 +316,7 @@ function shortVideoPrompt(){return `Create exactly three English short-video nar
 BATCH_ID: ${date()}
 PURPOSE: Drive an interested TikTok or YouTube Shorts viewer to the full vinsurgo article without giving away the whole article.
 LANGUAGE: English only.
-TARGET LENGTH: Each script must be 105–125 spoken words, designed for roughly 45–55 seconds at a clear conversational pace.
+TARGET LENGTH: Each script must be 155–180 spoken words, calibrated for roughly 45–55 seconds with the local Chatterbox built-in voice.
 
 SOURCE CONTROL:
 - Use only the latest approved N3 or V3 master article in this chat.
@@ -337,7 +337,7 @@ Every script must:
 - end with one calm, non-hype CTA: “Read the full guide on Vinsurgo. The link is in the profile.”;
 - contain narration only, with no title, label, stage direction, emoji, hashtag, bullet, Markdown or commentary.
 
-Silently count the words in each script and repair it until it is within 105–125 words. Silently check that all three stay faithful to the master, differ structurally, contain no unsupported claims and are suitable for local English TTS without pronunciation markup.
+Silently count the words in each script and repair it until it is within 155–180 words. Silently check that all three stay faithful to the master, differ structurally, contain no unsupported claims and are suitable for local English TTS without pronunciation markup.
 
 Create three separate downloadable UTF-8 plain-text files named exactly:
 ${date()}-short-a.txt
