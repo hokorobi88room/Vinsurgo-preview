@@ -29,8 +29,8 @@
 <div id="scenes" class="grid"></div>
 </section>
 <section class="panel">
-<h2>3　準備がよければ、音声化を試す</h2>
-<ol><li>input/直下に、英語原稿A・B・Cのうち、作りたい1〜3本だけを置く。</li><li><strong>Vinsurgo/work/ショート動画Chatterbox/音声化.command</strong> をダブルクリック。</li><li><strong>output/&lt;ID&gt;/</strong> に置いた本数分の原稿＋WAV音声ができる（1本なら計2ファイル）。</li></ol>
+<h2>3　コマンド1つで音声・字幕付き動画を作る</h2>
+<ol><li>input/直下に原稿TXT1〜3本と共通画像（１.png、２.png…）を置く。</li><li><strong>work/ショート動画Chatterbox/動画化.command</strong> を1回実行する。音声化を先に実行する必要はありません。</li><li>output/&lt;ID&gt;/A・B・Cに、音声・字幕・動画がまとまります。全パターン成功後に共通画像をimagesへ移します。</li></ol>
 <p class="muted">未セットアップなら先にSETUP.commandを使います。画像は別途GPTの画像生成で作り、3原稿と一緒にinput直下へ保存してください。動画化.commandでoutput/&lt;ID&gt;/A・B・Cに動画を作り、全パターン成功後に共通画像をoutput/&lt;ID&gt;/imagesへ移します。このHTMLは音声化・画像生成・動画編集・投稿を自動実行しません。</p>
 </section>
 <div id="status" role="status" aria-live="polite"></div>
@@ -59,7 +59,7 @@ FIXED ENDING — identical in A, B and C
 End every script with these exact two sentences, included within the 95–125 word budget:
 "I'm so glad you watched this far. Let's keep learning together in your language on Vinsurgo."
 Do not paraphrase this ending or add anything after it. Keep the spelling Vinsurgo in the text files; the local audio tool converts it to the two-part pronunciation "vin surgo" only for speech. Never use "Vin-saar-go", commas between syllables, shouting, or pronunciation directions inside the script.
-Use clear punctuation and short natural sentences. Subtitles will use at most three words and must break at sentence endings and meaningful punctuation, never combine a sentence ending with the next sentence's "But". Do not insert timestamps or subtitle breaks into the narration files.
+Use clear punctuation and short natural sentences. Subtitles will reveal one word at a time using English acoustic CTC forced alignment to the final audio; never combine a sentence ending with the next sentence's "But". Do not insert timestamps or subtitle breaks into the narration files.
 Do not say a link is in the description or profile unless placement is confirmed. Do not withhold the whole answer to force a click.
 
 TTS-CLEAN OUTPUT
