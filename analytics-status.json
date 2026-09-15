@@ -1,4 +1,6 @@
 {
-  "reportDate": null,
-  "promptReviewRequired": false
+  "reportDate": "2026-09-15",
+  "promptReviewRequired": true,
+  "report": "work/analytics/weekly/2026-09-15/WEEKLY_REPORT.md",
+  "brief": "work/analytics/weekly/2026-09-15/DAILY_DESK_IMPROVEMENT_BRIEF.md"
 }
