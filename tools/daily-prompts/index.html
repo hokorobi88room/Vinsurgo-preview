@@ -202,7 +202,16 @@ Include the normal reader-facing metadata, “This article is for you if”, “
 
 OUTPUT RULE — ABSOLUTE:
 Return only the complete public article. Do all planning and checking silently. Do not output notes, sources, audits, scores, PASS/HOLD, explanations, apologies or any text outside the article.`}
-function voiceAuditPrompt(){return `Supervise and repair the voice-article draft immediately above. This is the dedicated V2 quality gate; do not treat it as a pillar article.
+function voiceAuditPrompt(){return `FINAL ARTIFACT CONTRACT (applies before audit approval and to each final attachment):
+- Editorial review belongs here, before download. Repair the actual article and inspect the final serialized Markdown, not only an earlier draft.
+- The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
+- Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
+- Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
+- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
+- Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
+
+Supervise and repair the voice-article draft immediately above. This is the dedicated V2 quality gate; do not treat it as a pillar article.
 
 Verify silently that:
 - the article follows the selected four-inventory reservation exactly and does not replace, broaden or merge its reader, question, moment, hidden problem, conclusion or outcome;
@@ -226,7 +235,16 @@ Repair every failure, then repeat this supervision silently until all checks pas
 
 OUTPUT RULE — ABSOLUTE:
 Return only the entire revised public voice article. Do not show a checklist, audit, score, PASS/HOLD, evidence ledger, change summary, preface, afterword or commentary.`}
-function voiceReauditPrompt(){return `Perform the final V3 supervision of the latest complete voice article. Recheck every V2 condition from the preceding instruction and repair any remaining weakness silently.
+function voiceReauditPrompt(){return `FINAL ARTIFACT CONTRACT (applies before audit approval and to each final attachment):
+- Editorial review belongs here, before download. Repair the actual article and inspect the final serialized Markdown, not only an earlier draft.
+- The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
+- Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
+- Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
+- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
+- Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
+
+Perform the final V3 supervision of the latest complete voice article. Recheck every V2 condition from the preceding instruction and repair any remaining weakness silently.
 
 The selected inventory reservation is binding. Keep its reservationId, batchId, exactQuestion, readerState, specificMoment, hiddenProblem, centralConclusion, uniqueAngle, expectedOutcome, translationKey and proposedSlug unchanged. Set frontmatter contentId exactly to ${date()}. contentId must equal batchId; never append a slot suffix and never copy reservationId into contentId. Set frontmatter slug exactly to proposedSlug, but do not add a separate proposedSlug field.
 
@@ -237,7 +255,16 @@ The attachment must contain the complete approved article with YAML frontmatter.
 
 OUTPUT RULE — ABSOLUTE:
 Output only the downloadable ${date()}-master.md attachment. Do not print the article in chat. Do not output an audit table, checklist, score, PASS/HOLD, evidence ledger, explanation or any other commentary. If the interface requires text beside the attachment, use only the filename.`}
-function auditPrompt(){return `Audit the draft immediately above. Use every checkbox in ARTICLE_AUDIT_CHECKLIST.md and WRITING_RULES.md.
+function auditPrompt(){return `FINAL ARTIFACT CONTRACT (applies before audit approval and to each final attachment):
+- Editorial review belongs here, before download. Repair the actual article and inspect the final serialized Markdown, not only an earlier draft.
+- The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
+- Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
+- Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
+- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
+- Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
+
+Audit the draft immediately above. Use every checkbox in ARTICLE_AUDIT_CHECKLIST.md and WRITING_RULES.md.
 
 Check especially:
 - the central lesson is not a duplicate or paraphrase of an existing published vinsurgo article, a completed project chat, or anything already written in this chat;
@@ -264,7 +291,16 @@ For every failed item, repair the article rather than describing the problem. Re
 
 OUTPUT RULE — ABSOLUTE:
 Return only the entire revised public article. Do not show the audit table, checklist, item IDs, results, scores, PASS/HOLD text, evidence, citations ledger, reasoning, change summary, preface, afterword, completion marker or any chat commentary. Even if no repair was needed, return only the complete article. The first visible line must be the article title and the last visible line must be part of the public article.`}
-function reauditPrompt(){return `Strictly recheck the latest complete article against every rule in ARTICLE_AUDIT_CHECKLIST.md and WRITING_RULES.md.
+function reauditPrompt(){return `FINAL ARTIFACT CONTRACT (applies before audit approval and to each final attachment):
+- Editorial review belongs here, before download. Repair the actual article and inspect the final serialized Markdown, not only an earlier draft.
+- The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
+- Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
+- Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
+- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
+- Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
+
+Strictly recheck the latest complete article against every rule in ARTICLE_AUDIT_CHECKLIST.md and WRITING_RULES.md.
 
 If even one requirement is weak, contradictory, duplicated, unsupported, too difficult, impersonal or missing, repair the complete article and check it again silently. Repeat internally until it passes. Never accept it merely because an earlier response did.
 
@@ -297,7 +333,16 @@ Each draft file must contain its complete article and YAML frontmatter. Add work
 OUTPUT RULE — ABSOLUTE:
 Output only the two downloadable draft Markdown attachments. Do not print either draft in chat. Do not output an audit, explanation, score, PASS/HOLD, preface, afterword or any other chat commentary. If the interface forces text beside the attachments, use only the two filenames, one per line.`}
 
-function translationFinalPrompt(c){const files=c.langs.map(l=>`${date()}-${c.code}-${l[0]}.md`).join('\n');return `Proofread and finalise exactly the two ${c.place} drafts immediately above.
+function translationFinalPrompt(c){const files=c.langs.map(l=>`${date()}-${c.code}-${l[0]}.md`).join('\n');return `FINAL ARTIFACT CONTRACT (applies before audit approval and to each final attachment):
+- Editorial review belongs here, before download. Repair the actual article and inspect the final serialized Markdown, not only an earlier draft.
+- The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
+- Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
+- Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
+- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
+- Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
+
+Proofread and finalise exactly the two ${c.place} drafts immediately above.
 
 BATCH_ID: ${date()}
 COUNTRY: ${c.code}
