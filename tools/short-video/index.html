@@ -3,7 +3,7 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Vinsurgo ショート動画デスク</title>
 <style>
-:root{font-family:system-ui,-apple-system,sans-serif;color:#182941;background:#edf2f8;font-size:16px}*{box-sizing:border-box}body{margin:0}main{max-width:1050px;margin:auto;padding:26px 20px 60px}header{border-left:6px solid #2665d8;padding-left:18px;margin-bottom:24px}h1{font-size:1.8rem;margin:0 0 8px}h2{font-size:1.25rem;margin:0 0 12px}p{line-height:1.7;margin:10px 0}.muted{color:#52637a}.panel{background:white;padding:24px;border:1px solid #d5dfeb;border-radius:14px;margin:18px 0}.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}button,select{font:inherit;border-radius:8px;padding:12px 16px;border:1px solid #a4b7d2;background:white;color:#182941;cursor:pointer}button.primary{background:#1855bd;border-color:#1855bd;color:white;font-weight:650}button:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #e4a721;outline-offset:3px}button:hover{filter:brightness(.96)}button:disabled{opacity:.5;cursor:not-allowed}textarea{width:100%;min-height:130px;padding:12px;font:inherit;border:1px solid #a4b7d2;border-radius:8px;margin:10px 0}#status{position:sticky;bottom:8px;background:#182941;color:white;padding:12px 16px;border-radius:8px;min-height:48px}#status:empty{display:none}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scene{border:1px solid #d5dfeb;border-radius:10px;padding:14px}.scene p{font-size:.9rem}.scene button{width:100%}details{margin:14px 0}summary{cursor:pointer;font-weight:600}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.88rem;background:#f1f5fa;padding:14px}code{overflow-wrap:anywhere}a{color:#1855bd}label{font-weight:600}.badge{font-size:.9rem;color:#1855bd}ol{padding-left:22px;line-height:1.9}@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:18px}h1{font-size:1.5rem}}
+:root{font-family:system-ui,-apple-system,sans-serif;color:#182941;background:#edf2f8;font-size:16px}*{box-sizing:border-box}body{margin:0}main{max-width:1050px;margin:auto;padding:26px 20px 60px}header{border-left:6px solid #2665d8;padding-left:18px;margin-bottom:24px}h1{font-size:1.8rem;margin:0 0 8px}h2{font-size:1.25rem;margin:0 0 12px}p{line-height:1.7;margin:10px 0}.muted{color:#52637a}.panel{background:white;padding:24px;border:1px solid #d5dfeb;border-radius:14px;margin:18px 0}.row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}button,select{font:inherit;border-radius:8px;padding:12px 16px;border:1px solid #a4b7d2;background:white;color:#182941;cursor:pointer}button.primary{background:#1855bd;border-color:#1855bd;color:white;font-weight:650}button.copied{background:#17613c;border-color:#17613c;color:white}button:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #e4a721;outline-offset:3px}button:hover{filter:brightness(.96)}button:disabled{opacity:.5;cursor:not-allowed}textarea{width:100%;min-height:130px;padding:12px;font:inherit;border:1px solid #a4b7d2;border-radius:8px;margin:10px 0}#status{position:sticky;bottom:8px;background:#182941;color:white;padding:12px 16px;border-radius:8px;min-height:48px}#status:empty{display:none}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.scene{border:1px solid #d5dfeb;border-radius:10px;padding:14px}.scene p{font-size:.9rem}.scene button{width:100%}details{margin:14px 0}summary{cursor:pointer;font-weight:600}pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:.88rem;background:#f1f5fa;padding:14px}code{overflow-wrap:anywhere}a{color:#1855bd}label{font-weight:600}.badge{font-size:.9rem;color:#1855bd}ol{padding-left:22px;line-height:1.9}@media(max-width:700px){.grid{grid-template-columns:1fr}.panel{padding:18px}h1{font-size:1.5rem}}
 </style>
 <main>
 <header><span class="badge">VINSURGO / SHORT VIDEO DESK</span><h1>記事から、英語ショート3本へ</h1><a href="../daily-prompts/">Daily Deskへ戻る</a><p class="muted">原稿 → 背景画像プロンプト → 音声化。GPTに送る操作は手動です。API接続・自動課金はありません。</p></header>
@@ -12,7 +12,7 @@
 <p>下のボタンをコピーし、<strong>完成済みmaster.mdを添付して</strong>GPTへ送ってください。在庫選択やID入力は不要。いつ押しても同じプロンプトです。</p>
 <div class="row"><button class="primary" id="copy-scripts">英語3パターンの原稿プロンプトをコピー</button></div>
 <p class="muted">A：共感からの気づき　B：具体例で理解　C：今日できる行動。各95〜125語、約45〜60秒を目安にします。実際の長さは音声化後に確認します。</p>
-<p>返された <code>&lt;ID&gt;-short-a.txt</code>・<code>&lt;ID&gt;-short-b.txt</code>・<code>&lt;ID&gt;-short-c.txt</code> を、Macの <strong>Vinsurgo/work/ショート動画Chatterbox/input/</strong> に保存します。原稿以外はinputに入れません。</p>
+<p>返された <code>&lt;ID&gt;-short-a.txt</code>・<code>&lt;ID&gt;-short-b.txt</code>・<code>&lt;ID&gt;-short-c.txt</code> を、Macの <strong>Vinsurgo/work/ショート動画Chatterbox/input/</strong> に保存します。1本だけでも音声化できます。画像はimages/へ保存し、原稿以外はinputに入れません。</p>
 <details><summary>コピーするプロンプトを見る</summary><pre id="script-preview"></pre></details>
 </section>
 <section class="panel">
@@ -20,7 +20,7 @@
 <div class="row"><label for="variant">原稿</label><select id="variant"><option value="a">A　共感からの気づき</option><option value="b">B　具体例で理解</option><option value="c">C　今日できる行動</option></select><label for="duration">仮の動画尺</label><select id="duration"><option value="45">45秒 / 9枚</option><option value="50">50秒 / 10枚</option><option value="55">55秒 / 11枚</option><option value="60" selected>60秒 / 12枚</option></select></div>
 <p>選んだ原稿TXTをGPTに添付し、下のプロンプトを送ります。GPTが<strong>話の順番につながる画像プロンプトを英語で</strong>作ります。標準は各原稿12枚、3本で計36枚です。</p>
 <button class="primary" id="copy-storyboard">A用・12枚の背景設計プロンプトをコピー</button>
-<p class="muted">5秒刻みは仮配置です。音声の実測後、発話と絵が一致するよう表示時間を調整してください。画像は縦9:16・文字なし・統一された人物と画風・構図は変化させます。</p>
+<p class="muted">5秒刻みは仮配置です。音声の実測後、発話と絵が一致するよう表示時間を調整してください。画像は縦9:16・文字なし・画風と人物の外見は統一し、場所・行動・主役・画角はシーンごとに変えます。旧設計の構図を直すときは、この新しいプロンプトでJSONを作り直してください。コピー成功済みの画像ボタンは緑色になります（画像生成済みの意味ではありません）。</p>
 <details><summary>背景設計プロンプトを見る</summary><pre id="story-preview"></pre></details>
 <label for="story-json">GPTが返した背景設計JSONを貼り付ける</label>
 <textarea id="story-json" spellcheck="false" placeholder='{"contentId":"元記事のID","variant":"a","durationSeconds":60,"scenes":[...12件]}'></textarea>
@@ -30,7 +30,7 @@
 </section>
 <section class="panel">
 <h2>3　準備がよければ、音声化を試す</h2>
-<ol><li>input/直下に、同じIDの英語原稿A・B・Cを置く。</li><li><strong>Vinsurgo/work/ショート動画Chatterbox/音声化.command</strong> をダブルクリック。</li><li><strong>output/&lt;ID&gt;/</strong> に原稿3件＋WAV音声3件ができる。</li></ol>
+<ol><li>input/直下に、英語原稿A・B・Cのうち、作りたい1〜3本だけを置く。</li><li><strong>Vinsurgo/work/ショート動画Chatterbox/音声化.command</strong> をダブルクリック。</li><li><strong>output/&lt;ID&gt;/</strong> に置いた本数分の原稿＋WAV音声ができる（1本なら計2ファイル）。</li></ol>
 <p class="muted">未セットアップなら先にSETUP.commandを使います。画像は別途GPTの画像生成で作り、images/&lt;ID&gt;/a・b・cに保存してください。このHTMLは音声化・画像生成・動画編集・投稿を自動実行しません。</p>
 </section>
 <div id="status" role="status" aria-live="polite"></div>
@@ -60,6 +60,11 @@ End with one brief, honest invitation to find this article on Vinsurgo. Mention 
 TTS-CLEAN OUTPUT
 Each file must contain only the words to be spoken. No title, YAML, markdown formatting, scene numbers, timestamps, stage directions, image prompts, URLs, word-count labels or pronunciation notes. Write numbers and abbreviations in naturally speakable form. Do not put the filenames inside the files. Before returning, check the exact ID, all three file names, English-only narration, distinct angles, source fidelity and word counts. Return only the three files (or the honest fallback blocks).`;
 const state={a:null,b:null,c:null};
+const copiedScenes=new Set();
+try{for(const key of JSON.parse(localStorage.getItem('vinsurgo-short-copied-v1')||'[]'))copiedScenes.add(key)}catch{}
+function sceneKey(data,scene){return JSON.stringify([data.contentId,data.variant,scene.index,scene.prompt])}
+function paintCopy(button,index,done){button.className=done?'copied':'';button.textContent=done?`✓ 画像${index} コピー済み（再コピー可）`:`画像${index}のプロンプトをコピー`;}
+function rememberCopy(key){copiedScenes.add(key);try{localStorage.setItem('vinsurgo-short-copied-v1',JSON.stringify([...copiedScenes].slice(-300)))}catch{}}
 const $=id=>document.getElementById(id);
 function storyboardPrompt(variant,seconds){
  const count=Math.ceil(seconds/5);
@@ -67,8 +72,13 @@ function storyboardPrompt(variant,seconds){
 
 Create exactly ${count} semantically connected background-image prompts covering this narration from beginning to end, in the original order. The provisional edit is ${seconds} seconds, with one image per five-second slot. These are planning times only, not measured audio synchronisation. Distribute contiguous spoken phrases across scenes, using every spoken word exactly once across the narration fields. Do not omit the ending. An image should express the meaning of its assigned phrase, not merely repeat a generic desk scene.
 
-CONTINUITY
-Choose one coherent visual style and a small recurring cast or recurring objects appropriate to THIS narration. Define appearance, clothing, palette, setting and recurring objects consistently. Repeat the complete visual continuity description in EVERY prompt so that each works in a fresh image-generation chat. Where available, ask the user to attach the first approved image as a visual reference for later images; a prompt alone cannot guarantee identical characters. Vary wide, medium, close-up, overhead, left-facing and right-facing compositions when appropriate. Avoid repeated back-facing people looking up-right, generic success imagery and unrelated metaphors. Do not invent demographic stereotypes or depict fictional examples as documentary evidence.
+CONTINUITY WITHOUT REPETITION
+Keep only illustration style, palette and (WHEN present) character identity consistent. Do NOT lock every scene to the same desk, laptop, props, pose or room. A character need not appear in every image. Repeat the style and any relevant character description in each independent prompt, NOT an entire recurring set. If a reference image is supplied, explicitly use it ONLY for style/identity, never copy its camera, pose, layout or background.
+
+DIRECT A SEQUENCE, NOT TWELVE VARIATIONS
+First plan every shot against its exact narration. Across the sequence use at least six distinct shot types and at least three narration-appropriate settings or visual contexts. Alternate human interaction, environment, meaningful action details, object-only storytelling and individual movement when supported by the narration. Do not invent events as facts.
+For EVERY scene record its subject, visible action, setting, shot size, camera angle and subject placement INSIDE its prompt. Compare it against ALL earlier scenes. Each pair must differ on at least THREE of these dimensions, including action or subject; mirroring, zooming, changing card shapes or merely changing left/right do not count as a new scene. Never reuse the seated-person-at-laptop/chin-on-hand setup more than once. Do not use generic cards/notebooks as filler across multiple scenes. Prefer a concrete new narrative beat over a forced metaphor. Do not invent demographic stereotypes or depict fictional examples as documentary evidence.
+Before returning JSON, privately review the complete contact-sheet plan, especially shots 1 and 3: if two would have nearly the same silhouette, main objects and action, redesign one while preserving its narration. A prompt is a design instruction, not a guarantee of generated-image diversity.
 
 IMAGE FORMAT
 Exactly one vertical 9:16 full-frame image per prompt. Refined editorial illustration, clear focal action and restrained detail. Leave uncluttered room for separately added subtitles; keep crucial faces and objects away from the lower and right UI edges. No words, letters, numbers, logos, watermarks, panels, collage, split screen or text inside the generated image. Any on-screen writing in the story must be represented without readable text.
@@ -79,8 +89,8 @@ Return exactly one valid JSON object, no Markdown fence and no commentary. Read 
 The scenes array must contain exactly ${count} entries numbered 1 through ${count}. Scene n starts at (n-1)*5 and ends at min(n*5,${seconds}). Every prompt must be a finished, independent image-generation instruction, never a placeholder or a reference such as 'same as above'. Check that all scenes form one meaningful story and are faithful to the attached narration.`;
 }
 async function copy(text){
- try{if(!navigator.clipboard?.writeText)throw Error('clipboard unavailable');await navigator.clipboard.writeText(text);$('status').textContent='コピーしました。添付ファイルと一緒にGPTへ送ってください。';$('manual-copy').hidden=true;}
- catch{const area=$('manual-text');area.value=text;$('manual-copy').hidden=false;$('manual-copy').open=true;area.focus();area.select();let ok=false;try{ok=document.execCommand('copy')}catch{}$('status').textContent=ok?'コピーしました。':'自動コピーが許可されませんでした。選択済みの文を⌘Cでコピーしてください。';}
+ try{if(!navigator.clipboard?.writeText)throw Error('clipboard unavailable');await navigator.clipboard.writeText(text);$('status').textContent='コピーしました。添付ファイルと一緒にGPTへ送ってください。';$('manual-copy').hidden=true;return true;}
+ catch{const area=$('manual-text');area.value=text;$('manual-copy').hidden=false;$('manual-copy').open=true;area.focus();area.select();let ok=false;try{ok=document.execCommand('copy')}catch{}$('status').textContent=ok?'コピーしました。':'自動コピーが許可されませんでした。選択済みの文を⌘Cでコピーしてください。';return ok;}
 }
 function validateStory(data,variant,seconds){
  if(!data||typeof data.contentId!=='string'||!data.contentId.trim()||!/^[-A-Za-z0-9_]+$/.test(data.contentId))throw Error('contentIdは元記事のIDを指定してください（英数字・ハイフン・アンダースコア）。');
@@ -96,7 +106,7 @@ function render(){
  $('story-preview').textContent=storyboardPrompt(v,seconds);$('copy-storyboard').textContent=`${v.toUpperCase()}用・${Math.ceil(seconds/5)}枚の背景設計プロンプトをコピー`;
  $('scenes').replaceChildren();$('save-scenes').disabled=!data;$('scene-count').textContent=data?`${data.contentId} / ${v.toUpperCase()} / ${data.scenes.length}枚。内容を確認し、各ボタンを画像生成へ送ってください。`:'まだ背景設計を読み込んでいません。';
  if(!data)return;
- for(const scene of data.scenes){const el=document.createElement('section');el.className='scene';const title=document.createElement('strong');title.textContent=`${String(scene.index).padStart(2,'0')}　${scene.start}–${scene.end}秒`;const quote=document.createElement('p');quote.textContent=scene.narration;const button=document.createElement('button');button.textContent=`画像${scene.index}のプロンプトをコピー`;button.onclick=()=>copy(scene.prompt);const detail=document.createElement('details');const summary=document.createElement('summary');summary.textContent='プロンプトを確認';const pre=document.createElement('pre');pre.textContent=scene.prompt;detail.append(summary,pre);el.append(title,quote,button,detail);$('scenes').append(el);}
+ for(const scene of data.scenes){const el=document.createElement('section');el.className='scene';const title=document.createElement('strong');title.textContent=`${String(scene.index).padStart(2,'0')}　${scene.start}–${scene.end}秒`;const quote=document.createElement('p');quote.textContent=scene.narration;const button=document.createElement('button');const key=sceneKey(data,scene);paintCopy(button,scene.index,copiedScenes.has(key));button.onclick=async()=>{if(await copy(scene.prompt)){rememberCopy(key);paintCopy(button,scene.index,true)}};const detail=document.createElement('details');const summary=document.createElement('summary');summary.textContent='プロンプトを確認';const pre=document.createElement('pre');pre.textContent=scene.prompt;detail.append(summary,pre);el.append(title,quote,button,detail);$('scenes').append(el);}
 }
 $('script-preview').textContent=SCRIPT_PROMPT;
 $('copy-scripts').onclick=()=>copy(SCRIPT_PROMPT);
