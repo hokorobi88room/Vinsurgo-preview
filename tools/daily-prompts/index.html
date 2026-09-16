@@ -13,6 +13,7 @@
     button{border:0;border-radius:9px;padding:9px 13px;background:var(--blue);color:#fff;font-weight:800;cursor:pointer}button:hover{filter:brightness(1.06)}button:disabled{cursor:not-allowed;opacity:.45;filter:none}.new-batch,.id-restore button,.mode-panel button{background:#fff;color:var(--blue);border:1px solid var(--blue)}
     .id-restore{display:flex;gap:7px;align-items:center;min-width:min(430px,100%)}.id-restore input,.mode-panel input{min-width:0;flex:1;padding:8px 10px;border:1px solid var(--line);border-radius:8px;font:12px ui-monospace,monospace;background:#fff}.id-status{min-height:0;color:var(--ok);font-size:12px;font-weight:700}.mode-panel{margin-top:8px}.mode-options{font-size:12px}.mode-options label{font-weight:800}.mode-target{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:7px;margin-top:7px}.mode-target[hidden]{display:none}
     .four-planner{margin-top:12px;padding:14px}.four-actions{display:flex;gap:8px;flex-wrap:wrap}.four-planner textarea{width:100%;min-height:120px;margin-top:9px;padding:10px;border:1px solid var(--line);border-radius:9px;font:12px ui-monospace,monospace;resize:vertical}.four-slots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:9px}.four-slot{min-height:96px;text-align:left}.four-slot.active{background:var(--ok)}.four-slot small{display:block;margin-top:4px;font-weight:600}.four-help{margin:7px 0 0;color:var(--sub);font-size:12px}
+    .four-slot{width:100%}.four-slots details{margin-top:6px;font-size:12px;overflow-wrap:anywhere}summary{cursor:pointer}
     h2{margin:11px 2px 6px;font-size:14px;color:#39445a}.prompt-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}.core-grid{grid-template-columns:repeat(3,minmax(0,1fr))}.tile{width:100%;min-height:58px;padding:9px 11px;text-align:left;white-space:normal;display:flex;flex-direction:column;justify-content:center;gap:2px}.tile strong{font-size:13px}.tile small{font-size:11px;font-weight:650;opacity:.83}.tile .copy-state{font-size:10px;opacity:.75}.tile.copied{background:var(--ok)}
     .thumbnail-panel{grid-column:1/-1;display:grid;grid-template-columns:2fr repeat(4,minmax(0,1fr));gap:7px}.thumbnail-panel .image-prompt{grid-row:span 2;background:#101b36}.rename{background:#fff;color:var(--blue);border:1px solid var(--blue);min-height:58px}.rename.copied{background:#e7f6f0;color:var(--ok);border-color:var(--ok)}
     .voice-grid .tile{background:#7a4d28}.voice-grid .tile.copied{background:var(--ok)}
@@ -36,17 +37,27 @@
 
   <section class="panel four-planner">
     <h2>検索語から4在庫をまとめて設計</h2>
-    <p class="four-help"><strong>検索語 → 検索する理由 → 必要な答え → 記事。</strong> 8カ国・16ロケール版を必ず一括制作します。一部言語だけで試す工程はありません。</p>
+    <p class="four-help"><strong>検索する困りごと → あるあるの場面 → 共感の理由 → 具体的な答え。</strong> ３要素を説明できる企画だけ４案に採用します。8カ国・16ロケール版を必ず一括制作します。</p>
     <label for="search-seeds">検索の手掛かり（任意：GSCの検索語・対象URL・国・期間・表示数など）</label>
     <textarea id="search-seeds" spellcheck="false" placeholder="空欄でも使えます。GPTがWeb検索で問いを調べます。検索結果の存在を検索回数と取り違えません。"></textarea>
     <div class="four-actions"><button id="copy-four-plan" type="button">1　AI編集会議プロンプトをコピー</button><button id="load-four-plan" type="button">3　4案JSONを読み込み・ID発行</button></div>
     <p class="four-help">2　GPT Chatへ貼り、返されたJSONを下へ貼る。読み込み後、このdaily deskを4タブに複製し、各タブで別の在庫を選びます。</p>
-    <textarea id="four-plan-json" spellcheck="false" placeholder='{"proposals":[{"exactQuestion":"...","readerState":"...","specificMoment":"...","hiddenProblem":"...","centralConclusion":"...","uniqueAngle":"...","expectedOutcome":"...","translationKey":"...","proposedSlug":"..."}, ...4案]}'></textarea>
+    <textarea id="four-plan-json" spellcheck="false" placeholder="新しい編集会議の回答JSON全体を貼り付けます。４案それぞれの specificMoment（あるある）・empathyReason（共感の理由）・usefulDetail（具体的な答え）・logicChain（論理）も必要です。"></textarea>
     <div class="id-status" id="four-plan-status" aria-live="polite"></div>
     <div class="four-slots" id="four-slots"></div>
   </section>
 
   <section class="panel finish"><strong>記事生成の最初：上の在庫1〜4から1つ選ぶ</strong><span>通常記事はN1、Voice記事はV1へ進みます</span></section>
+  <section class="panel four-planner" id="reader-value-policy">
+    <strong>全記事の必須条件：あるある・共感できる・有益な情報</strong>
+    <p class="four-help">編集会議で３要素を設計 → N1/V1で本文に具体化 → N2/V2で弱点を修正 → N3/V3で完成MDの根拠を確認。翻訳でも３要素を維持します。</p>
+    <details><summary>採用・監査の基準</summary><ul>
+      <li>あるある：誰が、何をしようとして、どこで困るかが目に浮かぶ。場面の飾りだけでは不可。</li>
+      <li>共感：なぜ迷う・ためらうのかを具体的に言葉にする。「大変ですよね」だけでは不可。</li>
+      <li>有益：使える文面、判断基準、実例、計算など、読後の答えを本文で渡す。「自分で考えよう」だけでは不可。</li>
+      <li>一本の論理：題名の約束・困りごと・理由・具体例・結論がつながる。共感から関係のない講座へ誘導しない。</li>
+    </ul><p class="four-help">緑は「コピー済み」で、GPTでの監査完了ではありません。同じGPT Chatで前の回答を受け取ってから次へ。監査根拠は最終MDの管理情報に保存し、公開本文には出しません。プロンプト更新時は旧版のコピー履歴と分けて表示します。</p></details>
+  </section>
 
   <section class="panel"><a class="tile" href="https://hokorobi88room.github.io/Vinsurgo-preview/tools/short-video/"><strong>ショート動画デスクへ移動</strong><small>英語3原稿・背景画像のプロンプトは移動先でコピーできます</small></a></section>
 
@@ -66,8 +77,9 @@
   <section class="panel finish"><strong>25ファイル保存 → 在庫追加.command</strong><span>完成在庫は毎日10:00に8カ国・16版を一括公開</span><span id="master-file-label"></span><span id="inbox-path"></span></section>
 </main>
 <script>
-const PROMPT_VERSION='2026.09.15-search-first-all-locales.1';
-const PROMPT_UPDATED='2026-09-11';
+const PROMPT_VERSION='2026.09.16-reader-value.1';
+const PROMPT_UPDATED='2026-09-16';
+const READER_VALUE_VERSION='reader-value-2026-09-16';
 const CATALOG_URLS=location.protocol==='file:'
  ? ['https://vinsurgo.com/editorial-catalog.json']
  : [new URL('./editorial-catalog.json',location.href).href,'https://vinsurgo.com/editorial-catalog.json'];
@@ -100,7 +112,7 @@ let batchId=hashBatchId()||createBatchId();
 const historyKey='vinsurgo-batch-id-history-v1';
 function batchHistory(){try{return JSON.parse(localStorage.getItem(historyKey)||'[]').filter(value=>/^\d{4}-\d{2}-\d{2}-\d{4}-[a-z0-9]{4}$/.test(value))}catch{return []}}
 function rememberBatchId(value){const values=[value,...batchHistory().filter(item=>item!==value)].slice(0,50);localStorage.setItem(historyKey,JSON.stringify(values));const list=document.querySelector('#batch-id-history');list.replaceChildren(...values.map(item=>{const option=document.createElement('option');option.value=item;return option}))}
-function progressKey(){return `vinsurgo-daily-progress-v2:${batchId}`}
+function progressKey(){return `vinsurgo-daily-progress-v3:${PROMPT_VERSION}:${batchId}:${deskMode}:${deskMode==='repair'?(repairTarget?.translationKey||'unselected'):'new'}`}
 function copiedCards(){try{return new Set(JSON.parse(localStorage.getItem(progressKey())||'[]'))}catch{return new Set()}}
 function rememberCopied(id){const values=copiedCards();values.add(id);localStorage.setItem(progressKey(),JSON.stringify([...values]))}
 function setBatchId(next){batchId=next;activeReservation=fourSets.flatMap(item=>item.proposals||[]).find(item=>item.batchId===next)||fourSet?.proposals?.find(item=>item.batchId===next)||null;rememberBatchId(next);history.replaceState(null,'',`#batch=${encodeURIComponent(batchId)}`);document.querySelector('#today').textContent=today;document.querySelector('#batch-id').textContent=batchId;document.querySelector('#manual-batch-id').value='';document.querySelector('#master-file-label').textContent=`${batchId}-master.md`;document.querySelector('#inbox-path').textContent=`/Users/kmacmini/Documents/Codex/2026-08-22/github-plugin-github-openai-curated-remote/Vinsurgo/work/publication-queue/ready/${batchId}`;render();renderFourSet()}
@@ -108,15 +120,49 @@ document.querySelector('#new-batch').onclick=()=>{fourSet=null;activeReservation
 document.querySelector('#restore-batch-id').onclick=()=>{const input=document.querySelector('#manual-batch-id');const typed=input.value.trim().toLowerCase();const status=document.querySelector('#id-status');let value=typed;if(/^[a-z0-9]{4}$/.test(typed)){const matches=batchHistory().filter(item=>item.endsWith(`-${typed}`));if(matches.length===1)value=matches[0];else if(matches.length>1){status.textContent='同じ末尾4文字の履歴が複数あります。候補から完全な在庫IDを選んでください。';status.style.color='#b42318';return}else{status.textContent='この端末の履歴にない末尾4文字です。完全な在庫IDを貼り付けてください。';status.style.color='#b42318';return}}if(!/^\d{4}-\d{2}-\d{2}-\d{4}-[a-z0-9]{4}$/.test(value)){status.textContent='完全な在庫ID、またはこの端末で作ったIDの末尾4文字を入力してください。';status.style.color='#b42318';return}setBatchId(value);status.textContent=`在庫IDを ${value} に戻しました。`;status.style.color='var(--ok)'};
 async function writeClipboard(value){try{await navigator.clipboard.writeText(value)}catch{const area=document.createElement('textarea');area.value=value;area.setAttribute('aria-hidden','true');area.style.position='fixed';area.style.opacity='0';document.body.append(area);area.select();document.execCommand('copy');area.remove()}}
 function markCopied(button,id){button.classList.add('copied');const state=button.querySelector('.copy-state');if(state)state.textContent='✓ コピー済み';if(id)rememberCopied(id)}
-function card(id,title,meta,prompt,{requiresCatalog=false,requiresReservation=false,requiresDraft=false,requiresCopied=null,requiresAnyCopied=[]}={}){const e=document.createElement('section');e.dataset.card=id;e.innerHTML=`<button class="tile" type="button"><strong>${title}</strong><small>${meta}</small><span class="copy-state">コピー</span></button>`;const button=e.querySelector('button');const copied=copiedCards();if(copied.has(id))markCopied(button);const reservationRequirement=requiresReservation&&!activeReservation;const draftRequirement=requiresDraft&&!copied.has(id.replace('-final','-draft'));const copiedRequirement=requiresCopied&&!copied.has(requiresCopied);const anyRequirement=requiresAnyCopied.length&&!requiresAnyCopied.some(item=>copied.has(item));button.disabled=(requiresCatalog&&!catalogReady)||reservationRequirement||draftRequirement||copiedRequirement||anyRequirement;if(requiresCatalog&&!catalogReady)button.title='公開記事一覧の取得完了後に使えます';else if(reservationRequirement)button.title='最初に上の在庫1〜4から1つ選んでください';else if(draftRequirement)button.title='先にこの国の2言語ドラフトをコピーしてください';else if(copiedRequirement)button.title='直前の監督工程を先に実行してください';else if(anyRequirement)button.title='通常記事N3またはVoice記事V3を先に完了してください';button.onclick=async()=>{await writeClipboard(prompt);markCopied(button,id);render()};return e}
+function card(id,title,meta,prompt,{requiresCatalog=false,requiresReservation=false,requiresDraft=false,requiresCopied=null,requiresAnyCopied=[]}={}){const e=document.createElement('section');e.dataset.card=id;e.innerHTML=`<button class="tile" type="button"><strong>${title}</strong><small>${meta}</small><span class="copy-state">コピー</span></button>`;const button=e.querySelector('button');const copied=copiedCards();if(copied.has(id))markCopied(button);const reservationRequirement=requiresReservation&&!activeReservation;const draftRequirement=requiresDraft&&!copied.has(id.replace('-final','-draft'));const copiedRequirement=requiresCopied&&!copied.has(requiresCopied);const anyRequirement=requiresAnyCopied.length&&!requiresAnyCopied.some(item=>copied.has(item));button.disabled=(requiresCatalog&&!catalogReady)||reservationRequirement||draftRequirement||copiedRequirement||anyRequirement;if(requiresCatalog&&!catalogReady)button.title='公開記事一覧の取得完了後に使えます';else if(reservationRequirement)button.title='最初に上の在庫1〜4から1つ選んでください';else if(draftRequirement)button.title='先にこの国の2言語ドラフトをコピーしてください';else if(copiedRequirement)button.title='直前のプロンプトを先にコピーしてください。GPTの回答後にこの工程へ進みます';else if(anyRequirement)button.title='通常記事N3またはVoice記事V3のプロンプトを先にコピーしてください。GPTの最終MDを受け取ってから翻訳します';button.onclick=async()=>{await writeClipboard(prompt);markCopied(button,id);render()};return e}
 function copyText(value,button){return async()=>{await writeClipboard(value);markCopied(button)}}
 function thumbnailPanel(){const e=document.createElement('section');e.className='thumbnail-panel';const promptButton=document.createElement('button');promptButton.type='button';promptButton.className='tile image-prompt';promptButton.innerHTML='<strong>画像生成プロンプト</strong><small>完成記事から共通サムネを1枚作る</small><span class="copy-state">コピー</span>';promptButton.onclick=copyText(thumbnailPrompt(),promptButton);e.append(promptButton);for(const c of countries){const filename=`${batchId}-${c.code}-thumbnail.png`;const button=document.createElement('button');button.type='button';button.className='tile rename';button.innerHTML=`<strong>${c.name}</strong><small>${c.code} 保存名</small><span class="copy-state">コピー</span>`;button.onclick=copyText(filename,button);e.append(button)}return e}
 function countryPair(c){const group=document.createElement('section');group.className='country-pair';group.setAttribute('aria-label',`${c.name}の2段階`);group.append(card(`translation-${c.code}-draft`,`${c.name}：2言語ドラフト`,c.langs.map(x=>x[0]).join(' / '),translationDraftPrompt(c),{requiresAnyCopied:['reaudit','voice-final']}),card(`translation-${c.code}-final`,`${c.name}：2言語校閲・最終MD`,'直前の同国ドラフト限定',translationFinalPrompt(c),{requiresDraft:true}));return group}
 function date(){return batchId}
 function englishTopicCatalog(){const groups=new Map();for(const item of catalog){const current=groups.get(item.translationKey);if(!current||(item.language==='en'&&current.language!=='en')||(item.language==='en'&&item.country==='in'&&current.country!=='in'))groups.set(item.translationKey,item)}return[...groups.values()].filter(item=>item.language==='en')}
 function catalogForPrompt(){return englishTopicCatalog().map(item=>JSON.stringify({translationKey:item.translationKey,title:item.title,subtitle:item.subtitle,description:item.description,audience:item.audience,outcome:item.outcome,summaryTags:item.summaryTags||[],primarySearchQuestion:item.primarySearchQuestion||'',searchIntent:item.searchIntent||'',contentType:item.contentType||'',bodyHeadings:(item.bodyHeadings||[]).slice(0,3),cluster:item.cluster||'',funnelStage:item.funnelStage||'',uniqueAngle:item.uniqueAngle||''})).join('\n')}
-const proposalFields=['exactQuestion','readerState','specificMoment','hiddenProblem','centralConclusion','uniqueAngle','expectedOutcome','leadMarket','searchEvidence','practicalAsset','translationKey','proposedSlug'];
+function readerValueContract(stage){
+const tasks={
+  plan:'PLANNING GATE: Apply the three requirements to every candidate BEFORE selecting four. Write the scene in specificMoment, the reason for hesitation in empathyReason, the deliverable type in practicalAsset, a filled-in sample of the answer in usefulDetail, and the causal chain in logicChain. An outline or a promise to provide these later is not evidence. Reject and replace weak candidates now, not after translation.',
+  draft:'GENERATION GATE: Before writing, read the selected proposal and design its scene, emotional reason, useful answer and causal chain together. Then put all three elements into the actual public body, not just the title, reader cards or metadata. Deliver the reserved usefulDetail and practicalAsset. Older reservations may lack these fields: develop them from the same question without changing the inventory identity. Repair weak prose before returning the full draft.',
+  audit:'SCEPTICAL READER GATE: Reread the entire draft as a reader who did not request it. Ignore the writer\'s self-assessment. For each requirement, locate an actual body passage and assess whether it does the job. Try to disprove usefulness: what still cannot the reader decide, say or do after reading? Replace the weak scene, empty sympathy or unfinished answer in the article itself. Recheck the whole causal chain after every repair; do not merely add reassuring sentences.',
+  final:'FINAL FILE GATE: Start a fresh review of the complete latest article, ignoring previous approval. After repairs, serialize the final Markdown, reopen that exact file and verify all three requirements against its public body. Build a new readerValueReview from the final file only; any later edit invalidates earlier quotes and requires rechecking. Do not attach an article still missing a requirement: complete the repair here, before download.',
+  translation:'TRANSLATION GATE: Translate the actual scene, reason for hesitation, worked answer and causal chain from the approved master in full. Do not replace them with generic encouragement, shorten away useful detail, or invent local facts. The reader in each locale must receive the same usable answer in natural language.',
+  localeFinal:'LOCALE FINAL FILE GATE: Independently check EACH of the two final files against the approved master and these three requirements. Check that the relatable scene, emotional reason, useful answer and qualifications survived translation. Repair omissions and unnatural wording before attaching. Reopen each serialized file and create its own readerValueReview using exact quotes from that locale\'s body, never copied English proof.'
+};
+if(!tasks[stage])throw new Error('Unknown reader-value stage');
+return `READER VALUE CONTRACT — ${READER_VALUE_VERSION} — ALL THREE REQUIRED
+R — RELATABLE SITUATION (あるある): Show one recognisable event: a reader trying to do something, an observable snag, and a meaningful consequence. Use the particular screen, message, task or conversation only when it causes the problem. Do not manufacture a crisis out of a trivial action. An abstract label such as "you want to grow" or unrelated coffee/desk scenery does not qualify.
+E — EMPATHY (共感できる): Name the credible reason that makes this situation hard: hesitation, conflicting needs, embarrassment, uncertainty, limited time or responsibility. Let the reader recognise it without claiming everyone feels it. "It is hard", "you are not alone", a tag question, or a warm tone alone does not qualify. Do not blame the reader or invent the author's personal experience.
+U — USEFUL INFORMATION (有益な情報): Supply a finished, specific answer to the SAME problem: a usable message with context, a worked example with inputs and result, a comparison with decision conditions, or an actionable checklist with a filled-in example and success check. State when it applies and a relevant limit. Naming a technique, an empty template, listing tips, "practise more", "start small", "ask someone", or "make a plan" alone does not qualify. Explain what the reader can now decide, say or do that the introduction alone did not provide. Do not invent statistics, customers, market demand or guaranteed outcomes; label illustrative scenarios as examples and verify consequential factual claims with primary sources, linking near the supported claim.
+ONE CAUSAL THREAD: exact question/title promise -> recognisable event -> why it is difficult -> relevant explanation -> worked answer -> realistic reader benefit. All three requirements must solve this SAME event, not be three disconnected inserts. A concrete example is not proof of general demand or guaranteed success. The title and "By the end" must promise the reader's benefit, not the author's teaching method.
+REJECTION CALIBRATION (not topic seeds): "Build a short practice cycle" without an actual work problem fails R and U. "You feel anxious; let's take small steps" fails E and U. A vivid scene followed by "write your own checklist" fails U. A repeated monthly export problem can qualify only if the article shows the actual failure, why looking up old instructions is frustrating, a correct worked resolution, and a reusable note with a check of the saved result. Do not recycle that example or turn these examples into a fixed theme rotation.
+VOICE IS NOT EXEMPT: A free-talk article keeps its narrative turn and original perspective, but its one compact landing must still contain a usable sentence, distinction or worked decision for the opening situation. Comfort or a clever metaphor alone is not useful information. Do not turn it into three numbered how-to sections.
+TOPIC AND ID SAFETY: Preserve the selected question, reader and inventory identifiers. If a reserved supporting claim or conclusion is unsupported, correct or qualify it within the same reader promise and align final metadata with the repaired article; never invent evidence just to preserve a planning mistake. Do not substitute a different topic.
+${tasks[stage]}
+NO SELF-CERTIFICATION: A heading, three keywords, a checklist tick, a copied prompt, a quality score or a prior PASS is not evidence of any requirement. Use actual finished prose. Do not average the three requirements: a missing element must be repaired. Do not call the content externally reader-tested, native-reviewed or search-demand-proven without real evidence.
+SELF-CONTAINED RULES: This prompt contains the required editorial checks and supersedes conflicting older editorial templates (including external-checklist prerequisites, blanket source-link bans, forced voice numbering and partial-language release). Do not pretend to read unprovided local checklists, other chats, analytics or drafts. Keep supporting source links in relevant public sentences; do not append a separate source dump or public audit. If an essential source file is genuinely missing, request that file instead of fabricating its contents. Ordinary editorial weaknesses must be fixed in this response, not sent back as a HOLD report.`}
+function readerValueReceipt(){return `REQUIRED NON-PUBLIC REVIEW RECORD:
+Inside the SAME final Markdown file's YAML frontmatter, add readerValueReview as a mapping with these string fields:
+  contractVersion: ${READER_VALUE_VERSION}
+  relatableQuote: an exact contiguous excerpt from the public body showing the recognisable situation
+  empathyQuote: a different exact contiguous excerpt explaining the reader's specific hesitation or tension
+  usefulQuote: a different exact contiguous excerpt containing the worked answer or usable decision, not a promise
+  usefulKind: script, worked-example, decision-rule, comparison or worked-checklist
+  readerBenefit: one concrete sentence explaining the benefit delivered, in the file's language
+  logicChain: one concise explanation linking this file's opening problem, reason, answer and conclusion
+Write actual values, not the field descriptions above. Use valid YAML quoted strings or literal block scalars. Keep each excerpt short (normally one or two sentences, or a short contiguous portion of the worked asset), and verify it occurs verbatim in the actual public body AFTER the two reader-intro sections. Do not quote the title, metadata or reader cards as evidence. The excerpts locate evidence; still review the whole scene and worked answer, not just the excerpts. Use the current file's language. Recreate this record after any text change; never inherit a previous review record as approval.
+This mapping is the only exception to the ban on audit output: it is file metadata, never a public heading, chat checklist, extra attachment or extra workflow step. Do not add PASS/HOLD labels or scores. Keep the existing 25-file inventory format. Reader-value review and repair finish here before attachment, not in the Downloads importer or morning publication.`}
+const proposalFields=['targetQuery','evidenceType','localQueryMap','exactQuestion','readerState','specificMoment','empathyReason','hiddenProblem','centralConclusion','uniqueAngle','expectedOutcome','leadMarket','searchEvidence','practicalAsset','usefulDetail','logicChain','translationKey','proposedSlug'];
 function fourPlanPrompt(){return `Act as the editorial planning desk for vinsurgo. Design one set of four genuinely different article inventories inside this 90-day focus: Workplace Comeback: Learn, Rebuild, and Create Your Next Earning Option.
+
+${readerValueContract('plan')}
 
 MANDATORY PUBLICATION CONTRACT: Every approved inventory is produced and published for ALL eight countries and ALL sixteen locale editions together: in (en, hi), id (id, en), my (ms, en), vn (vi, en), sg (en, zh-Hans), ph (fil, en), ng (en, ha), ke (sw, en). No pilot country, partial-language release, wait-for-results gate or later rollout. leadMarket is retained only as a legacy research-context field; it NEVER selects a publication subset. Similarity between different countries' editions is not grounds to stop the package.
 
@@ -125,7 +171,9 @@ ${document.querySelector('#search-seeds').value.trim()||'(No query evidence supp
 
 Silently generate at least 12 fresh candidate questions. Do not use a fixed or rotating seed list. Derive new questions from specific human moments, unresolved reader problems, current approved search evidence when supplied, and gaps in the published catalogue below. When current approved analytics does not contain enough query evidence, use web search to inspect the intended market's current result pages and related questions. Search-result existence is not search-volume proof: label demand as unconfirmed rather than inventing volume. Reject candidates that duplicate a published article in reader state, specific moment, exact question, central conclusion, unique angle or expected outcome. Also reject overlap among the four selected proposals.
 
-For each selected proposal, record the exact targetQuery, evidenceType (gsc-observed, web-observed or hypothesis), one leadMarket as research context ONLY, 1–3 current evidence URLs with the checked date and a brief account of the observed result intent, and one practicalAsset (script, decision table, calculation, checklist or worked example). Research relevant local-language formulations for all eight countries; do not claim measured local demand without measurements. Keep one shared central answer but adapt the wording/examples to each locale. If browsing is unavailable and no search evidence is supplied, clearly report that limitation instead of pretending to have verified results. Never force four approved proposals by fabricating evidence.
+Before choosing the four, reject every candidate whose only payoff is motivation, a learning exercise for its own sake, a vague insight or advice the reader already knew. For each remaining candidate, ask "What happened just before this search? Why has the obvious advice not helped? What specific answer can THIS article supply?" Verify the information needed for that answer. A popular keyword alone does not make a good article. Choose four distinct reader problems, not four rewordings of one lesson. Do not reserve a topic that cannot deliver all three reader-value requirements.
+
+For each selected proposal, record the exact targetQuery, evidenceType (gsc-observed, web-observed or hypothesis), one leadMarket as research context ONLY, 1–3 current evidence URLs with the checked date and a brief account of the observed result intent, and one practicalAsset (script, decision table, calculation, checklist or worked example). usefulDetail must contain a small filled-in sample of that asset and its result or decision condition, not "include a useful example". empathyReason must explain the particular tension, not just name an emotion. logicChain must connect the SAME specificMoment to the conclusion and benefit without a missing assumption. Research relevant local-language formulations for all eight countries; do not claim measured local demand without measurements. Keep one shared central answer but adapt wording naturally, without inventing regional differences. If browsing is unavailable and no search evidence is supplied, clearly report that limitation instead of pretending to have verified results. Never force four approved proposals by fabricating evidence.
 
 PUBLISHED_CATALOGUE:
 ${catalogForPrompt()}
@@ -134,21 +182,66 @@ APPROVED_ANALYTICS_STATE:
 ${JSON.stringify(analyticsState)}
 
 Return exactly one JSON object and nothing else. No Markdown fence. Use this schema:
-{"proposals":[{"targetQuery":"the exact search phrase","evidenceType":"gsc-observed, web-observed or hypothesis","localQueryMap":"the appropriate query wording for every country and its two locales, with unverified items labeled","exactQuestion":"...","readerState":"...","specificMoment":"...","hiddenProblem":"...","centralConclusion":"...","uniqueAngle":"...","expectedOutcome":"...","leadMarket":"research context only: in, id, my, vn, sg, ph, ng, ke","searchEvidence":"1–3 current URLs plus a short statement of the observed intent; say demand volume unconfirmed unless measured data is supplied","practicalAsset":"the concrete script, table, calculation, checklist or worked example the reader will receive","translationKey":"ascii-kebab-case","proposedSlug":"ascii-kebab-case"}]}
+{"proposals":[{"targetQuery":"the exact search phrase","evidenceType":"gsc-observed, web-observed or hypothesis","localQueryMap":"the appropriate query wording for every country and its two locales, with unverified items labeled","exactQuestion":"...","readerState":"...","specificMoment":"the recognisable event, obstacle and consequence","empathyReason":"why this reader hesitates or faces conflicting needs in that event","hiddenProblem":"...","centralConclusion":"...","uniqueAngle":"...","expectedOutcome":"the concrete reader benefit, not the teaching method","leadMarket":"research context only: in, id, my, vn, sg, ph, ng, ke","searchEvidence":"1–3 current URLs with checked date and observed intent; demand volume unconfirmed unless measured","practicalAsset":"the concrete deliverable type and purpose","usefulDetail":"a filled-in miniature of the answer with result or decision condition; mark fictional examples","logicChain":"event -> reason -> relevant explanation -> worked answer -> reader benefit","translationKey":"ascii-kebab-case","proposedSlug":"ascii-kebab-case"}]}
 
 The proposals array must contain exactly four objects. Each field must be a non-empty string. translationKey and proposedSlug must be ASCII kebab-case. The four exactQuestion, translationKey and proposedSlug values must all be unique.`}
 function cleanJson(value){return value.trim().replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'')}
-function loadFourPlan(){const status=document.querySelector('#four-plan-status');try{const parsed=JSON.parse(cleanJson(document.querySelector('#four-plan-json').value));if(!Array.isArray(parsed.proposals)||parsed.proposals.length!==4)throw new Error('proposalsは4案ちょうど必要です');const seen={exactQuestion:new Set(),translationKey:new Set(),proposedSlug:new Set()};const publishedKeys=new Set(catalog.map(item=>item.translationKey));const publishedSlugs=new Set(catalog.map(item=>item.slug));for(const[itemIndex,item]of parsed.proposals.entries()){for(const field of proposalFields)if(typeof item[field]!=='string'||!item[field].trim())throw new Error(`在庫${itemIndex+1}: ${field}がありません`);for(const field of ['translationKey','proposedSlug'])if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item[field]))throw new Error(`在庫${itemIndex+1}: ${field}はASCII kebab-caseが必要です`);for(const field of Object.keys(seen)){const value=item[field].trim().toLowerCase();if(seen[field].has(value))throw new Error(`4案内で${field}が重複しています`);seen[field].add(value)}if(publishedKeys.has(item.translationKey)||publishedSlugs.has(item.proposedSlug))throw new Error(`在庫${itemIndex+1}: 公開済みのtranslationKeyまたはslugと重複しています`)}const setId=`${jstNow().day}-set-${crypto.getRandomValues(new Uint16Array(1))[0].toString(36).padStart(4,'0').slice(-4)}`;const ids=new Set();const proposals=parsed.proposals.map((item,index)=>{let id;do{id=createBatchId()}while(ids.has(id));ids.add(id);return{...item,slot:index+1,reservationId:`${setId}-slot-${index+1}`,batchId:id}});fourSet={setId,createdAt:new Date().toISOString(),proposals};fourSets=[fourSet,...fourSets.filter(item=>item.setId!==setId)].slice(0,20);localStorage.setItem(fourSetKey,JSON.stringify(fourSet));localStorage.setItem(fourSetsKey,JSON.stringify(fourSets));activeReservation=proposals[0];status.textContent=`4案を確定し、4在庫IDを発行しました：${setId}`;status.style.color='var(--ok)';setBatchId(proposals[0].batchId)}catch(error){status.textContent=`読み込み失敗：${error.message}`;status.style.color='#b42318'}}
-function renderFourSet(){const root=document.querySelector('#four-slots');if(!fourSet?.proposals?.length){root.replaceChildren();return}root.replaceChildren(...fourSet.proposals.map(item=>{const button=document.createElement('button');button.type='button';button.className=`four-slot${item.batchId===batchId?' active':''}`;button.innerHTML=`<strong>在庫${item.slot}　記事生成へ</strong><small>${item.exactQuestion}</small><small>${item.batchId}</small>`;button.onclick=()=>setBatchId(item.batchId);return button}))}
+function loadFourPlan(){
+  const status=document.querySelector('#four-plan-status');
+  try{
+    if(!catalogReady)throw new Error('公開記事一覧の取得完了後に読み込んでください');
+    const parsed=JSON.parse(cleanJson(document.querySelector('#four-plan-json').value));
+    if(!Array.isArray(parsed.proposals)||parsed.proposals.length!==4)throw new Error('proposalsは4案ちょうど必要です');
+    const seen={exactQuestion:new Set(),translationKey:new Set(),proposedSlug:new Set()};
+    const publishedKeys=new Set(catalog.map(item=>item.translationKey)),publishedSlugs=new Set(catalog.map(item=>item.slug));
+    for(const[itemIndex,item]of parsed.proposals.entries()){
+      for(const field of proposalFields){
+        if(typeof item?.[field]!=='string'||!item[field].trim()||/^(?:\.\.\.|…|tbd|todo|n\/a)$/i.test(item[field].trim()))throw new Error(`在庫${itemIndex+1}: ${field}の具体的な内容が必要です。新しい「1 AI編集会議」の回答を読み込んでください`);
+      }
+      if(!['gsc-observed','web-observed','hypothesis'].includes(item.evidenceType))throw new Error(`在庫${itemIndex+1}: evidenceTypeが不正です`);
+      for(const field of ['translationKey','proposedSlug'])if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item[field]))throw new Error(`在庫${itemIndex+1}: ${field}はASCII kebab-caseが必要です`);
+      for(const field of Object.keys(seen)){const value=item[field].trim().toLowerCase();if(seen[field].has(value))throw new Error(`4案内で${field}が重複しています`);seen[field].add(value)}
+      if(publishedKeys.has(item.translationKey)||publishedSlugs.has(item.proposedSlug))throw new Error(`在庫${itemIndex+1}: 公開済みのtranslationKeyまたはslugと重複しています`);
+    }
+    const setId=`${jstNow().day}-set-${crypto.getRandomValues(new Uint16Array(1))[0].toString(36).padStart(4,'0').slice(-4)}`;
+    const ids=new Set();
+    const proposals=parsed.proposals.map((item,index)=>{let id;do{id=createBatchId()}while(ids.has(id));ids.add(id);return{...item,slot:index+1,reservationId:`${setId}-slot-${index+1}`,batchId:id}});
+    fourSet={setId,createdAt:new Date().toISOString(),proposals};
+    fourSets=[fourSet,...fourSets.filter(item=>item.setId!==setId)].slice(0,20);
+    localStorage.setItem(fourSetKey,JSON.stringify(fourSet));localStorage.setItem(fourSetsKey,JSON.stringify(fourSets));
+    activeReservation=proposals[0];
+    status.textContent=`4案の必須項目を確認し、4在庫IDを発行しました：${setId}。本文の３要素はN/Vの監督工程で確認します。`;
+    status.style.color='var(--ok)';setBatchId(proposals[0].batchId);
+  }catch(error){status.textContent=`読み込み失敗：${error.message}`;status.style.color='#b42318'}
+}
+function renderFourSet(){
+  const root=document.querySelector('#four-slots');
+  if(!fourSet?.proposals?.length){root.replaceChildren();return}
+  root.replaceChildren(...fourSet.proposals.map(item=>{
+    const section=document.createElement('section'),button=document.createElement('button');
+    button.type='button';button.className=`four-slot${item.batchId===batchId?' active':''}`;
+    for(const[tag,value]of [['strong',`在庫${item.slot}　記事生成へ`],['small',item.exactQuestion],['small',item.batchId]]){
+      const line=document.createElement(tag);line.textContent=value;button.append(line);
+    }
+    button.onclick=()=>setBatchId(item.batchId);section.append(button);
+    const details=document.createElement('details'),summary=document.createElement('summary');summary.textContent='企画の３要素・論理を見る';details.append(summary);
+    for(const[label,field]of [['あるある','specificMoment'],['共感の理由','empathyReason'],['渡す答えの実例','usefulDetail'],['論理のつながり','logicChain']]){
+      const line=document.createElement('p');line.className='four-help';line.textContent=`${label}：${item[field]||'旧版の企画です。N1/V1で同じテーマのまま具体化します。'}`;details.append(line);
+    }
+    section.append(details);return section;
+  }));
+}
 document.querySelector('#copy-four-plan').onclick=async event=>{if(!catalogReady)return;const button=event.currentTarget;await writeClipboard(fourPlanPrompt());markCopied(button);document.querySelector('#four-plan-status').textContent='編集会議プロンプトをコピーしました。GPT Chatへ貼ってください。'};
 document.querySelector('#load-four-plan').onclick=loadFourPlan;
 function pagePrefix(item){const primary=(item.country==='in'&&item.language==='en')||(item.country==='id'&&item.language==='id')||(item.country==='my'&&item.language==='ms')||(item.country==='vn'&&item.language==='vi')||(item.country==='sg'&&item.language==='en')||(item.country==='ph'&&item.language==='fil')||(item.country==='ng'&&item.language==='en')||(item.country==='ke'&&item.language==='sw');return primary?`/${item.country}`:`/${item.country}/${item.language}`}
 function repairPromptTarget(){if(!repairTarget)return 'No valid repair target has been selected.';return `REPAIR_TARGET:\ntranslationKey: ${repairTarget.translationKey}\nslug: ${repairTarget.slug}\npublic URL: https://vinsurgo.com${pagePrefix(repairTarget)}/${repairTarget.slug}/\ncurrent title: ${repairTarget.title}\ncurrent subtitle: ${repairTarget.subtitle}\ncurrent audience: ${repairTarget.audience}\ncurrent outcome: ${repairTarget.outcome}`}
-function masterPrompt(){const isRepair=deskMode==='repair';const reservation=activeReservation?`This article has already been selected by the four-inventory editorial planning step. Follow this reservation exactly and do not choose, substitute or broaden the topic:\n${JSON.stringify(activeReservation,null,2)}\n\nInclude reservationId, exactQuestion, readerState, uniqueAngle, expectedOutcome and translationKey in the frontmatter, keeping every reserved value unchanged. Set the required slug field exactly to the reserved proposedSlug; do not add a separate proposedSlug field. contentId must equal batchId exactly; reservationId is a separate identifier and must never be used as contentId. Use specificMoment and hiddenProblem as binding editorial direction.`:'';const task=isRepair?`Improve the existing vinsurgo article below. Read its public URL first. Keep its translationKey and ASCII slug, and update the same article rather than creating a new URL.\n\n${repairPromptTarget()}`:`Write one new English master article for vinsurgo's fixed 90-day focus: Workplace Comeback: Learn, Rebuild, and Create Your Next Earning Option. ${reservation||`No four-inventory reservation is selected. Discover one fresh question dynamically from the approved analytics state and gaps in the full catalogue; never use a fixed or rotating seed list.`} Coursera is not the topic. It is an optional practical choice only when structured learning genuinely solves the reader's problem.`;const novelty=isRepair?`Use the catalogue to remove unclear writing, repeated claims, weak search intent, poor empathy and generic examples without changing the article's core purpose or URL.`:activeReservation?`Do not perform a new topic-selection step. The reserved proposal above is the approved topic. Use the catalogue only to prevent accidental overlap while preserving that proposal's exact reader, moment, problem, conclusion and outcome.`:`Generate multiple fresh candidate questions silently from specific human moments and missing reader needs, then choose one that does not semantically duplicate the catalogue. Sparse data is not proof of search demand.`;return `${task}
+function masterPrompt(){const isRepair=deskMode==='repair';const reservation=activeReservation?`This article has already been selected by the four-inventory editorial planning step. Follow this reservation exactly and do not choose, substitute or broaden the topic:\n${JSON.stringify(activeReservation,null,2)}\n\nInclude reservationId, exactQuestion, readerState, uniqueAngle, expectedOutcome and translationKey in the frontmatter, preserving the reserved identifiers and reader promise, while aligning supporting editorial descriptions with any factually necessary correction. Set the required slug field exactly to the reserved proposedSlug; do not add a separate proposedSlug field. contentId must equal batchId exactly; reservationId is a separate identifier and must never be used as contentId. Use specificMoment and hiddenProblem as binding editorial direction.`:'';const task=isRepair?`Improve the existing vinsurgo article below. Read its public URL first. Keep its translationKey and ASCII slug, and update the same article rather than creating a new URL.\n\n${repairPromptTarget()}`:`Write one new English master article for vinsurgo's fixed 90-day focus: Workplace Comeback: Learn, Rebuild, and Create Your Next Earning Option. ${reservation||`No four-inventory reservation is selected. Discover one fresh question dynamically from the approved analytics state and gaps in the full catalogue; never use a fixed or rotating seed list.`} Coursera is not the topic. It is an optional practical choice only when structured learning genuinely solves the reader's problem.`;const novelty=isRepair?`Use the catalogue to remove unclear writing, repeated claims, weak search intent, poor empathy and generic examples without changing the article's core purpose or URL.`:activeReservation?`Do not perform a new topic-selection step. The reserved proposal above is the approved topic. Use the catalogue only to prevent accidental overlap while preserving that proposal's reader, moment, problem and intended benefit; correct an unsupported supporting conclusion within that same promise.`:`Generate multiple fresh candidate questions silently from specific human moments and missing reader needs, then choose one that does not semantically duplicate the catalogue. Sparse data is not proof of search demand.`;return `${task}
 
 CREATION_AND_FACT_CHECK_DATE: ${today}
 BATCH_ID: ${date()}
 CONTENT_ID_EXACT: ${date()}
+
+${readerValueContract('draft')}
 
 Use this English-only catalogue as the source of truth for duplication checks. Do not claim that you inspected other chats.
 
@@ -180,14 +273,16 @@ Required public structure:
 Do not translate, generate images, build or deploy.
 
 OUTPUT RULE — ABSOLUTE:
-Return only the complete public article. Do all planning and checking silently. Do not output notes, sources, audits, scores, PASS/HOLD, explanations, apologies, introductions about the task or any text outside the article.`}
-function freeTalkPrompt(){const reservation=activeReservation?`VOICE ARTICLE RESERVATION — BINDING:\n${JSON.stringify(activeReservation,null,2)}\n\nUse this exact reader, question, moment, hidden problem, conclusion, outcome, translationKey and proposedSlug. Do not choose, substitute, broaden or merge the topic. The voice treatment may change the storytelling structure, but not the reserved editorial promise.`:`No four-inventory reservation is selected. Silently choose one fresh voice question that does not overlap the catalogue.`;return `Write one new English voice article for vinsurgo. Friday is preferred, though it may be used on another day. It is not filler. Its job is to let one reader feel, “Now I understand what kind of person is writing this,” or, “I never thought about it that way.”
+Return only the complete public article. Do all planning and checking silently. Keep necessary supporting links beside factual claims. Do not output notes, separate source lists, audits, scores, PASS/HOLD, explanations, apologies, introductions about the task or any text outside the article.`}
+function freeTalkPrompt(){const reservation=activeReservation?`VOICE ARTICLE RESERVATION — BINDING:\n${JSON.stringify(activeReservation,null,2)}\n\nUse this exact reader, question, moment, intended benefit, translationKey and proposedSlug; correct or qualify unsupported supporting claims within the same promise. Do not choose, substitute, broaden or merge the topic. The voice treatment may change the storytelling structure, but not the reserved editorial promise.`:`No four-inventory reservation is selected. Silently choose one fresh voice question that does not overlap the catalogue.`;return `Write one new English voice article for vinsurgo. Friday is preferred, though it may be used on another day. It is not filler. Its job is to let one reader feel, “Now I understand what kind of person is writing this,” or, “I never thought about it that way.”
 
 CREATION_AND_FACT_CHECK_DATE: ${today}
 BATCH_ID: ${date()}
 CONTENT_ID_EXACT: ${date()}
 
 ${reservation}
+
+${readerValueContract('draft')}
 
 Use the catalogue below to avoid repeating any published question, scene, lesson, emotional turn or conclusion:
 ${catalogForPrompt()}
@@ -198,23 +293,25 @@ Make the author's emotional point of view visible without inventing personal exp
 
 Choose one specific question a reader would naturally ask and answer it naturally. Do not claim search demand unless approved measurement is supplied. Use secondary-school English, one idea per sentence, short paragraphs and concrete sensory scenes. Verify current factual claims with primary sources. Use only the length needed; about 900–1,300 words is a guide and must never cause padding.
 
-Include the normal reader-facing metadata, “This article is for you if”, “By the end”, one conversational empathy heading, and a final “Move closer to the person you want to become” section. Use exactly three numbered sections only if they improve the story; otherwise use a clear free-flowing structure. Add a Coursera placeholder only if structured learning follows naturally from the story. The draft must expose enough metadata for the supervisor to verify the reserved reader and promise. Set contentType to free-talk later when the Markdown file is created.
+Include the normal reader-facing metadata, “This article is for you if”, “By the end”, one conversational empathy heading, and a final “Move closer to the person you want to become” section. Use a clear free-flowing narrative, not numbered how-to sections. Add a Coursera placeholder only if structured learning follows naturally from the story. The draft must expose enough metadata for the supervisor to verify the reserved reader and promise. Set contentType to free-talk later when the Markdown file is created.
 
 OUTPUT RULE — ABSOLUTE:
-Return only the complete public article. Do all planning and checking silently. Do not output notes, sources, audits, scores, PASS/HOLD, explanations, apologies or any text outside the article.`}
+Return only the complete public article. Do all planning and checking silently. Keep necessary supporting links beside factual claims. Do not output notes, separate source lists, audits, scores, PASS/HOLD, explanations, apologies or any text outside the article.`}
 function voiceAuditPrompt(){return `FINAL ARTIFACT CONTRACT (applies before audit approval and to each final attachment):
 - Editorial review belongs here, before download. Repair the actual article and inspect the final serialized Markdown, not only an earlier draft.
 - The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
 - Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
 - Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
-- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- Verify every requested final attachment actually exists, opens as UTF-8 and contains the complete reviewed article. For a master, check one file; for a country pair, check both files. A filename in chat is not a file.
 - For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
 - Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
 
 Supervise and repair the voice-article draft immediately above. This is the dedicated V2 quality gate; do not treat it as a pillar article.
 
+${readerValueContract('audit')}
+
 Verify silently that:
-- the article follows the selected four-inventory reservation exactly and does not replace, broaden or merge its reader, question, moment, hidden problem, conclusion or outcome;
+- the article follows the selected four-inventory reservation and does not replace, broaden or merge its reader, question, moment or intended benefit; unsupported supporting claims are corrected and metadata agrees with the repaired article;
 - it adds an identifiable authorial point of view without inventing personal history or unsupported facts;
 - the reader and writer remain on the same side, with no ridicule, shame, stereotype, forced slang or motivational pressure;
 - it has one clear beginning, emotional or intellectual turn, and landing;
@@ -240,13 +337,16 @@ function voiceReauditPrompt(){return `FINAL ARTIFACT CONTRACT (applies before au
 - The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
 - Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
 - Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
-- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- Verify every requested final attachment actually exists, opens as UTF-8 and contains the complete reviewed article. For a master, check one file; for a country pair, check both files. A filename in chat is not a file.
 - For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
 - Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
 
 Perform the final V3 supervision of the latest complete voice article. Recheck every V2 condition from the preceding instruction and repair any remaining weakness silently.
 
-The selected inventory reservation is binding. Keep its reservationId, batchId, exactQuestion, readerState, specificMoment, hiddenProblem, centralConclusion, uniqueAngle, expectedOutcome, translationKey and proposedSlug unchanged. Set frontmatter contentId exactly to ${date()}. contentId must equal batchId; never append a slot suffix and never copy reservationId into contentId. Set frontmatter slug exactly to proposedSlug, but do not add a separate proposedSlug field.
+${readerValueContract('final')}
+${readerValueReceipt()}
+
+The selected inventory identity and reader promise are binding. Keep reservationId, batchId, exactQuestion, translationKey and proposedSlug unchanged. Preserve the reader, specific moment and topic. Supporting metadata must accurately describe the repaired article; qualify an unsupported planning claim instead of preserving an error. Set frontmatter contentId exactly to ${date()}. contentId must equal batchId; never append a slot suffix and never copy reservationId into contentId. Set frontmatter slug exactly to proposedSlug, but do not add a separate proposedSlug field.
 
 When all checks pass, create one downloadable UTF-8 Markdown file named exactly:
 ${date()}-master.md
@@ -260,14 +360,16 @@ function auditPrompt(){return `FINAL ARTIFACT CONTRACT (applies before audit app
 - The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
 - Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
 - Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
-- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- Verify every requested final attachment actually exists, opens as UTF-8 and contains the complete reviewed article. For a master, check one file; for a country pair, check both files. A filename in chat is not a file.
 - For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
 - Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
 
-Audit the draft immediately above. Use every checkbox in ARTICLE_AUDIT_CHECKLIST.md and WRITING_RULES.md.
+Audit the draft immediately above using the complete editorial checks embedded in this prompt. No external checklist attachment is required.
+
+${readerValueContract('audit')}
 
 Check especially:
-- the central lesson is not a duplicate or paraphrase of an existing published vinsurgo article, a completed project chat, or anything already written in this chat;
+- the central lesson is not a duplicate or paraphrase of the supplied published catalogue or available articles in this chat; do not claim access to other chats;
 - it stays focused on the one topic and reader promise selected for today;
 - the title, subtitle and article body make one clear promise and fulfil it;
 - each claim follows logically from the previous one, with no contradiction, hidden assumption or unsupported leap;
@@ -296,11 +398,14 @@ function reauditPrompt(){return `FINAL ARTIFACT CONTRACT (applies before audit a
 - The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
 - Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
 - Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
-- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- Verify every requested final attachment actually exists, opens as UTF-8 and contains the complete reviewed article. For a master, check one file; for a country pair, check both files. A filename in chat is not a file.
 - For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
 - Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
 
-Strictly recheck the latest complete article against every rule in ARTICLE_AUDIT_CHECKLIST.md and WRITING_RULES.md.
+Strictly recheck the latest complete article using the self-contained rules below. Verify one-reader natural language, title/body agreement, facts and qualifications, the selected content type's structure, and the absence of padding, false claims or irrelevant course promotion. No external checklist attachment is required.
+
+${readerValueContract('final')}
+${readerValueReceipt()}
 
 If even one requirement is weak, contradictory, duplicated, unsupported, too difficult, impersonal or missing, repair the complete article and check it again silently. Repeat internally until it passes. Never accept it merely because an earlier response did.
 
@@ -318,6 +423,9 @@ BATCH_ID: ${date()}
 COUNTRY: ${c.code}
 LOCALES: ${c.langs.map(l=>l[0]).join(', ')}
 STAGE: bilingual-draft
+
+${readerValueContract('translation')}
+Remove any inherited readerValueReview record while drafting; the final locale review will recreate it from the actual translated body, not reuse master approval.
 
 Keep contentId exactly equal to BATCH_ID (${date()}) in both drafts. Never append a slot suffix and never use reservationId as contentId.
 
@@ -338,7 +446,7 @@ function translationFinalPrompt(c){const files=c.langs.map(l=>`${date()}-${c.cod
 - The site generates previous/next navigation and related articles. Omit those sections, labels and all previous_same_country_same_language / next_same_country_same_language placeholders, with or without an _article suffix. Never invent navigation URLs.
 - Do not emit double-brace template tokens, top-level # headings inside the public body, placeholder text, workflow markers or audit results. Keep the title in YAML in final MD; use ## body headings.
 - Verify valid YAML, the exact requested filename, batch contentId, country/locale and master identifiers; preserve the approved contentType. Include all required metadata. Final locale files must say workflowStage: reviewed-final-md.
-- Verify each of the two final locale attachments actually exists, opens as UTF-8 and contains the complete reviewed article. A filename in chat is not a file.
+- Verify every requested final attachment actually exists, opens as UTF-8 and contains the complete reviewed article. For a master, check one file; for a country pair, check both files. A filename in chat is not a file.
 - For pillar-a, verify two reader-intro sections, an empathy heading, exactly three numbered ## body sections and the closing sections. For free-talk, preserve the two reader-intro sections followed by the actual narrative; do not force three numbered sections.
 - Resolve formatting/navigation issues here without changing approved meaning. A reviewed-final-md label records this review; it does not excuse missing files or incorrect article identity.
 
@@ -348,6 +456,9 @@ BATCH_ID: ${date()}
 COUNTRY: ${c.code}
 LOCALES: ${c.langs.map(l=>l[0]).join(', ')}
 STAGE: bilingual-review-final-md
+
+${readerValueContract('localeFinal')}
+${readerValueReceipt()}
 
 Keep contentId exactly equal to BATCH_ID (${date()}) in both final files. Never append a slot suffix and never use reservationId as contentId.
 
@@ -391,7 +502,23 @@ Use that visual language only. Do not copy the reference composition. Hard rejec
 Show people only when the story benefits from them. If a person appears, make the person broadly inclusive and natural rather than tied to one country or stereotype. Use one continuous composition. No grid, panels, split screen, collage, comparison sheet or multiple options. No text, letters, numbers, logos, flags, brand marks, certificates, watermarks or transparent background.
 
 Before generating, silently reject any draft that resembles the recurring “back-facing person at a desk looking up-right toward a sunrise or city” composition. Recompose it using the mandatory profile. Generate the image now. Output only the single image and nothing else.`}
-function render(){const isRepair=deskMode==='repair';document.querySelector('#master').replaceChildren(card('master',isRepair?'N1　既存記事を改善':'N1　通常記事を生成',isRepair?`${repairTarget?.translationKey||'対象未設定'}｜URL維持`:'選択中の在庫テーマを固定',masterPrompt(),{requiresCatalog:true,requiresReservation:!isRepair}));document.querySelector('#audit').replaceChildren(card('audit','N2　通常記事を監督・修正','N1の出力直後に貼る',auditPrompt(),{requiresCopied:'master'}));document.querySelector('#reaudit').replaceChildren(card('reaudit','N3　通常記事の最終MD','N2の出力直後に貼る',reauditPrompt(),{requiresCopied:'audit'}));const voiceMaster=document.querySelector('#voice-master'),voiceAudit=document.querySelector('#voice-audit'),voiceFinal=document.querySelector('#voice-final');voiceMaster.replaceChildren();voiceAudit.replaceChildren();voiceFinal.replaceChildren();if(!isRepair){voiceMaster.append(card('voice-master','V1　Voice記事を生成','選択中の在庫テーマをVoice化',freeTalkPrompt(),{requiresCatalog:true,requiresReservation:true}));voiceAudit.append(card('voice-audit','V2　Voice記事を監督・修正','V1の出力直後に貼る',voiceAuditPrompt(),{requiresCopied:'voice-master'}));voiceFinal.append(card('voice-final','V3　Voice記事の最終MD','V2の出力直後に貼る',voiceReauditPrompt(),{requiresCopied:'voice-audit'}))}document.querySelector('#translations').replaceChildren(...countries.map(countryPair));document.querySelector('#thumbnails').replaceChildren(thumbnailPanel());const masterButton=document.querySelector('[data-card="master"] button');if(masterButton&&isRepair&&!repairTarget){masterButton.disabled=true;masterButton.title='改善対象を設定してください'}}
+function render(){
+  const isRepair=deskMode==='repair';
+  document.querySelector('#master').replaceChildren(card('master',isRepair?'N1　既存記事を改善':'N1　通常記事を生成',isRepair?`${repairTarget?.translationKey||'対象未設定'}｜３要素を改善`:'あるある・共感・具体的な答えを本文へ',masterPrompt(),{requiresCatalog:true,requiresReservation:!isRepair}));
+  document.querySelector('#audit').replaceChildren(card('audit','N2　通常記事を監督・修正','読者視点で３要素と論理の弱点を修正',auditPrompt(),{requiresCopied:'master'}));
+  document.querySelector('#reaudit').replaceChildren(card('reaudit','N3　通常記事の最終MD','完成本文の３要素を再確認・根拠を保存',reauditPrompt(),{requiresCopied:'audit'}));
+  const voiceMaster=document.querySelector('#voice-master'),voiceAudit=document.querySelector('#voice-audit'),voiceFinal=document.querySelector('#voice-final');
+  voiceMaster.replaceChildren();voiceAudit.replaceChildren();voiceFinal.replaceChildren();
+  if(!isRepair){
+    voiceMaster.append(card('voice-master','V1　Voice記事を生成','共感する場面から気づきと使える答えへ',freeTalkPrompt(),{requiresCatalog:true,requiresReservation:true}));
+    voiceAudit.append(card('voice-audit','V2　Voice記事を監督・修正','共感だけで終わっていないか修正',voiceAuditPrompt(),{requiresCopied:'voice-master'}));
+    voiceFinal.append(card('voice-final','V3　Voice記事の最終MD','完成本文の３要素を再確認・根拠を保存',voiceReauditPrompt(),{requiresCopied:'voice-audit'}));
+  }
+  document.querySelector('#translations').replaceChildren(...countries.map(countryPair));
+  document.querySelector('#thumbnails').replaceChildren(thumbnailPanel());
+  const masterButton=document.querySelector('[data-card="master"] button');
+  if(masterButton&&isRepair&&!repairTarget){masterButton.disabled=true;masterButton.title='改善対象を設定してください'}
+}
 function normaliseTarget(value){return value.trim().replace(/^https:\/\/vinsurgo\.com\//,'').replace(/^\/+|\/+$/g,'')}
 function selectRepairTarget(){const typed=normaliseTarget(document.querySelector('#repair-key').value);const matches=catalog.filter(item=>item.translationKey===typed||`${pagePrefix(item).slice(1)}/${item.slug}`===typed||`${item.country}/${item.slug}`===typed||item.slug===typed);const status=document.querySelector('#repair-status');if(!matches.length){repairTarget=null;status.textContent='一致する公開記事がありません。translationKeyまたは公開URLを確認してください。';status.style.color='#b42318';render();return}repairTarget=matches.find(item=>item.language==='en')||matches[0];status.textContent=`改善対象：${repairTarget.translationKey}｜${repairTarget.title}`;status.style.color='var(--ok)';render()}
 document.querySelectorAll('input[name="desk-mode"]').forEach(input=>input.addEventListener('change',event=>{deskMode=event.target.value;document.querySelector('#repair-target').hidden=deskMode!=='repair';document.querySelector('#repair-status').textContent='';if(deskMode==='new')repairTarget=null;render()}));
