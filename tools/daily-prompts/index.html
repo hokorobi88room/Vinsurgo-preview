@@ -77,7 +77,7 @@
   <section class="panel finish"><strong>25ファイル保存 → 在庫追加.command</strong><span>完成在庫は毎日10:00に8カ国・16版を一括公開</span><span id="master-file-label"></span><span id="inbox-path"></span></section>
 </main>
 <script>
-const PROMPT_VERSION='2026.09.16-reader-value.1';
+const PROMPT_VERSION='2026.09.16-reader-value.2';
 const PROMPT_UPDATED='2026-09-16';
 const READER_VALUE_VERSION='reader-value-2026-09-16';
 const CATALOG_URLS=location.protocol==='file:'
@@ -181,11 +181,40 @@ ${catalogForPrompt()}
 APPROVED_ANALYTICS_STATE:
 ${JSON.stringify(analyticsState)}
 
-Return exactly one JSON object and nothing else. No Markdown fence. Use this schema:
+Return exactly one JSON object and nothing else. No Markdown fence. Put complete https URLs directly INSIDE searchEvidence and other factual fields. Do not use Markdown reference links such as [source][1], numbered citation markers, or reference definitions after the closing JSON brace. The entire response must be parseable by JSON.parse. Use this schema:
 {"proposals":[{"targetQuery":"the exact search phrase","evidenceType":"gsc-observed, web-observed or hypothesis","localQueryMap":"the appropriate query wording for every country and its two locales, with unverified items labeled","exactQuestion":"...","readerState":"...","specificMoment":"the recognisable event, obstacle and consequence","empathyReason":"why this reader hesitates or faces conflicting needs in that event","hiddenProblem":"...","centralConclusion":"...","uniqueAngle":"...","expectedOutcome":"the concrete reader benefit, not the teaching method","leadMarket":"research context only: in, id, my, vn, sg, ph, ng, ke","searchEvidence":"1–3 current URLs with checked date and observed intent; demand volume unconfirmed unless measured","practicalAsset":"the concrete deliverable type and purpose","usefulDetail":"a filled-in miniature of the answer with result or decision condition; mark fictional examples","logicChain":"event -> reason -> relevant explanation -> worked answer -> reader benefit","translationKey":"ascii-kebab-case","proposedSlug":"ascii-kebab-case"}]}
 
 The proposals array must contain exactly four objects. Each field must be a non-empty string. translationKey and proposedSlug must be ASCII kebab-case. The four exactQuestion, translationKey and proposedSlug values must all be unique.`}
-function cleanJson(value){return value.trim().replace(/^```(?:json)?\s*/i,'').replace(/\s*```$/,'')}
+function cleanJson(value){
+  const text=value.replace(/^\uFEFF/,'').trim().replace(/^```(?:json)?\s*\n/i,'');
+  if(!text.startsWith('{'))throw new Error('４案を含むJSON全体を貼り付けてください');
+  let depth=0,inString=false,escaped=false,end=-1;
+  for(let i=0;i<text.length;i++){
+    const char=text[i];
+    if(inString){if(escaped)escaped=false;else if(char==='\\')escaped=true;else if(char==='"')inString=false;continue}
+    if(char==='"')inString=true;
+    else if(char==='{')depth++;
+    else if(char==='}'&&--depth===0){end=i+1;break}
+  }
+  if(end<0)throw new Error('JSONが途中で切れています。回答の最後までコピーしてください');
+  const parsed=JSON.parse(text.slice(0,end));
+  const tail=text.slice(end).trim().replace(/^```[ \t]*(?:\r?\n|$)/,'').trim();
+  if(!tail)return JSON.stringify(parsed);
+  const references=Object.create(null);
+  for(const line of tail.split(/\r?\n/).filter(line=>line.trim())){
+    const match=line.match(/^\s*\[([^\]]+)\]:\s*(https?:\/\/\S+?)(?:\s+(?:".*"|'.*'|\(.*\)))?\s*$/);
+    if(!match)throw new Error('JSONの後に出典以外の文章、または別のJSONがあります。４案の回答１つだけを貼り付けてください');
+    const label=match[1].trim().toLowerCase(),url=new URL(match[2]).href;
+    if(references[label]&&references[label]!==url)throw new Error(`出典[${label}]に異なるURLが重複しています`);
+    references[label]=url;
+  }
+  const resolve=value=>typeof value==='string'?value.replace(/\[([^\]\n]+)\]\[([^\]\n]+)\]/g,(whole,label,id)=>references[id.trim().toLowerCase()]?`[${label}](${references[id.trim().toLowerCase()]})`:whole):Array.isArray(value)?value.map(resolve):value&&typeof value==='object'?Object.fromEntries(Object.entries(value).map(([key,item])=>[key,resolve(item)])):value;
+  const result=resolve(parsed);
+  // Keep every supplied reference with each reservation, including unused definitions.
+  // This is provenance from the pasted text, not a claim that these URLs were verified.
+  if(Array.isArray(result.proposals))result.proposals=result.proposals.map(item=>item&&typeof item==='object'&&!Array.isArray(item)?{...item,sourceReferences:{...item.sourceReferences,...references}}:item);
+  return JSON.stringify(result);
+}
 function loadFourPlan(){
   const status=document.querySelector('#four-plan-status');
   try{
